@@ -1,15 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  Video,
-  ArrowRight,
-  Music2,
-  Hash,
-  Clock,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Clock, Video } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 import { PageHero } from "@/components/site/page-hero";
 import { SiteFooter } from "@/components/site/footer";
@@ -23,7 +15,7 @@ const VIDEOS = [
     solution: "Custom Gem \"GEMS Assistant\" tự động lập giáo án và phiếu học tập trong 10 phút.",
     cta: "Copy prompt cấu hình Gem tại Bài 1 trên Web.",
     duration: "60s",
-    accent: "oklch(0.74 0.13 85)",
+    category: "Module 1 · Soạn giảng",
   },
   {
     no: "02",
@@ -33,7 +25,7 @@ const VIDEOS = [
     solution: "Nạp trực tiếp PDF SGK vào NotebookLM để làm não chống ảo giác, soạn đề chính xác 100%.",
     cta: "Lấy câu lệnh soạn đề chẩn đoán tại Bài 2 trên Web.",
     duration: "60s",
-    accent: "oklch(0.74 0.13 85)",
+    category: "Module 1 · Soạn giảng",
   },
   {
     no: "03",
@@ -43,7 +35,7 @@ const VIDEOS = [
     solution: "Generate Audio trong NotebookLM + tải tệp phụ đề Việt dịch sẵn trên website.",
     cta: "Tải audio mẫu và phụ đề tiếng Việt tại Bài 3.",
     duration: "60s",
-    accent: "oklch(0.74 0.13 85)",
+    category: "Module 1 · Soạn giảng",
   },
   {
     no: "04",
@@ -53,7 +45,7 @@ const VIDEOS = [
     solution: "Template Word 2 cột, lề 1.5cm, viền bảng ẩn màu xám nhạt — tiết kiệm 90% mực in.",
     cta: "Tải template Word chuẩn in ấn tại Bài 4.",
     duration: "60s",
-    accent: "oklch(0.74 0.13 85)",
+    category: "Module 1 · Soạn giảng",
   },
   {
     no: "05",
@@ -63,7 +55,7 @@ const VIDEOS = [
     solution: "Học sinh quét QR trên phiếu mở trang SVG tương tác, kéo slider cảm nhận dòng nhiệt.",
     cta: "Trải nghiệm mô phỏng dòng nhiệt tại Bài 5.",
     duration: "60s",
-    accent: "oklch(0.62 0.08 145)",
+    category: "Module 2 · Thí nghiệm ảo",
   },
   {
     no: "06",
@@ -73,7 +65,7 @@ const VIDEOS = [
     solution: "Mô phỏng nhiệt kế 3D dâng mực nước có quán tính nảy nhẹ ở đỉnh — cubic-bezier overshoot 1.56.",
     cta: "Chơi thử mô phỏng nhiệt kế nảy lò xo tại Bài 6.",
     duration: "60s",
-    accent: "oklch(0.62 0.08 145)",
+    category: "Module 2 · Thí nghiệm ảo",
   },
   {
     no: "07",
@@ -83,7 +75,7 @@ const VIDEOS = [
     solution: "Mô phỏng hàng trăm phân tử khí chuyển động 60fps trên Canvas, tăng nhiệt độ làm hạt va đập nhanh hơn.",
     cta: "Nhận mã nguồn mô phỏng phân tử tại Bài 7.",
     duration: "60s",
-    accent: "oklch(0.62 0.08 145)",
+    category: "Module 2 · Thí nghiệm ảo",
   },
   {
     no: "08",
@@ -93,7 +85,7 @@ const VIDEOS = [
     solution: "Game trắc nghiệm tính giờ lật ô chữ phần thưởng — học sinh quét QR thi đấu.",
     cta: "Chơi thử Game Khởi động tại Bài 8.",
     duration: "60s",
-    accent: "oklch(0.55 0.06 50)",
+    category: "Module 3 · Trò chơi",
   },
   {
     no: "09",
@@ -103,7 +95,7 @@ const VIDEOS = [
     solution: "Mini game click bóng nhiệt rơi tự do trong 30 giây — tỉnh ngủ tức thì, không cần cài app.",
     cta: "Chơi thử Game Bóng Nhiệt Giải Lao tại Bài 9.",
     duration: "60s",
-    accent: "oklch(0.55 0.06 50)",
+    category: "Module 3 · Trò chơi",
   },
   {
     no: "10",
@@ -113,7 +105,7 @@ const VIDEOS = [
     solution: "Game Đúng/Sai 4 phát biểu bẫy — chọn đáp án và hiện lời giải thích khoa học lập tức.",
     cta: "Chơi thử Game Củng cố tại Bài 10.",
     duration: "60s",
-    accent: "oklch(0.55 0.06 50)",
+    category: "Module 3 · Trò chơi",
   },
   {
     no: "11",
@@ -123,59 +115,58 @@ const VIDEOS = [
     solution: "5 trạm: Thực nghiệm · Mô phỏng · Game củng cố · Mindmap · Video STEM — chạy mượt bằng 4G nhóm trưởng.",
     cta: "Tải giáo án mẫu dạy học theo trạm tại Bài 11.",
     duration: "60s",
-    accent: "oklch(0.55 0.06 50)",
+    category: "Module 3 · Trò chơi",
   },
 ];
 
-/* ---------------- Video structure infographic ---------------- */
+/* ---------------- Structure infographic ---------------- */
 function StructureInfographic() {
   const phases = [
-    { label: "Hook", time: "0–15s", desc: "Câu hỏi gây tò mò", color: "oklch(0.74 0.13 85)" },
-    { label: "Solution", time: "15–45s", desc: "Demo công cụ/giải pháp", color: "oklch(0.62 0.08 145)" },
-    { label: "CTA", time: "45–60s", desc: "Kêu gọi hành động về Web", color: "oklch(0.55 0.06 50)" },
+    { label: "Hook", time: "0–15s", desc: "Câu hỏi gây tò mò" },
+    { label: "Solution", time: "15–45s", desc: "Demo công cụ/giải pháp" },
+    { label: "CTA", time: "45–60s", desc: "Kêu gọi hành động về Web" },
   ];
 
   return (
-    <section className="relative py-12 px-5 sm:px-8 bg-secondary/30 border-y border-border">
-      <div className="max-w-4xl mx-auto">
+    <section className="px-5 sm:px-8 py-8 border-t border-border-gray bg-pure-black">
+      <div className="max-w-[1200px] mx-auto">
         <Reveal>
-          <p className="text-center text-[11px] tracking-[0.3em] uppercase font-semibold text-accent mb-6">
+          <p className="text-center text-[11px] tracking-[0.3em] uppercase font-bold text-amber-glow mb-6">
             Cấu trúc 60 giây mỗi video
           </p>
         </Reveal>
-        <div className="grid sm:grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-3 gap-3 mb-4">
           {phases.map((p, i) => (
-            <Reveal key={p.label} delay={i * 100}>
-              <div className="relative p-5 rounded-xl bg-card border border-border overflow-hidden">
-                <div
-                  className="absolute top-0 left-0 right-0 h-1"
-                  style={{ background: p.color }}
-                />
+            <Reveal key={p.label} delay={i * 80}>
+              <div
+                className="surface-card border border-border-gray rounded-md relative overflow-hidden"
+                style={{ padding: "16px" }}
+              >
                 <div className="flex items-center justify-between mb-2">
                   <span
-                    className="font-serif italic font-bold text-2xl"
-                    style={{ color: p.color }}
+                    className="font-extrabold text-pure-white"
+                    style={{ fontSize: "20px", lineHeight: 1 }}
                   >
                     {p.label}
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-mono">
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-muted-text font-mono">
                     {p.time}
                   </span>
                 </div>
-                <p className="text-sm text-foreground/70">{p.desc}</p>
+                <p className="text-[15px] text-helper-gray">{p.desc}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        {/* Timeline bar */}
-        <Reveal delay={400}>
-          <div className="mt-6 flex h-3 rounded-full overflow-hidden">
-            <div className="flex-[15]" style={{ background: "oklch(0.74 0.13 85)" }} />
-            <div className="flex-[30]" style={{ background: "oklch(0.62 0.08 145)" }} />
-            <div className="flex-[15]" style={{ background: "oklch(0.55 0.06 50)" }} />
+        {/* Timeline bar — monochrome */}
+        <Reveal delay={300}>
+          <div className="flex h-2 rounded overflow-hidden">
+            <div className="flex-[15] bg-lifted-charcoal" />
+            <div className="flex-[30] bg-helper-gray" />
+            <div className="flex-[15] bg-pure-white" />
           </div>
-          <p className="text-center text-[10px] text-muted-foreground mt-2 font-mono">
+          <p className="text-center text-[11px] text-muted-text mt-2 font-mono">
             0s ─────────────────────────────────────── 60s
           </p>
         </Reveal>
@@ -184,58 +175,62 @@ function StructureInfographic() {
   );
 }
 
-/* ---------------- Video card ---------------- */
+/* ---------------- Video card — flat with thumbnail placeholder + duration badge ---------------- */
 function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
   return (
     <Reveal>
-      <article className="group relative rounded-2xl bg-card border border-border hover:border-foreground/15 transition-all duration-500 hover:shadow-lg overflow-hidden">
-        {/* Thumbnail area with number */}
-        <div
-          className="relative aspect-video flex items-center justify-center overflow-hidden"
-          style={{
-            background: `linear-gradient(135deg, ${video.accent}25 0%, ${video.accent}10 100%)`,
-          }}
-        >
+      <article
+        className="surface-card border border-border-gray rounded-md transition-colors hover:border-edge-gray overflow-hidden"
+      >
+        {/* Thumbnail area — pure black with giant number (no real image per design spec) */}
+        <div className="relative aspect-video surface-canvas flex items-center justify-center overflow-hidden">
           {/* Giant number */}
           <span
-            className="font-serif italic font-bold text-[10rem] leading-none select-none pointer-events-none"
-            style={{ color: `${video.accent}30` }}
+            className="font-extrabold select-none pointer-events-none"
+            style={{
+              fontSize: "96px",
+              lineHeight: 1,
+              color: "#252525",
+            }}
           >
             {video.no}
           </span>
 
-          {/* Play icon overlay */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <div
-              className="w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md"
-              style={{ background: `${video.accent}40` }}
-            >
-              <Video className="w-7 h-7 text-white" strokeWidth={1.5} />
+          {/* Hover play icon */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+            <div className="w-12 h-12 rounded-full surface-canvas border border-border-gray flex items-center justify-center">
+              <Video className="w-5 h-5 text-pure-white" strokeWidth={1.5} />
             </div>
           </div>
 
-          {/* Top badges */}
-          <div className="absolute top-3 left-3 flex items-center gap-2">
-            <span
-              className="text-[10px] uppercase tracking-[0.25em] font-semibold px-2 py-1 rounded backdrop-blur-sm"
-              style={{ background: `${video.accent}40`, color: "white" }}
-            >
+          {/* Top-left lesson badge */}
+          <div className="absolute top-3 left-3">
+            <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-pure-white px-2 py-1 rounded surface-canvas">
               {video.lesson}
             </span>
           </div>
-          <div className="absolute top-3 right-3">
-            <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-1 rounded bg-foreground/60 text-background backdrop-blur-sm">
+
+          {/* Bottom-right duration badge — per design spec */}
+          <div className="absolute bottom-3 right-3">
+            <span
+              className="inline-flex items-center gap-1 text-[13px] font-semibold text-pure-white rounded"
+              style={{
+                background: "rgba(0, 0, 0, 0.8)",
+                padding: "4px 8px",
+              }}
+            >
               <Clock className="w-3 h-3" />
               {video.duration}
             </span>
           </div>
 
-          {/* Bottom platform tags */}
-          <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+          {/* Bottom-left platform tags */}
+          <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
             {["TikTok", "Shorts", "Reels"].map((p) => (
               <span
                 key={p}
-                className="text-[10px] uppercase tracking-[0.15em] px-2 py-0.5 rounded bg-foreground/30 text-background backdrop-blur-sm"
+                className="text-[10px] uppercase tracking-[0.15em] text-helper-gray px-1.5 py-0.5 rounded"
+                style={{ background: "rgba(0, 0, 0, 0.6)" }}
               >
                 {p}
               </span>
@@ -243,34 +238,43 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-5 sm:p-6">
-          <h3 className="font-serif text-lg sm:text-xl text-foreground mb-3 leading-tight">
+        {/* Content — 16px padding, 8px gap between elements */}
+        <div style={{ padding: "16px" }}>
+          {/* title — Inter 700/16px white */}
+          <h3
+            className="font-bold text-pure-white leading-tight"
+            style={{ fontSize: "16px", lineHeight: 1.4, marginBottom: "4px" }}
+          >
             {video.title}
           </h3>
 
-          {/* Hook */}
-          <div className="mb-3 p-3 rounded-lg bg-secondary/40 border-l-2" style={{ borderColor: video.accent }}>
-            <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-foreground/50 mb-1">
+          {/* category label — Inter 400/15px helper-gray */}
+          <p className="text-[15px] text-helper-gray mb-3">
+            {video.category}
+          </p>
+
+          {/* hook */}
+          <div className="mb-3 pl-3 border-l-2 border-border-gray">
+            <p className="text-[11px] uppercase tracking-[0.25em] font-bold text-muted-text mb-1">
               Hook (0–15s)
             </p>
-            <p className="text-sm text-foreground/85 italic font-serif">{video.hook}</p>
+            <p className="text-[15px] text-pure-white font-semibold italic">{video.hook}</p>
           </div>
 
-          {/* Solution */}
+          {/* solution */}
           <div className="mb-3 flex gap-3">
-            <span className="shrink-0 text-[10px] uppercase tracking-[0.25em] font-semibold text-accent mt-0.5">
+            <span className="shrink-0 text-[11px] uppercase tracking-[0.25em] font-bold text-amber-glow mt-0.5">
               Solution
             </span>
-            <p className="text-sm text-foreground/75 leading-snug">{video.solution}</p>
+            <p className="text-[15px] text-helper-gray leading-snug flex-1">{video.solution}</p>
           </div>
 
           {/* CTA */}
-          <div className="pt-3 border-t border-border flex items-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-accent shrink-0">
+          <div className="pt-3 border-t border-border-gray flex items-center gap-2">
+            <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-amber-glow shrink-0">
               CTA
             </span>
-            <p className="text-xs font-serif italic text-foreground/80">{video.cta}</p>
+            <p className="text-[15px] font-semibold text-pure-white">{video.cta}</p>
           </div>
         </div>
       </article>
@@ -284,30 +288,31 @@ export default function VideoPage() {
     <>
       <PageHero
         eyebrow="11 kịch bản video ngắn đa kênh"
-        title="Video ngắn"
-        italic="TikTok · Shorts · Reels"
+        title="Video ngắn TikTok · Shorts · Reels"
         subtitle="11 kịch bản video đồng bộ 1-1 với 11 bài học. Mỗi video 60 giây với cấu trúc Hook → Solution → CTA rõ ràng."
       />
 
       {/* Structure infographic */}
       <StructureInfographic />
 
-      {/* Video grid */}
-      <section className="relative py-16 sm:py-20 px-5 sm:px-8">
-        <div className="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden />
-        <div className="max-w-7xl mx-auto relative">
+      {/* Section heading + video grid */}
+      <section className="px-5 sm:px-8 py-12 border-t border-border-gray bg-pure-black">
+        <div className="max-w-[1200px] mx-auto">
           <Reveal>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <p className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent mb-3">
+            <div className="mb-8">
+              <span className="text-[11px] tracking-[0.3em] uppercase font-bold text-amber-glow">
                 11 kịch bản hoàn chỉnh
-              </p>
-              <h2 className="font-serif text-2xl sm:text-3xl text-foreground leading-tight">
-                Mỗi video — <span className="italic text-accent">một bài học</span>
+              </span>
+              <h2
+                className="font-bold text-pure-white tracking-tight mt-2"
+                style={{ fontSize: "24px", lineHeight: 1.33 }}
+              >
+                Mỗi video — một bài học
               </h2>
             </div>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {VIDEOS.map((v) => (
               <VideoCard key={v.no} video={v} />
             ))}
@@ -315,31 +320,51 @@ export default function VideoPage() {
         </div>
       </section>
 
-      {/* CTA back to course */}
-      <section className="relative py-16 px-5 sm:px-8 bg-foreground text-background">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* CTA back to course — promo banner style */}
+      <section className="px-5 sm:px-8 py-12 border-t border-border-gray bg-pure-black">
+        <div className="max-w-[1200px] mx-auto">
           <Reveal>
-            <p className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent mb-4">
-              Đọc chi tiết
-            </p>
-            <h3 className="font-serif text-2xl sm:text-3xl mb-4 leading-tight">
-              Mỗi kịch bản = 1 bài học đầy đủ
-            </h3>
-            <p className="text-sm sm:text-base text-background/70 mb-8 leading-relaxed">
-              Xem 3 hướng Hook thực chiến, Solution và CTA chi tiết cho mỗi bài.
-            </p>
-            <Link
-              href="/khoa-hoc"
-              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-accent text-accent-foreground font-medium hover:bg-background hover:text-foreground transition-all duration-300 shadow-lg"
+            <div
+              className="relative rounded border border-border-gray overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(255, 200, 64, 0.12) 0%, rgba(250, 58, 25, 0.10) 100%), #000000",
+              }}
             >
-              <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-0.5 transition-transform" />
-              Xem 11 bài học chi tiết
-            </Link>
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-6">
+                <div>
+                  <span className="text-[11px] tracking-[0.3em] uppercase font-bold text-amber-glow">
+                    Đọc chi tiết
+                  </span>
+                  <p
+                    className="font-bold text-pure-white mt-2"
+                    style={{ fontSize: "20px", lineHeight: 1.4 }}
+                  >
+                    Mỗi kịch bản = 1 bài học đầy đủ
+                  </p>
+                  <p className="text-[15px] text-helper-gray mt-1">
+                    Xem 3 hướng Hook thực chiến, Solution và CTA chi tiết cho mỗi bài.
+                  </p>
+                </div>
+                <Link
+                  href="/khoa-hoc"
+                  className="inline-flex items-center gap-2 text-pure-white font-bold rounded-md transition-opacity hover:opacity-90 shrink-0"
+                  style={{
+                    padding: "8px 16px",
+                    fontSize: "15px",
+                    background: "linear-gradient(90deg, #ff8a00 0%, #fa3a19 100%)",
+                  }}
+                >
+                  <ArrowRight className="w-4 h-4 rotate-180" />
+                  Xem 11 bài học chi tiết
+                </Link>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <SiteFooter dark />
+      <SiteFooter />
     </>
   );
 }

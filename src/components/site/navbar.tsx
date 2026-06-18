@@ -25,65 +25,47 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-foreground/10 py-3"
-          : "bg-transparent py-5"
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 bg-pure-black border-b ${
+        scrolled ? "border-border-gray" : "border-transparent"
       }`}
+      style={{ padding: "16px 32px" }}
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-        {/* brand */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <svg viewBox="0 0 40 40" className="w-9 h-9">
-            <defs>
-              <linearGradient id="brandGold" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="oklch(0.82 0.13 85)" />
-                <stop offset="100%" stopColor="oklch(0.55 0.1 50)" />
-              </linearGradient>
-            </defs>
-            <polygon points="20,4 36,32 4,32" fill="url(#brandGold)" />
-            <rect x="6" y="22" width="28" height="2.5" rx="1" fill="oklch(0.18 0.025 165)" />
-            <circle cx="20" cy="32" r="3" fill="oklch(0.18 0.025 165)" />
-          </svg>
-          <div className="flex flex-col leading-none">
-            <span className="font-serif text-base sm:text-lg font-semibold text-foreground tracking-tight">
-              Đòn Bẩy AI
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-foreground/50 mt-0.5 hidden sm:block">
-              v8.0 · Khóa học 11 bài
-            </span>
-          </div>
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between">
+        {/* brand wordmark */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <span className="font-extrabold text-white text-base tracking-tight">
+            Đòn Bẩy AI
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-muted-text hidden sm:inline">
+            v8.0
+          </span>
         </Link>
 
-        {/* desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        {/* desktop nav — left aligned, links in white Inter 600/16px */}
+        <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((l) => {
             const isActive = l.href.startsWith("/#") ? false : pathname === l.href;
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`px-3.5 py-2 text-sm transition-colors relative group ${
+                className={`text-[15px] font-semibold transition-colors ${
                   isActive
-                    ? "text-accent"
-                    : "text-foreground/70 hover:text-foreground"
+                    ? "text-pure-white"
+                    : "text-helper-gray hover:text-pure-white"
                 }`}
               >
                 {l.label}
-                <span
-                  className={`absolute inset-x-3.5 -bottom-0.5 h-px bg-accent transition-transform origin-left ${
-                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
               </Link>
             );
           })}
         </nav>
 
-        {/* cta */}
+        {/* right-aligned outlined button */}
         <Link
           href="/khoa-hoc"
-          className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-foreground text-background text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-sm hover:shadow-md"
+          className="hidden md:inline-flex items-center text-[15px] font-semibold text-pure-white border border-border-gray rounded-md"
+          style={{ padding: "8px 16px" }}
         >
           Bắt đầu học
         </Link>
@@ -91,7 +73,7 @@ export function Navbar() {
         {/* mobile toggle */}
         <button
           onClick={() => setOpen((o) => !o)}
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-pure-white"
           aria-label="Mở menu"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -100,14 +82,14 @@ export function Navbar() {
 
       {/* mobile menu */}
       {open && (
-        <div className="md:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-xl border-b border-foreground/10 py-4 px-5">
-          <nav className="flex flex-col gap-1">
+        <div className="md:hidden mt-4 pt-4 border-t border-border-gray">
+          <nav className="flex flex-col gap-4">
             {NAV_LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-2.5 text-foreground/80 hover:text-foreground border-b border-foreground/5 last:border-0"
+                className="text-[15px] font-semibold text-helper-gray hover:text-pure-white"
               >
                 {l.label}
               </Link>
@@ -115,7 +97,8 @@ export function Navbar() {
             <Link
               href="/khoa-hoc"
               onClick={() => setOpen(false)}
-              className="mt-3 inline-flex justify-center items-center px-5 py-3 rounded-full bg-foreground text-background text-sm font-medium"
+              className="inline-flex justify-center items-center text-[15px] font-semibold text-pure-white border border-border-gray rounded-md"
+              style={{ padding: "8px 16px" }}
             >
               Bắt đầu học
             </Link>
