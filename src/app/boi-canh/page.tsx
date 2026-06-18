@@ -149,17 +149,17 @@ export default function BoiCanhPage() {
               <Reveal delay={400}>
                 {/* Next chapter */}
                 <Link
-                  href="/triet-ly"
+                  href="/tam-nhin"
                   className="group block p-6 rounded-2xl bg-accent/10 border border-accent/30 hover:bg-accent/20 transition-colors"
                 >
                   <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-accent mb-2">
                     Chương tiếp theo →
                   </p>
                   <p className="font-serif text-xl text-foreground mb-2">
-                    Triết lý vận hành
+                    Triết lý · Tầm nhìn · Sứ mệnh
                   </p>
                   <p className="text-xs text-muted-foreground mb-3">
-                    Chuyên môn giáo viên làm điểm tựa — Công nghệ AI làm đòn bẩy.
+                    Ba phần hợp nhất: đòn bẩy vật lý, tầm nhìn 2030, sứ mệnh ba đối tượng.
                   </p>
                   <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
                     Đọc chương 02
@@ -168,6 +168,48 @@ export default function BoiCanhPage() {
                 </Link>
               </Reveal>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Image gallery — current state of teaching */}
+      <section className="relative py-16 px-5 sm:px-8 bg-secondary/40">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <p className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent mb-3">
+                Hiện trạng giáo dục Việt Nam
+              </p>
+              <h3 className="font-serif text-2xl sm:text-3xl text-foreground leading-tight">
+                Khi AI bùng nổ —<span className="italic text-accent"> nhưng lớp học chưa sẵn sàng</span>
+              </h3>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+            {[
+              { src: "https://sfile.chatglm.cn/images-ppt/022751ed6abd.jpg", alt: "AI trong lớp học", caption: "AI bùng nổ" },
+              { src: "https://sfile.chatglm.cn/images-ppt/53e0e8de6eb5.jpeg", alt: "Học sinh STEM", caption: "STEM bối rối" },
+              { src: "https://sfile.chatglm.cn/images-ppt/db1f6315d5d4.jpg", alt: "Lớp học truyền thống", caption: "Lớp truyền thống" },
+              { src: "https://sfile.chatglm.cn/images-ppt/c12b6ba5c7b5.png", alt: "Giáo viên với công nghệ", caption: "Giáo viên mù quáng" },
+              { src: "https://sfile.chatglm.cn/images-ppt/813ba1642e1b.png", alt: "Học sinh tương tác", caption: "Học sinh thụ động" },
+              { src: "https://sfile.chatglm.cn/images-ppt/d9711ab2854d.png", alt: "Công cụ học tập", caption: "Công cụ rời rạc" },
+            ].map((img, i) => (
+              <Reveal key={img.src} delay={i * 60}>
+                <figure className="group relative aspect-[4/3] rounded-xl overflow-hidden">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                  <figcaption className="absolute bottom-3 left-3 right-3">
+                    <p className="text-xs sm:text-sm font-serif italic text-background">{img.caption}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

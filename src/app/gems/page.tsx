@@ -16,6 +16,7 @@ const PILLARS = [
     desc: "Sơ đồ vector TikZ sắc nét phóng to 1000% không vỡ hạt, thay thế hoàn toàn hình ảnh nhòe đen tải từ Internet.",
     points: ["Vector TikZ", "Phóng 1000%", "Không vỡ hạt", "In ấn sắc nét"],
     accent: "oklch(0.74 0.13 85)",
+    image: "https://sfile.chatglm.cn/images-ppt/538ea22bec21.jpg",
     detail:
       "Trong thời đại slide PowerPoint ngập hình ảnh tải từ Google, GEMS V6 chọn con đường vector. Mỗi đường vẽ, mỗi ký hiệu vật lý đều được lập trình bằng TikZ — phóng to 1000 lần vẫn sắc nét, in trắng đen vẫn rõ ràng, có thể chỉnh sửa từng pixel.",
   },
@@ -27,6 +28,7 @@ const PILLARS = [
     desc: "Tiến trình bài học dẫn dắt học sinh đi từ trải nghiệm thực tế đến lý thuyết cốt lõi — học qua làm, hiểu qua cảm nhận.",
     points: ["Học qua làm", "Trải nghiệm thực", "Lý thuyết cốt lõi", "Cảm nhận giác quan"],
     accent: "oklch(0.62 0.08 145)",
+    image: "https://sfile.chatglm.cn/images-ppt/81a42bcf28f1.jpg",
     detail:
       "Học sinh không tiếp thu vật lý qua định nghĩa khô khan. Mỗi khái niệm bắt đầu từ một hiện tượng cảm nhận được — dòng nhiệt trên da, độ nảy của lò xo, ánh sáng khúc xạ — rồi mới đến công thức và định lý.",
   },
@@ -38,6 +40,7 @@ const PILLARS = [
     desc: "Phối màu organic (xanh sage, đồng cỏ, kem) dịu mắt, in ấn trắng đen vẫn sắc nét, bố cục 2 cột thoáng đãng.",
     points: ["Phối màu organic", "Grayscale optimize", "Bố cục 2 cột", "Dịu mắt"],
     accent: "oklch(0.55 0.06 50)",
+    image: "https://sfile.chatglm.cn/images-ppt/3ebc8953891c.jpg",
     detail:
       "Triết lý minimalism không phải là bớt cho nhẹ — mà là chọn lọc từng yếu tố để mỗi chi tiết đều có ý nghĩa. Phối màu organic dịu mắt giúp học sinh không bị mỏi sau 45 phút. Bố cục 2 cột thoáng đãng cho phép giáo viên in 2 mặt tiết kiệm giấy.",
   },
@@ -49,6 +52,7 @@ const PILLARS = [
     desc: "Tuyệt đối trung thành với hiện tượng vật lý đời thực, loại bỏ các hình hoạt họa bong bóng phi thực tế.",
     points: ["Trung thực vật lý", "Loại bỏ bong bóng", "Hiện tượng đời thực", "Bản chất khoa học"],
     accent: "oklch(0.45 0.045 165)",
+    image: "https://sfile.chatglm.cn/images-ppt/9dc8542525a4.jpg",
     detail:
       "Không nhân hoá vật thể. Không vẽ electron có mắt. Mỗi hình vẽ trong GEMS V6 phản ánh chính xác hiện tượng vật lý đời thực — vì học sinh cần hiểu bản chất khoa học, không phải nhớ hình hoạt hình.",
   },
@@ -99,23 +103,31 @@ export default function GemsPage() {
             return (
               <Reveal key={p.letter} delay={i * 100}>
                 <article className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                  {/* Letter showcase */}
+                  {/* Letter showcase with image */}
                   <div className={`lg:col-span-4 ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
                     <div
-                      className="relative aspect-square max-w-sm mx-auto rounded-3xl flex items-center justify-center overflow-hidden"
+                      className="relative aspect-square max-w-sm mx-auto rounded-3xl overflow-hidden"
                       style={{
                         background: `linear-gradient(135deg, ${p.accent}18 0%, ${p.accent}05 100%)`,
                       }}
                     >
+                      {/* hero image */}
+                      <img
+                        src={p.image}
+                        alt={`${p.letter} — ${p.name}`}
+                        className="absolute inset-0 w-full h-full object-cover opacity-70"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/20" />
                       <span
-                        className="font-serif italic font-bold text-[16rem] leading-none select-none pointer-events-none"
-                        style={{ color: `${p.accent}40` }}
+                        className="absolute inset-0 flex items-center justify-center font-serif italic font-bold text-[14rem] leading-none select-none pointer-events-none"
+                        style={{ color: `${p.accent}90` }}
                       >
                         {p.letter}
                       </span>
                       <div
-                        className="absolute top-6 right-6 inline-flex items-center justify-center w-12 h-12 rounded-2xl"
-                        style={{ background: `${p.accent}25`, color: p.accent }}
+                        className="absolute top-6 right-6 inline-flex items-center justify-center w-12 h-12 rounded-2xl backdrop-blur-md"
+                        style={{ background: `${p.accent}40`, color: "white" }}
                       >
                         <Icon className="w-6 h-6" strokeWidth={1.5} />
                       </div>

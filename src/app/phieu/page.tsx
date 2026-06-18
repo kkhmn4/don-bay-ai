@@ -200,6 +200,48 @@ export default function PhieuPage() {
         </div>
       </section>
 
+      {/* Image showcase - real classroom moments */}
+      <section className="relative py-20 px-5 sm:px-8 bg-foreground text-background overflow-hidden">
+        <div className="absolute inset-0 bg-grain-dark opacity-30 pointer-events-none" aria-hidden />
+        <div className="max-w-7xl mx-auto relative">
+          <Reveal>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <p className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent mb-3">
+                Hành trình thực chiến
+              </p>
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl leading-tight">
+                Từ video ngắn — <span className="italic text-accent">đến lớp học số</span>
+              </h3>
+            </div>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { src: "https://sfile.chatglm.cn/images-ppt/283fd8bd941e.jpeg", alt: "Tạo video ngắn", stage: "01 · Video", caption: "TikTok · Shorts · Reels" },
+              { src: "https://sfile.chatglm.cn/images-ppt/c12b6ba5c7b5.png", alt: "Web portal", stage: "02 · Portal", caption: "Bài giảng chi tiết" },
+              { src: "https://sfile.chatglm.cn/images-ppt/844a92bf78c8.jpg", alt: "Prompt Gemini", stage: "03 · Prompt", caption: "9 Gemini Gems" },
+              { src: "https://sfile.chatglm.cn/images-ppt/47a0c584ac2d.webp", alt: "Lớp học QR", stage: "04 · Lớp", caption: "Trạm xoay QR Code" },
+            ].map((img, i) => (
+              <Reveal key={img.src} delay={i * 100}>
+                <figure className="group relative aspect-[3/4] rounded-2xl overflow-hidden">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
+                  <figcaption className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="text-[10px] tracking-[0.3em] uppercase text-accent mb-1">{img.stage}</p>
+                    <p className="font-serif italic text-base text-background">{img.caption}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Next chapter */}
       <section className="relative py-16 px-5 sm:px-8">
         <div className="max-w-5xl mx-auto text-center">

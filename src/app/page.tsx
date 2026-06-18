@@ -9,11 +9,10 @@ import {
   ArrowRight,
   BookOpen,
   Compass,
-  Target,
-  Rocket,
   Filter,
   Layers,
   Gem,
+  Quote,
 } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 import { SiteFooter } from "@/components/site/footer";
@@ -27,60 +26,47 @@ const PAGES = [
     icon: BookOpen,
     accent: "oklch(0.62 0.08 145)",
     layout: "Magazine",
-  },
-  {
-    href: "/triet-ly",
-    eyebrow: "Chương 02",
-    title: "Triết lý vận hành",
-    desc: "Chuyên môn giáo viên làm điểm tựa — Công nghệ AI làm đòn bẩy. Sơ đồ vật lý kinh điển minh hoạ.",
-    icon: Compass,
-    accent: "oklch(0.74 0.13 85)",
-    layout: "Dark immersive",
+    image: "https://sfile.chatglm.cn/images-ppt/c93745097fd2.jpg",
   },
   {
     href: "/tam-nhin",
-    eyebrow: "Chương 03",
-    title: "Tầm nhìn 2030",
-    desc: "Định vị cổng học liệu số #1, tiên phong GEMS V6, và xây dựng cộng đồng giáo viên chuyển đổi số.",
-    icon: Target,
-    accent: "oklch(0.55 0.06 50)",
-    layout: "Timeline",
-  },
-  {
-    href: "/su-menh",
-    eyebrow: "Chương 04",
-    title: "Sứ mệnh của dự án",
-    desc: "Ba đối tượng — một sứ mệnh chung. Giải phóng giáo viên, trực quan cho học sinh, chuẩn hoá học liệu.",
-    icon: Rocket,
-    accent: "oklch(0.45 0.045 165)",
-    layout: "3-Column",
+    eyebrow: "Chương 02",
+    title: "Triết lý · Tầm nhìn · Sứ mệnh",
+    desc: "Chuyên môn làm điểm tựa — AI làm đòn bẩy. Tầm nhìn 2030 và sứ mệnh ba đối tượng hợp nhất trong một trang.",
+    icon: Compass,
+    accent: "oklch(0.74 0.13 85)",
+    layout: "Merged 3-in-1",
+    image: "https://sfile.chatglm.cn/images-ppt/478c06e221cf.jpg",
   },
   {
     href: "/phieu",
-    eyebrow: "Chương 05",
+    eyebrow: "Chương 03",
     title: "Mô hình phễu tác động",
     desc: "Phễu khép kín từ video ngắn → website portal → phiếu học tập → lớp học tích cực QR Code.",
     icon: Filter,
     accent: "oklch(0.74 0.13 85)",
     layout: "Funnel",
+    image: "https://sfile.chatglm.cn/images-ppt/022751ed6abd.jpg",
   },
   {
     href: "/15-bai",
-    eyebrow: "Chương 06",
+    eyebrow: "Chương 04",
     title: "15 Bài học hành động",
     desc: "Lộ trình thực chiến — ba Module, mười lăm bài — bám sát tiến trình soạn giảng E2E.",
     icon: Layers,
     accent: "oklch(0.62 0.08 145)",
     layout: "Modules",
+    image: "https://sfile.chatglm.cn/images-ppt/53e0e8de6eb5.jpeg",
   },
   {
     href: "/gems",
-    eyebrow: "Chương 07",
+    eyebrow: "Chương 05",
     title: "GEMS V6 — Bốn trụ cột",
     desc: "G · E · M · S — Graphic, Experiential, Minimalist, Scientific Realism. Chuẩn sư phạm học liệu.",
     icon: Gem,
     accent: "oklch(0.55 0.06 50)",
     layout: "Showcase",
+    image: "https://sfile.chatglm.cn/images-ppt/db1f6315d5d4.jpg",
   },
 ];
 
@@ -156,7 +142,7 @@ function HomeHero() {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 max-w-2xl text-base sm:text-lg md:text-xl text-background/70 font-light leading-relaxed"
           >
-            Bảy chương — bảy góc nhìn. Khám phá triết lý, tầm nhìn, sứ mệnh và
+            Năm chương — năm góc nhìn. Khám phá triết lý, tầm nhìn, sứ mệnh và
             lộ trình thực chiến của dự án, mỗi chương một thiết kế riêng.
           </motion.p>
 
@@ -186,7 +172,7 @@ function HomeHero() {
               href="#chapters"
               className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent text-accent-foreground font-medium hover:bg-background hover:text-foreground transition-all duration-300 shadow-lg shadow-accent/20"
             >
-              Khám phá 7 chương
+              Khám phá 5 chương
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
             <Link
@@ -217,6 +203,68 @@ function HomeHero() {
   );
 }
 
+/* ---------------- Featured image strip ---------------- */
+function FeaturedStrip() {
+  return (
+    <section className="relative py-12 sm:py-16 px-5 sm:px-8 border-b border-border">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          {[
+            { src: "https://sfile.chatglm.cn/images-ppt/378e39681c7e.jpg", alt: "Lớp học Vật lý hiện đại", label: "Vật lý" },
+            { src: "https://sfile.chatglm.cn/images-ppt/022751ed6abd.jpg", alt: "AI trong giáo dục", label: "AI · Edu" },
+            { src: "https://sfile.chatglm.cn/images-ppt/53e0e8de6eb5.jpeg", alt: "Học sinh STEM", label: "STEM" },
+            { src: "https://sfile.chatglm.cn/images-ppt/478c06e221cf.jpg", alt: "Sơ đồ đòn bẩy", label: "Đòn bẩy" },
+          ].map((img, i) => (
+            <Reveal key={img.src} delay={i * 80}>
+              <div className="group relative aspect-[4/3] rounded-xl overflow-hidden">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-background/80 bg-foreground/40 backdrop-blur-sm px-2 py-1 rounded">
+                    {img.label}
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Manifesto banner ---------------- */
+function ManifestoBanner() {
+  return (
+    <section className="relative py-20 sm:py-28 px-5 sm:px-8 bg-foreground text-background overflow-hidden">
+      <div className="absolute inset-0 bg-grain-dark opacity-40 pointer-events-none" aria-hidden />
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[40vw] rounded-full opacity-20 blur-3xl pointer-events-none"
+        style={{ background: "oklch(0.74 0.13 85 / 0.5)" }}
+      />
+
+      <div className="max-w-4xl mx-auto relative text-center">
+        <Reveal>
+          <Quote className="w-12 h-12 text-accent mx-auto mb-6" />
+          <p className="font-display text-2xl sm:text-3xl md:text-4xl italic leading-snug text-background/90">
+            Chúng tôi không dạy giáo viên cách dùng AI như một công cụ tạo chữ tự động thông thường.
+            Chúng tôi trao cho giáo viên một <span className="text-accent not-italic font-medium">triết lý sư phạm kiểm soát</span> kết
+            hợp với <span className="text-accent not-italic font-medium">hệ sinh thái Edu-Graphic đồng bộ</span>.
+          </p>
+          <p className="mt-8 text-[11px] tracking-[0.3em] uppercase text-background/40">
+            — Thầy Kha Khung Hiệp · Sáng lập Đòn Bẩy AI
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- Chapter cards ---------------- */
 function ChapterGrid() {
   return (
@@ -228,7 +276,7 @@ function ChapterGrid() {
             <div className="inline-flex items-center gap-2.5 mb-5 justify-center">
               <span className="h-px w-8 bg-accent/60" />
               <span className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent">
-                Bảy chương — Bảy góc nhìn
+                Năm chương — Năm góc nhìn
               </span>
               <span className="h-px w-8 bg-accent/60" />
             </div>
@@ -236,7 +284,7 @@ function ChapterGrid() {
               Mỗi chương một <span className="italic font-light text-accent">thiết kế riêng</span>
             </h2>
             <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Từ layout magazine, dark immersive, timeline, đến showcase —
+              Từ layout magazine, merged 3-in-1, vertical funnel, đến showcase —
               mỗi chương kể câu chuyện của Đòn Bẩy AI theo một ngôn ngữ visual phù hợp.
             </p>
           </div>
@@ -249,41 +297,54 @@ function ChapterGrid() {
               <Reveal key={p.href} delay={i * 80}>
                 <Link
                   href={p.href}
-                  className="group relative block h-full p-7 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+                  className="group relative block h-full rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 overflow-hidden"
                 >
-                  {/* corner number */}
-                  <span className="absolute top-5 right-6 font-serif italic text-5xl text-accent/10 group-hover:text-accent/20 transition-colors leading-none">
-                    0{i + 1}
-                  </span>
-
-                  <div
-                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-5 transition-colors duration-500"
-                    style={{ background: `${p.accent}20`, color: p.accent }}
-                  >
-                    <Icon className="w-6 h-6" strokeWidth={1.5} />
+                  {/* image header */}
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+                    {/* corner number */}
+                    <span className="absolute top-4 right-4 font-serif italic text-3xl text-background/80">
+                      0{i + 1}
+                    </span>
+                    {/* icon badge */}
+                    <div
+                      className="absolute bottom-4 left-4 inline-flex items-center justify-center w-11 h-11 rounded-xl backdrop-blur-md"
+                      style={{ background: `${p.accent}40`, color: "white" }}
+                    >
+                      <Icon className="w-6 h-6" strokeWidth={1.5} />
+                    </div>
                   </div>
 
-                  <p
-                    className="text-[10px] uppercase tracking-[0.25em] font-semibold mb-1"
-                    style={{ color: p.accent }}
-                  >
-                    {p.eyebrow}
-                  </p>
-                  <h3 className="font-serif text-2xl text-foreground mb-3 leading-tight">
-                    {p.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                    {p.desc}
-                  </p>
+                  {/* content */}
+                  <div className="p-6">
+                    <p
+                      className="text-[10px] uppercase tracking-[0.25em] font-semibold mb-2"
+                      style={{ color: p.accent }}
+                    >
+                      {p.eyebrow}
+                    </p>
+                    <h3 className="font-serif text-xl text-foreground mb-2 leading-tight">
+                      {p.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {p.desc}
+                    </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/40">
-                      {p.layout}
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
-                      Đọc chương
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
+                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                      <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/40">
+                        {p.layout}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
+                        Đọc
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </Reveal>
@@ -300,7 +361,7 @@ function ChapterGrid() {
                 className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-30 blur-2xl"
                 style={{ background: "oklch(0.74 0.13 85)" }}
               />
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent/20 text-accent mb-5">
                   <Sparkles className="w-6 h-6" strokeWidth={1.5} />
                 </div>
@@ -310,7 +371,7 @@ function ChapterGrid() {
                 <h3 className="font-serif text-2xl text-background mb-3 leading-tight">
                   Khám phá toàn bộ lộ trình
                 </h3>
-                <p className="text-sm text-background/60 leading-relaxed mb-5">
+                <p className="text-sm text-background/60 leading-relaxed mb-5 flex-1">
                   Bắt đầu từ Bối cảnh đến GEMS V6 — một hành trình xuyên suốt
                   triết lý sư phạm kiểm soát.
                 </p>
@@ -339,6 +400,8 @@ export default function Home() {
   return (
     <>
       <HomeHero />
+      <FeaturedStrip />
+      <ManifestoBanner />
       <ChapterGrid />
     </>
   );

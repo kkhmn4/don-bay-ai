@@ -22,6 +22,7 @@ const MODULES = [
       "Quy trình E2E hoàn chỉnh",
     ],
     accent: "oklch(0.74 0.13 85)",
+    image: "https://sfile.chatglm.cn/images-ppt/022751ed6abd.jpg",
   },
   {
     no: "Module 02",
@@ -37,6 +38,7 @@ const MODULES = [
       "Spring Bounce — mô phỏng nảy",
     ],
     accent: "oklch(0.62 0.08 145)",
+    image: "https://sfile.chatglm.cn/images-ppt/538ea22bec21.jpg",
   },
   {
     no: "Module 03",
@@ -52,6 +54,7 @@ const MODULES = [
       "Đánh giá & phản hồi học sinh",
     ],
     accent: "oklch(0.55 0.06 50)",
+    image: "https://sfile.chatglm.cn/images-ppt/47a0c584ac2d.webp",
   },
 ];
 
@@ -78,21 +81,29 @@ export default function BaiHocPage() {
                   {/* Number/visual side */}
                   <div className={`lg:col-span-5 ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
                     <div
-                      className="relative aspect-square max-w-md mx-auto rounded-3xl flex items-center justify-center overflow-hidden"
+                      className="relative aspect-square max-w-md mx-auto rounded-3xl overflow-hidden"
                       style={{ background: `linear-gradient(135deg, ${m.accent}15 0%, ${m.accent}05 100%)` }}
                     >
+                      {/* hero image */}
+                      <img
+                        src={m.image}
+                        alt={`${m.no} — ${m.title}`}
+                        className="absolute inset-0 w-full h-full object-cover opacity-90"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-foreground/10" />
                       {/* giant number */}
                       <span
-                        className="font-serif italic font-bold text-[18rem] leading-none select-none pointer-events-none"
-                        style={{ color: `${m.accent}25` }}
+                        className="absolute inset-0 flex items-center justify-center font-serif italic font-bold text-[14rem] leading-none select-none pointer-events-none"
+                        style={{ color: `${m.accent}80` }}
                       >
                         0{i + 1}
                       </span>
                       {/* icon badge */}
                       <div className="absolute top-6 left-6 flex items-center gap-3">
                         <div
-                          className="inline-flex items-center justify-center w-12 h-12 rounded-2xl"
-                          style={{ background: `${m.accent}25`, color: m.accent }}
+                          className="inline-flex items-center justify-center w-12 h-12 rounded-2xl backdrop-blur-md"
+                          style={{ background: `${m.accent}40`, color: "white" }}
                         >
                           <Icon className="w-6 h-6" strokeWidth={1.5} />
                         </div>
@@ -105,7 +116,7 @@ export default function BaiHocPage() {
                         >
                           {m.no}
                         </p>
-                        <p className="font-serif italic text-foreground/70 text-sm">{m.range}</p>
+                        <p className="font-serif italic text-background text-sm">{m.range}</p>
                       </div>
                     </div>
                   </div>

@@ -4,9 +4,7 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { href: "/boi-canh", label: "Bối cảnh" },
-  { href: "/triet-ly", label: "Triết lý" },
-  { href: "/tam-nhin", label: "Tầm nhìn" },
-  { href: "/su-menh", label: "Sứ mệnh" },
+  { href: "/tam-nhin", label: "Tầm nhìn & Sứ mệnh" },
   { href: "/phieu", label: "Phễu" },
   { href: "/15-bai", label: "15 Bài" },
   { href: "/gems", label: "GEMS V6" },
