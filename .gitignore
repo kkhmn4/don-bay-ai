@@ -52,3 +52,15 @@ prompt
 server.log
 # Skills directory
 /skills/
+# Z.ai sandbox temporary files
+.zscripts/keepalive.sh
+.zscripts/persistent.sh
+.zscripts/dev-runner.sh
+.zscripts/run-dev.sh
+.zscripts/keepalive.log
+.zscripts/dev-watcher.log
+dev.log
+server.log
+
+# OS files
+Thumbs.db
