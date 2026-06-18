@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { Navbar } from "@/components/site/navbar";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -25,7 +26,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Đòn Bẩy AI · Tuyên Ngôn Tầm Nhìn & Sứ Mệnh | Thầy Kha Khung Hiệp",
+  title: {
+    default: "Đòn Bẩy AI · Tuyên Ngôn Tầm Nhìn & Sứ Mệnh | Thầy Kha Khung Hiệp",
+    template: "%s · Đòn Bẩy AI",
+  },
   description:
     "Dự án Đòn Bẩy AI — Biến AI thành chiếc đòn bẩy thực thụ giúp giáo viên Vật lý & Khoa học Tự nhiên THPT giải phóng sức lao động và nâng tầm chất lượng dạy học. Sáng lập bởi Thầy Kha Khung Hiệp.",
   keywords: [
@@ -71,7 +75,10 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${cormorant.variable} ${inter.variable} antialiased bg-background text-foreground`}
       >
-        {children}
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+        </div>
         <Toaster />
       </body>
     </html>
