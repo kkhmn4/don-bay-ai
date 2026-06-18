@@ -5,79 +5,67 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
   Sparkles,
-  ArrowDown,
   ArrowRight,
+  ArrowDown,
   BookOpen,
-  Compass,
+  Video,
   Filter,
-  Layers,
-  Gem,
-  Quote,
+  Bot,
+  FileText,
+  Gamepad2,
+  FlaskConical,
+  QrCode,
+  Mic,
+  Type,
 } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 import { SiteFooter } from "@/components/site/footer";
 
-const PAGES = [
+const MODULES = [
   {
-    href: "/boi-canh",
-    eyebrow: "Chương 01",
-    title: "Bối cảnh & Khát vọng",
-    desc: "Nghịch lý của giáo viên Việt Nam giữa làn sóng AI bùng nổ — và khát vọng chấm dứt ứng dụng AI hời hợt.",
-    icon: BookOpen,
-    accent: "oklch(0.62 0.08 145)",
-    layout: "Magazine",
-    image: "https://sfile.chatglm.cn/images-ppt/c93745097fd2.jpg",
-  },
-  {
-    href: "/tam-nhin",
-    eyebrow: "Chương 02",
-    title: "Triết lý · Tầm nhìn · Sứ mệnh",
-    desc: "Chuyên môn làm điểm tựa — AI làm đòn bẩy. Tầm nhìn 2030 và sứ mệnh ba đối tượng hợp nhất trong một trang.",
-    icon: Compass,
+    no: "Module 1",
+    range: "4 bài · Bài 1–4",
+    title: "Soạn giảng thực chiến với Gemini & NotebookLM",
+    desc: "Tạo giáo án, phiếu học tập, podcast flipped classroom và template in ấn sắc nét.",
+    icon: Bot,
     accent: "oklch(0.74 0.13 85)",
-    layout: "Merged 3-in-1",
-    image: "https://sfile.chatglm.cn/images-ppt/478c06e221cf.jpg",
+    lessons: ["Custom Gem soạn giáo án", "NotebookLM chống ảo giác", "Podcast Audio Overview", "Template Word 2 cột"],
   },
   {
-    href: "/phieu",
-    eyebrow: "Chương 03",
-    title: "Mô hình phễu tác động",
-    desc: "Phễu khép kín từ video ngắn → website portal → phiếu học tập → lớp học tích cực QR Code.",
-    icon: Filter,
-    accent: "oklch(0.74 0.13 85)",
-    layout: "Funnel",
-    image: "https://sfile.chatglm.cn/images-ppt/022751ed6abd.jpg",
-  },
-  {
-    href: "/15-bai",
-    eyebrow: "Chương 04",
-    title: "15 Bài học hành động",
-    desc: "Lộ trình thực chiến — ba Module, mười lăm bài — bám sát tiến trình soạn giảng E2E.",
-    icon: Layers,
+    no: "Module 2",
+    range: "3 bài · Bài 5–7",
+    title: "Thí nghiệm ảo tương tác lớp học",
+    desc: "SVG, CSS transition và HTML5 Canvas cho mô phỏng vật lý 60fps chạy mượt trên 4G.",
+    icon: FlaskConical,
     accent: "oklch(0.62 0.08 145)",
-    layout: "Modules",
-    image: "https://sfile.chatglm.cn/images-ppt/53e0e8de6eb5.jpeg",
+    lessons: ["Dòng truyền nhiệt SVG", "Nhiệt kế Spring Bounce", "Động học phân tử khí"],
   },
   {
-    href: "/gems",
-    eyebrow: "Chương 05",
-    title: "GEMS V6 — Bốn trụ cột",
-    desc: "G · E · M · S — Graphic, Experiential, Minimalist, Scientific Realism. Chuẩn sư phạm học liệu.",
-    icon: Gem,
+    no: "Module 3",
+    range: "4 bài · Bài 8–11",
+    title: "Trò chơi tương tác cho hoạt động lớp học",
+    desc: "Game warm-up, icebreaker, wrap-up Đúng/Sai và dạy học xoay trạm QR Code.",
+    icon: Gamepad2,
     accent: "oklch(0.55 0.06 50)",
-    layout: "Showcase",
-    image: "https://sfile.chatglm.cn/images-ppt/db1f6315d5d4.jpg",
+    lessons: ["Warm-up Quiz", "Icebreaker Bóng nhiệt", "Wrap-up Đúng/Sai", "Xoay trạm QR Code"],
   },
 ];
 
+const FEATURES = [
+  { icon: Bot, label: "Gemini & NotebookLM", desc: "Hệ sinh thái AI chính thức" },
+  { icon: Video, label: "11 video đa kênh", desc: "TikTok · Shorts · Reels" },
+  { icon: Filter, label: "Phễu 3 tầng", desc: "Video → Web → Tài nguyên" },
+  { icon: BookOpen, label: "11 bài đồng bộ 1-1", desc: "Mỗi bài = 1 kịch bản video" },
+];
+
 /* ---------------- Hero ---------------- */
-function HomeHero() {
+function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const yBg = useTransform(scrollYProgress, [0, 1], [0, 160]);
+  const yBg = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
@@ -97,32 +85,20 @@ function HomeHero() {
           className="absolute -top-32 right-0 w-[60vw] h-[60vw] rounded-full opacity-25 blur-3xl animate-pulse-glow"
           style={{ background: "oklch(0.74 0.13 85 / 0.5)" }}
         />
-        <div
-          className="absolute bottom-0 -left-20 w-[40vw] h-[40vw] rounded-full opacity-20 blur-3xl"
-          style={{ background: "oklch(0.62 0.08 145 / 0.4)" }}
-        />
         <div className="absolute inset-0 bg-grain-dark opacity-60" />
-        <svg className="absolute inset-0 w-full h-full opacity-[0.08]" aria-hidden>
-          <defs>
-            <pattern id="heroGrid" width="64" height="64" patternUnits="userSpaceOnUse">
-              <path d="M 64 0 L 0 0 0 64" fill="none" stroke="oklch(0.82 0.13 85)" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#heroGrid)" />
-        </svg>
       </motion.div>
 
       <motion.div style={{ opacity }} className="relative z-10 min-h-screen flex flex-col">
-        <div className="flex-1 flex flex-col items-center justify-center px-5 sm:px-8 pt-32 pb-20 text-center max-w-6xl mx-auto">
+        <div className="flex-1 flex flex-col items-center justify-center px-5 sm:px-8 pt-32 pb-20 text-center max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-background/15 bg-background/5 backdrop-blur-sm mb-10"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-background/15 bg-background/5 backdrop-blur-sm mb-8"
           >
             <Sparkles className="w-3.5 h-3.5 text-accent" />
             <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase font-medium text-background/80">
-              Tuyên Ngôn · Tầm Nhìn · Sứ Mệnh
+              v8.0 · Khóa học + Video ngắn đa kênh
             </span>
           </motion.div>
 
@@ -130,10 +106,10 @@ function HomeHero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif text-[clamp(2.5rem,8vw,6.5rem)] leading-[0.95] tracking-tight"
+            className="font-serif text-[clamp(2.2rem,7vw,5.5rem)] leading-[0.95] tracking-tight"
           >
-            <span className="block italic font-light text-background/90">Dự án</span>
-            <span className="block text-gold-gradient font-semibold">Đòn Bẩy AI</span>
+            <span className="block italic font-light text-background/90">Đòn Bẩy AI</span>
+            <span className="block text-gold-gradient font-semibold">11 bài · 11 video</span>
           </motion.h1>
 
           <motion.p
@@ -142,21 +118,22 @@ function HomeHero() {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 max-w-2xl text-base sm:text-lg md:text-xl text-background/70 font-light leading-relaxed"
           >
-            Năm chương — năm góc nhìn. Khám phá triết lý, tầm nhìn, sứ mệnh và
-            lộ trình thực chiến của dự án, mỗi chương một thiết kế riêng.
+            Khóa học <strong className="text-background">Đòn bẩy AI</strong> — Giáo viên kiểm soát,
+            AI tối ưu hiệu suất. 11 bài học đồng bộ 1-1 với 11 kịch bản video ngắn đa kênh
+            tích hợp <strong className="text-background">Gemini</strong> và <strong className="text-background">NotebookLM</strong>.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.45 }}
-            className="mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
+            className="mt-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
           >
             <div className="h-px w-12 bg-accent/40 hidden sm:block" />
             <div className="text-center sm:text-left">
               <p className="font-serif italic text-lg text-background/90">Thầy Kha Khung Hiệp</p>
               <p className="text-[11px] tracking-[0.3em] uppercase text-background/50 mt-1">
-                GEMS Physics Leader
+                Chuyên gia AI & Mô phỏng dạy học tương tác
               </p>
             </div>
             <div className="h-px w-12 bg-accent/40 hidden sm:block" />
@@ -166,21 +143,21 @@ function HomeHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="mt-14 flex flex-col sm:flex-row gap-4 items-center"
+            className="mt-12 flex flex-col sm:flex-row gap-4 items-center"
           >
-            <a
-              href="#chapters"
+            <Link
+              href="/khoa-hoc"
               className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-accent text-accent-foreground font-medium hover:bg-background hover:text-foreground transition-all duration-300 shadow-lg shadow-accent/20"
             >
-              Khám phá 5 chương
-              <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-            </a>
+              Xem 11 bài học
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
             <Link
-              href="/15-bai"
+              href="/video"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-background/20 text-background/90 hover:border-accent hover:text-accent transition-colors duration-300"
             >
-              Lộ trình 15 bài
-              <ArrowRight className="w-4 h-4" />
+              <Video className="w-4 h-4" />
+              11 kịch bản video
             </Link>
           </motion.div>
         </div>
@@ -203,194 +180,250 @@ function HomeHero() {
   );
 }
 
-/* ---------------- Featured image strip ---------------- */
-function FeaturedStrip() {
+/* ---------------- Features strip ---------------- */
+function FeaturesStrip() {
   return (
-    <section className="relative py-12 sm:py-16 px-5 sm:px-8 border-b border-border">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          {[
-            { src: "https://sfile.chatglm.cn/images-ppt/378e39681c7e.jpg", alt: "Lớp học Vật lý hiện đại", label: "Vật lý" },
-            { src: "https://sfile.chatglm.cn/images-ppt/022751ed6abd.jpg", alt: "AI trong giáo dục", label: "AI · Edu" },
-            { src: "https://sfile.chatglm.cn/images-ppt/53e0e8de6eb5.jpeg", alt: "Học sinh STEM", label: "STEM" },
-            { src: "https://sfile.chatglm.cn/images-ppt/478c06e221cf.jpg", alt: "Sơ đồ đòn bẩy", label: "Đòn bẩy" },
-          ].map((img, i) => (
-            <Reveal key={img.src} delay={i * 80}>
-              <div className="group relative aspect-[4/3] rounded-xl overflow-hidden">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
-                <div className="absolute bottom-3 left-3">
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-background/80 bg-foreground/40 backdrop-blur-sm px-2 py-1 rounded">
-                    {img.label}
-                  </span>
+    <section className="relative py-12 px-5 sm:px-8 border-b border-border">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+        {FEATURES.map((f, i) => {
+          const Icon = f.icon;
+          return (
+            <Reveal key={f.label} delay={i * 80}>
+              <div className="flex items-start gap-3">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent/15 text-accent shrink-0">
+                  <Icon className="w-5 h-5" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="font-serif text-sm text-foreground leading-tight">{f.label}</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">{f.desc}</p>
                 </div>
               </div>
             </Reveal>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );
 }
 
-/* ---------------- Manifesto banner ---------------- */
-function ManifestoBanner() {
+/* ---------------- Modules overview ---------------- */
+function ModulesOverview() {
   return (
-    <section className="relative py-20 sm:py-28 px-5 sm:px-8 bg-foreground text-background overflow-hidden">
-      <div className="absolute inset-0 bg-grain-dark opacity-40 pointer-events-none" aria-hidden />
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[40vw] rounded-full opacity-20 blur-3xl pointer-events-none"
-        style={{ background: "oklch(0.74 0.13 85 / 0.5)" }}
-      />
-
-      <div className="max-w-4xl mx-auto relative text-center">
+    <section className="relative py-20 sm:py-24 px-5 sm:px-8 overflow-hidden">
+      <div className="absolute inset-0 bg-grain opacity-40 pointer-events-none" aria-hidden />
+      <div className="max-w-6xl mx-auto relative">
         <Reveal>
-          <Quote className="w-12 h-12 text-accent mx-auto mb-6" />
-          <p className="font-display text-2xl sm:text-3xl md:text-4xl italic leading-snug text-background/90">
-            Chúng tôi không dạy giáo viên cách dùng AI như một công cụ tạo chữ tự động thông thường.
-            Chúng tôi trao cho giáo viên một <span className="text-accent not-italic font-medium">triết lý sư phạm kiểm soát</span> kết
-            hợp với <span className="text-accent not-italic font-medium">hệ sinh thái Edu-Graphic đồng bộ</span>.
-          </p>
-          <p className="mt-8 text-[11px] tracking-[0.3em] uppercase text-background/40">
-            — Thầy Kha Khung Hiệp · Sáng lập Đòn Bẩy AI
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Chapter cards ---------------- */
-function ChapterGrid() {
-  return (
-    <section id="chapters" className="relative py-24 sm:py-32 px-5 sm:px-8 overflow-hidden">
-      <div className="absolute inset-0 bg-grain opacity-50 pointer-events-none" aria-hidden />
-      <div className="max-w-7xl mx-auto relative">
-        <Reveal>
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2.5 mb-5 justify-center">
               <span className="h-px w-8 bg-accent/60" />
               <span className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent">
-                Năm chương — Năm góc nhìn
+                3 Module · 11 bài học
               </span>
               <span className="h-px w-8 bg-accent/60" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
-              Mỗi chương một <span className="italic font-light text-accent">thiết kế riêng</span>
+              Lộ trình <span className="italic font-light text-accent">thực chiến</span>
             </h2>
             <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Từ layout magazine, merged 3-in-1, vertical funnel, đến showcase —
-              mỗi chương kể câu chuyện của Đòn Bẩy AI theo một ngôn ngữ visual phù hợp.
+              Từ soạn giảng với AI đến thí nghiệm ảo và trò chơi tương tác —
+              mỗi bài gắn với 1 kịch bản video ngắn đa kênh.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PAGES.map((p, i) => {
-            const Icon = p.icon;
+        <div className="grid md:grid-cols-3 gap-6">
+          {MODULES.map((m, i) => {
+            const Icon = m.icon;
             return (
-              <Reveal key={p.href} delay={i * 80}>
+              <Reveal key={m.no} delay={i * 120}>
                 <Link
-                  href={p.href}
-                  className="group relative block h-full rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+                  href="/khoa-hoc"
+                  className="group block h-full p-7 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
                 >
-                  {/* image header */}
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-                    {/* corner number */}
-                    <span className="absolute top-4 right-4 font-serif italic text-3xl text-background/80">
-                      0{i + 1}
-                    </span>
-                    {/* icon badge */}
+                  <div className="flex items-center justify-between mb-5">
                     <div
-                      className="absolute bottom-4 left-4 inline-flex items-center justify-center w-11 h-11 rounded-xl backdrop-blur-md"
-                      style={{ background: `${p.accent}40`, color: "white" }}
+                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl"
+                      style={{ background: `${m.accent}20`, color: m.accent }}
                     >
                       <Icon className="w-6 h-6" strokeWidth={1.5} />
                     </div>
+                    <span
+                      className="text-[10px] uppercase tracking-[0.25em] font-semibold"
+                      style={{ color: m.accent }}
+                    >
+                      {m.no}
+                    </span>
                   </div>
 
-                  {/* content */}
-                  <div className="p-6">
-                    <p
-                      className="text-[10px] uppercase tracking-[0.25em] font-semibold mb-2"
-                      style={{ color: p.accent }}
-                    >
-                      {p.eyebrow}
-                    </p>
-                    <h3 className="font-serif text-xl text-foreground mb-2 leading-tight">
-                      {p.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {p.desc}
-                    </p>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">
+                    {m.range}
+                  </p>
+                  <h3 className="font-serif text-xl text-foreground mb-3 leading-tight">
+                    {m.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    {m.desc}
+                  </p>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/40">
-                        {p.layout}
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
-                        Đọc
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </span>
-                    </div>
+                  <ul className="space-y-1.5 pt-4 border-t border-border">
+                    {m.lessons.map((l) => (
+                      <li key={l} className="flex items-center gap-2 text-xs text-foreground/70">
+                        <span className="w-1 h-1 rounded-full" style={{ background: m.accent }} />
+                        {l}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-5 flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
+                    Xem chi tiết
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </Link>
               </Reveal>
             );
           })}
-
-          {/* CTA card */}
-          <Reveal delay={PAGES.length * 80}>
-            <Link
-              href="/15-bai"
-              className="group relative block h-full p-7 rounded-2xl bg-foreground text-background border border-foreground hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
-            >
-              <div
-                className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-30 blur-2xl"
-                style={{ background: "oklch(0.74 0.13 85)" }}
-              />
-              <div className="relative flex flex-col h-full">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent/20 text-accent mb-5">
-                  <Sparkles className="w-6 h-6" strokeWidth={1.5} />
-                </div>
-                <p className="text-[10px] uppercase tracking-[0.25em] font-semibold mb-1 text-accent">
-                  Bắt đầu ngay
-                </p>
-                <h3 className="font-serif text-2xl text-background mb-3 leading-tight">
-                  Khám phá toàn bộ lộ trình
-                </h3>
-                <p className="text-sm text-background/60 leading-relaxed mb-5 flex-1">
-                  Bắt đầu từ Bối cảnh đến GEMS V6 — một hành trình xuyên suốt
-                  triết lý sư phạm kiểm soát.
-                </p>
-                <div className="flex items-center justify-between pt-4 border-t border-background/10">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-background/40">
-                    Lộ trình E2E
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
-                    Bắt đầu
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </Reveal>
         </div>
       </div>
+    </section>
+  );
+}
 
-      <SiteFooter />
+/* ---------------- Funnel section ---------------- */
+function FunnelSection() {
+  const stages = [
+    { icon: Video, label: "Video ngắn đa kênh", desc: "TikTok · YouTube Shorts · Reels", action: "Call to Action", accent: "oklch(0.74 0.13 85)" },
+    { icon: BookOpen, label: "Website EdTech Portal", desc: "Bài học cụ thể trên Web", action: "Hành động", accent: "oklch(0.62 0.08 145)" },
+    { icon: FileText, label: "Tài nguyên + Game + Prompt", desc: "Tải · Chơi · Copy prompt", action: "Ứng dụng lớp học", accent: "oklch(0.55 0.06 50)" },
+  ];
+
+  return (
+    <section id="funnel" className="relative py-20 sm:py-24 px-5 sm:px-8 bg-foreground text-background overflow-hidden">
+      <div className="absolute inset-0 bg-grain-dark opacity-40 pointer-events-none" aria-hidden />
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[30vw] rounded-full opacity-20 blur-3xl pointer-events-none"
+        style={{ background: "oklch(0.74 0.13 85 / 0.5)" }}
+      />
+
+      <div className="max-w-5xl mx-auto relative">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2.5 mb-5 justify-center">
+              <span className="h-px w-8 bg-accent/60" />
+              <span className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent">
+                Nguyên tắc phễu
+              </span>
+              <span className="h-px w-8 bg-accent/60" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight">
+              Phễu <span className="italic font-light text-accent">3 tầng</span>
+            </h2>
+            <p className="mt-5 text-base sm:text-lg text-background/70 leading-relaxed max-w-2xl mx-auto">
+              Từ video ngắn đa kênh → Website EdTech Portal → Tải tài nguyên, chơi game, copy prompt.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="space-y-4">
+          {stages.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <Reveal key={s.label} delay={i * 120}>
+                <div className="flex items-center gap-4 sm:gap-6 p-5 sm:p-6 rounded-2xl border border-background/10 bg-background/[0.04] backdrop-blur-sm">
+                  <div
+                    className="relative shrink-0"
+                  >
+                    <div
+                      className="absolute inset-0 rounded-2xl blur-xl opacity-30"
+                      style={{ background: s.accent }}
+                    />
+                    <div
+                      className="relative w-14 h-14 rounded-2xl flex items-center justify-center border-2"
+                      style={{ borderColor: s.accent, background: "oklch(0.18 0.025 165)" }}
+                    >
+                      <Icon className="w-7 h-7" style={{ color: s.accent }} strokeWidth={1.5} />
+                    </div>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span
+                        className="font-serif italic text-2xl font-bold"
+                        style={{ color: s.accent }}
+                      >
+                        0{i + 1}
+                      </span>
+                      <span
+                        className="text-[10px] uppercase tracking-[0.25em] font-semibold"
+                        style={{ color: s.accent }}
+                      >
+                        {s.action}
+                      </span>
+                    </div>
+                    <h3 className="font-serif text-lg sm:text-xl text-background leading-tight">{s.label}</h3>
+                    <p className="text-sm text-background/60 mt-0.5">{s.desc}</p>
+                  </div>
+
+                  {i < stages.length - 1 && (
+                    <ArrowDown className="hidden sm:block w-5 h-5 text-accent/40 shrink-0" />
+                  )}
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* Formula */}
+        <Reveal delay={400}>
+          <div className="mt-12 p-6 sm:p-8 rounded-2xl border border-accent/30 bg-accent/5 text-center">
+            <p className="font-display text-lg sm:text-xl italic text-background/90 leading-relaxed">
+              <span className="text-accent">Video ngắn</span> →{" "}
+              <span className="text-accent">Website</span> →{" "}
+              <span className="text-accent">Tài nguyên + Game + Prompt</span>
+            </p>
+            <p className="mt-3 text-[11px] tracking-[0.3em] uppercase text-background/40">
+              Funnel khép kín · v8.0
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Final CTA ---------------- */
+function FinalCTA() {
+  return (
+    <section className="relative py-20 px-5 sm:px-8">
+      <div className="max-w-4xl mx-auto text-center">
+        <Reveal>
+          <p className="text-[11px] tracking-[0.3em] uppercase font-semibold text-accent mb-5">
+            Sẵn sàng bắt đầu?
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight mb-6">
+            Khóa học <span className="italic font-light text-accent">Đòn Bẩy AI v8.0</span>
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
+            11 bài học thực chiến · 11 kịch bản video ngắn đa kênh ·
+            Hệ sinh thái Gemini & NotebookLM.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <Link
+              href="/khoa-hoc"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-lg"
+            >
+              Xem lộ trình 11 bài
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link
+              href="/video"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-foreground/20 text-foreground hover:border-accent hover:text-accent transition-colors duration-300"
+            >
+              <Video className="w-4 h-4" />
+              Xem 11 kịch bản video
+            </Link>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }
@@ -399,10 +432,12 @@ function ChapterGrid() {
 export default function Home() {
   return (
     <>
-      <HomeHero />
-      <FeaturedStrip />
-      <ManifestoBanner />
-      <ChapterGrid />
+      <Hero />
+      <FeaturesStrip />
+      <ModulesOverview />
+      <FunnelSection />
+      <FinalCTA />
+      <SiteFooter />
     </>
   );
 }
