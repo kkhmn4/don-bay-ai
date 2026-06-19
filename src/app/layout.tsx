@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Navbar } from "@/components/site/navbar";
 
-const inter = Inter({
-  variable: "--font-inter",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Thầy Kha Khung Hiệp" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/images/logo.png",
   },
   openGraph: {
     title: "Đòn Bẩy AI · Khóa học 11 bài + 11 video ngắn đa kênh",
@@ -57,9 +57,9 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning>
       <body
-        className={`${inter.variable} antialiased bg-background text-foreground`}
+        className={`${jakarta.variable} antialiased bg-background text-foreground`}
       >
-        <div className="min-h-screen flex flex-col bg-pure-black">
+        <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>
         </div>

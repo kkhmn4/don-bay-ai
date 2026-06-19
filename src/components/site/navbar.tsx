@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "/khoa-hoc", label: "Khóa học" },
@@ -25,23 +26,35 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 bg-pure-black border-b ${
-        scrolled ? "border-border-gray" : "border-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-mist/85 backdrop-blur-xl border-b border-pebble py-3"
+          : "bg-transparent py-5"
       }`}
-      style={{ padding: "16px 32px" }}
     >
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-        {/* brand wordmark */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="font-extrabold text-white text-base tracking-tight">
-            Đòn Bẩy AI
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-muted-text hidden sm:inline">
-            v8.0
-          </span>
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 flex items-center justify-between">
+        {/* brand — logo image + wordmark */}
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="relative w-9 h-9 rounded-full overflow-hidden bg-obsidian shrink-0">
+            <Image
+              src="/images/logo.png"
+              alt="Đòn Bẩy AI logo"
+              fill
+              className="object-cover"
+              sizes="36px"
+            />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="font-bold text-obsidian text-base tracking-tight">
+              Đòn Bẩy AI
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-steel mt-0.5 hidden sm:block">
+              v8.0
+            </span>
+          </div>
         </Link>
 
-        {/* desktop nav — left aligned, links in white Inter 600/16px */}
+        {/* desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((l) => {
             const isActive = l.href.startsWith("/#") ? false : pathname === l.href;
@@ -49,10 +62,10 @@ export function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-[15px] font-semibold transition-colors ${
+                className={`text-[14px] font-medium transition-colors ${
                   isActive
-                    ? "text-pure-white"
-                    : "text-helper-gray hover:text-pure-white"
+                    ? "text-obsidian"
+                    : "text-graphite hover:text-obsidian"
                 }`}
               >
                 {l.label}
@@ -61,11 +74,14 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* right-aligned outlined button */}
+        {/* primary pill CTA — obsidian with multi-layer shadow */}
         <Link
           href="/khoa-hoc"
-          className="hidden md:inline-flex items-center text-[15px] font-semibold text-pure-white border border-border-gray rounded-md"
-          style={{ padding: "8px 16px" }}
+          className="hidden md:inline-flex items-center text-[14px] font-medium text-snow bg-obsidian hover:bg-ink transition-colors shadow-pill-physical"
+          style={{
+            borderRadius: "36px",
+            padding: "12px 20px",
+          }}
         >
           Bắt đầu học
         </Link>
@@ -73,7 +89,7 @@ export function Navbar() {
         {/* mobile toggle */}
         <button
           onClick={() => setOpen((o) => !o)}
-          className="md:hidden p-2 text-pure-white"
+          className="md:hidden p-2 text-obsidian"
           aria-label="Mở menu"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -82,14 +98,14 @@ export function Navbar() {
 
       {/* mobile menu */}
       {open && (
-        <div className="md:hidden mt-4 pt-4 border-t border-border-gray">
+        <div className="md:hidden mt-4 pt-4 border-t border-pebble">
           <nav className="flex flex-col gap-4">
             {NAV_LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-[15px] font-semibold text-helper-gray hover:text-pure-white"
+                className="text-[14px] font-medium text-graphite hover:text-obsidian"
               >
                 {l.label}
               </Link>
@@ -97,8 +113,8 @@ export function Navbar() {
             <Link
               href="/khoa-hoc"
               onClick={() => setOpen(false)}
-              className="inline-flex justify-center items-center text-[15px] font-semibold text-pure-white border border-border-gray rounded-md"
-              style={{ padding: "8px 16px" }}
+              className="inline-flex justify-center items-center text-[14px] font-medium text-snow bg-obsidian shadow-pill-physical"
+              style={{ borderRadius: "36px", padding: "12px 20px" }}
             >
               Bắt đầu học
             </Link>

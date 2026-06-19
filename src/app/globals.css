@@ -4,84 +4,106 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Colors — Design Full-Time black-box cinema system */
-  --color-pure-black: #000000;
-  --color-surface-black: #111111;
-  --color-lifted-charcoal: #252525;
-  --color-border-gray: #343434;
-  --color-edge-gray: #4d4d4d;
-  --color-muted-text: #888888;
-  --color-helper-gray: #a0a0a0;
-  --color-pure-white: #ffffff;
-  --color-amber-glow: #ffc840;
-  --color-ember-orange: #ff8a00;
-  --color-crimson-heat: #fa3a19;
+  /* === Awesomic Color System — Rounded midnight marketplace === */
+  /* Neutral scale — dense and graduated */
+  --color-obsidian: #09090b;
+  --color-ink: #18181b;
+  --color-graphite: #3f3f46;
+  --color-slate: #52525b;
+  --color-steel: #71717a;
+  --color-ash: #a1a1aa;
+  --color-pebble: #d4d4d8;
+  --color-fog: #ececee;
+  --color-mist: #f4f4f5;
+  --color-snow: #ffffff;
 
-  /* Map to shadcn semantic tokens — all monochrome */
-  --color-background: var(--color-pure-black);
-  --color-foreground: var(--color-pure-white);
-  --color-card: var(--color-surface-black);
-  --color-card-foreground: var(--color-pure-white);
-  --color-popover: var(--color-surface-black);
-  --color-popover-foreground: var(--color-pure-white);
-  --color-primary: var(--color-surface-black);
-  --color-primary-foreground: var(--color-pure-white);
-  --color-secondary: var(--color-lifted-charcoal);
-  --color-secondary-foreground: var(--color-pure-white);
-  --color-muted: var(--color-lifted-charcoal);
-  --color-muted-foreground: var(--color-muted-text);
-  --color-accent: var(--color-lifted-charcoal);
-  --color-accent-foreground: var(--color-pure-white);
-  --color-destructive: var(--color-crimson-heat);
-  --color-border: var(--color-border-gray);
-  --color-input: var(--color-border-gray);
-  --color-ring: var(--color-edge-gray);
+  /* Accent — scarce and vivid */
+  --color-ember: #ff5a00;
+  --color-orchid-flash: #fe45e2;
 
-  /* Typography — Inter only */
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-inter);
-  --font-display: var(--font-inter);
+  /* Map to shadcn semantic tokens — Awesomic light theme */
+  --color-background: var(--color-mist);
+  --color-foreground: var(--color-obsidian);
+  --color-card: var(--color-snow);
+  --color-card-foreground: var(--color-obsidian);
+  --color-popover: var(--color-snow);
+  --color-popover-foreground: var(--color-obsidian);
+  --color-primary: var(--color-obsidian);
+  --color-primary-foreground: var(--color-snow);
+  --color-secondary: var(--color-fog);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted: var(--color-fog);
+  --color-muted-foreground: var(--color-steel);
+  --color-accent: var(--color-ember);
+  --color-accent-foreground: var(--color-snow);
+  --color-destructive: var(--color-ember);
+  --color-border: var(--color-pebble);
+  --color-input: var(--color-pebble);
+  --color-ring: var(--color-graphite);
+
+  /* Typography — Plus Jakarta Sans as Cosmica substitute (Google Fonts) */
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-jakarta);
   --font-mono: ui-monospace, monospace;
 
-  /* Spacing scale */
+  /* Spacing scale — base 4px */
+  --spacing-4: 4px;
   --spacing-8: 8px;
+  --spacing-12: 12px;
   --spacing-16: 16px;
+  --spacing-20: 20px;
   --spacing-24: 24px;
+  --spacing-28: 28px;
   --spacing-32: 32px;
+  --spacing-36: 36px;
   --spacing-40: 40px;
   --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-120: 120px;
 
   /* Layout */
   --page-max-width: 1200px;
 
-  /* Radius — flat with minimal rounding */
-  --radius: 6px;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 6px;
-  --radius-xl: 8px;
+  /* Border Radius — Awesomic's signature extreme rounding */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 28px;
+  --radius-4xl: 36px;
+  --radius-5xl: 40px;
+  --radius-hero: 48px;
+  --radius-pill: 10000px;
 
-  /* shadcn chart colors — repurposed to monochrome + warm */
-  --color-chart-1: var(--color-amber-glow);
-  --color-chart-2: var(--color-ember-orange);
-  --color-chart-3: var(--color-crimson-heat);
-  --color-chart-4: var(--color-helper-gray);
-  --color-chart-5: var(--color-muted-text);
+  /* Map to shadcn radius */
+  --radius: 36px;
 
-  /* Sidebar — monochrome */
-  --color-sidebar: var(--color-surface-black);
-  --color-sidebar-foreground: var(--color-pure-white);
-  --color-sidebar-primary: var(--color-pure-white);
-  --color-sidebar-primary-foreground: var(--color-pure-black);
-  --color-sidebar-accent: var(--color-lifted-charcoal);
-  --color-sidebar-accent-foreground: var(--color-pure-white);
-  --color-sidebar-border: var(--color-border-gray);
-  --color-sidebar-ring: var(--color-edge-gray);
+  /* Shadows — layered button shadow + subtle card shadows */
+  --shadow-subtle-2: rgb(228, 228, 231) 0px 1px 0px 0px inset;
+  --shadow-md: rgba(0, 0, 0, 0.04) 0px 4px 12px 0px;
+
+  /* Chart colors */
+  --color-chart-1: var(--color-obsidian);
+  --color-chart-2: var(--color-graphite);
+  --color-chart-3: var(--color-steel);
+  --color-chart-4: var(--color-ash);
+  --color-chart-5: var(--color-ember);
+
+  /* Sidebar */
+  --color-sidebar: var(--color-snow);
+  --color-sidebar-foreground: var(--color-obsidian);
+  --color-sidebar-primary: var(--color-obsidian);
+  --color-sidebar-primary-foreground: var(--color-snow);
+  --color-sidebar-accent: var(--color-fog);
+  --color-sidebar-accent-foreground: var(--color-ink);
+  --color-sidebar-border: var(--color-pebble);
+  --color-sidebar-ring: var(--color-graphite);
 }
 
 :root {
-  /* All design tokens already declared in @theme inline above */
-  --radius: 6px;
+  --radius: 36px;
 }
 
 @layer base {
@@ -95,103 +117,124 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
+    font-family: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.56;
     font-weight: 400;
+    background-color: #f4f4f5;
+    color: #09090b;
   }
   ::selection {
-    background: rgba(255, 138, 0, 0.3);
+    background: #09090b;
     color: #ffffff;
   }
 }
 
-/* Custom scrollbar — flat monochrome */
+/* === Custom scrollbar — minimal, light === */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #ececee;
 }
 ::-webkit-scrollbar-thumb {
-  background: #343434;
-  border-radius: 0;
+  background: #a1a1aa;
+  border-radius: 999px;
+  border: 2px solid #ececee;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4d4d4d;
+  background: #71717a;
 }
 
-/* Typography helpers — Inter only */
-.font-serif,
-.font-display,
-.font-sans {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+/* === Typography utilities === */
+.font-display {
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Type scale utilities (capped at 24px per design spec) */
-.text-caption { font-size: 15px; line-height: 1.4; }
-.text-body { font-size: 16px; line-height: 1.5; }
-.text-body-lg { font-size: 18px; line-height: 1.56; }
-.text-subheading { font-size: 20px; line-height: 1.4; }
-.text-heading { font-size: 24px; line-height: 1.33; }
+/* Type scale (per spec) */
+.text-caption { font-size: 10px; line-height: 1.8; }
+.text-body { font-size: 14px; line-height: 1.56; }
+.text-body-lg { font-size: 16px; line-height: 1.5; }
+.text-subheading { font-size: 18px; line-height: 1.45; }
+.text-heading-sm { font-size: 20px; line-height: 1.35; }
+.text-heading { font-size: 32px; line-height: 1.28; }
+.text-heading-lg { font-size: 40px; line-height: 1.25; }
+.text-display-sm { font-size: 56px; line-height: 1.12; }
+.text-display { font-size: 64px; line-height: 1; }
 
-/* Warm gradient — ONLY for promo banner, CTA button, and gradient text */
-.bg-warm-gradient {
-  background: linear-gradient(90deg, #ff8a00 0%, #fa3a19 100%);
+/* === Surface utilities === */
+.surface-canvas { background-color: #f4f4f5; }
+.surface-card-white { background-color: #ffffff; }
+.surface-card-muted { background-color: #ececee; }
+.surface-dark { background-color: #09090b; }
+
+/* === Pill button shadow — Awesomic's signature CTA physicality === */
+.shadow-pill-physical {
+  box-shadow:
+    rgba(255, 255, 255, 0.5) 0px 0.5px 0px 0px inset,
+    rgba(117, 123, 133, 0.4) 0px 9px 14px -5px inset,
+    rgb(44, 46, 52) 0px 0px 0px 1.5px,
+    rgba(0, 0, 0, 0.14) 0px 4px 6px 0px;
 }
 
-.bg-warm-wash {
-  background:
-    linear-gradient(90deg, rgba(255, 200, 64, 0.12) 0%, rgba(250, 58, 25, 0.10) 100%),
-    #000000;
+.shadow-card-inset {
+  box-shadow: rgb(228, 228, 231) 0px 1px 0px 0px inset;
 }
 
-.text-warm-gradient {
-  background: linear-gradient(90deg, #ffc840 0%, #fa3a19 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+.shadow-card-soft {
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 12px 0px;
 }
 
-/* Border utilities — hairline flat */
-.border-hairline {
-  border: 1px solid #343434;
+/* === Accent badges — Ember for YC-style, Orchid for decorative === */
+.bg-ember { background-color: #ff5a00; }
+.bg-orchid { background-color: #fe45e2; }
+.text-ember { color: #ff5a00; }
+.text-orchid { color: #fe45e2; }
+
+/* === Animations === */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
-.border-hairline-bottom {
-  border-bottom: 1px solid #343434;
-}
-.border-hairline-top {
-  border-top: 1px solid #343434;
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
 }
 
-/* Surface utilities */
-.surface-canvas { background-color: #000000; }
-.surface-card { background-color: #111111; }
-.surface-elevated { background-color: #252525; }
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
 
-/* Smooth reveal on scroll */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Spring overshoot easing for entrance animations */
+.ease-spring {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* === Reveal on scroll === */
 .reveal-up {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .reveal-up.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Subtle pulse for live indicators */
-@keyframes subtle-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-.animate-subtle-pulse {
-  animation: subtle-pulse 2.4s ease-in-out infinite;
-}
-
-/* Print-friendly */
+/* === Print === */
 @media print {
   .no-print { display: none !important; }
 }
