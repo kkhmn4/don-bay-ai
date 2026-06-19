@@ -20,7 +20,7 @@ const NAV_LINKS = [
     { href: "/khoa-hoc#module-2", label: "Module 2 · Thí nghiệm ảo" },
     { href: "/khoa-hoc#module-3", label: "Module 3 · Trò chơi" },
   ]},
-  { href: "/games/ar-knowledge-universe/index.html", label: "Trò chơi AR 🚀", hasDropdown: false, isFeatured: true },
+  { href: "/game", label: "Cổng Trò chơi 🚀", hasDropdown: false, isFeatured: true },
   { href: "/khoa-hoc", label: "Tài nguyên", hasDropdown: true, dropdown: [
     { href: "/khoa-hoc", label: "Câu lệnh Gemini Gems" },
     { href: "/khoa-hoc", label: "Phiếu học tập GEMS" },

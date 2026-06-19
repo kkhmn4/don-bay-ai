@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sóng Năng Lượng - Dao Động Điều Hòa</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <script type="module" crossorigin src="./assets/index-Dt8GZhuQ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Ba9HPNQN.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ═══ TOP HEADER BAR ═══ -->
+    <header class="top-header">
+
+      <!-- Teacher Info -->
+      <div class="header-teacher">
+        <div class="teacher-info-label">
+          <span class="material-symbols-outlined" style="font-size:12px; font-variation-settings:'FILL' 1;">school</span>
+          TIẾT DẠY DEMO
+        </div>
+        <div class="header-teacher-name">Kha Khung Hiệp</div>
+      </div>
+
+      <div class="header-sep"></div>
+
+      <!-- Active Player Turn Banner -->
+      <div class="active-player-banner" id="hud-active-player-wrapper" style="display: none;">
+        <span class="material-symbols-outlined" style="font-size: 14px; font-variation-settings: 'FILL' 1;">play_arrow</span>
+        <span id="hud-active-player">LƯỢT: ĐỘI A</span>
+      </div>
+
+      <!-- HUD Stats inline -->
+      <div class="header-stat">
+        <span class="material-symbols-outlined icon-cyan" style="font-size:18px; font-variation-settings:'FILL' 1;">timer</span>
+        <span class="stat-value text-cyan" id="hud-timer">00:00</span>
+      </div>
+      <div class="header-stat">
+        <span class="material-symbols-outlined icon-magenta" style="font-size:18px; font-variation-settings:'FILL' 1;">swap_horiz</span>
+        <span class="stat-value text-magenta" id="hud-turns">LƯỢT LẬT: 0</span>
+      </div>
+      <div class="header-stat">
+        <span class="material-symbols-outlined icon-gray" style="font-size:18px; font-variation-settings:'FILL' 1;">grid_on</span>
+        <span class="stat-value text-gray" id="hud-progress">0 / 9 CẶP</span>
+      </div>
+
+      <div class="header-sep"></div>
+
+      <!-- Scoreboard horizontal (hidden until game starts) -->
+      <div id="game-info-screen" class="hidden header-scoreboard-wrap">
+        <span class="header-score-label">BẢNG ĐIỂM</span>
+        <div id="scoreboard-bar" class="scoreboard-bar"></div>
+      </div>
+
+      <!-- Spacer -->
+      <div style="flex:1;"></div>
+
+      <!-- Restart button (hidden until game starts) -->
+      <button class="btn-icon-hud" id="restart-btn" title="Thoát Game" style="display:none;">
+        <span class="material-symbols-outlined" style="font-size:16px;">logout</span>
+        THOÁT
+      </button>
+
+      <!-- Fullscreen toggle -->
+      <div class="btn-icon-hud" id="fullscreen-btn" title="Toàn màn hình" style="cursor:pointer;">
+        <span class="material-symbols-outlined" id="fullscreen-icon" style="font-size:20px;">fullscreen</span>
+      </div>
+
+    </header>
+
+    <!-- ═══ MAIN PLAYBOARD ═══ -->
+    <main class="playboard-container">
+
+      <!-- Setup Screen (shown initially) -->
+      <div id="player-setup-screen" class="setup-container">
+        <h2>ĐĂNG KÝ (1-4 ĐỘI)</h2>
+        <div class="text-variant text-sm" style="margin-bottom: 16px;">Nhập tên các đội tham gia thi đấu đối kháng trực tiếp.</div>
+
+        <form id="player-setup-form" onsubmit="return false;">
+          <div id="player-inputs-list" class="inputs-list">
+            <div class="player-input-row">
+              <span class="player-number">#1</span>
+              <input type="text" class="player-name-field" required placeholder="TÊN NGƯỜI CHƠI 1" value="ĐỘI A">
+            </div>
+            <div class="player-input-row">
+              <span class="player-number">#2</span>
+              <input type="text" class="player-name-field" required placeholder="TÊN NGƯỜI CHƠI 2" value="ĐỘI B">
+            </div>
+          </div>
+
+          <div class="setup-buttons-row">
+            <button type="button" class="btn-secondary-setup" id="add-player-btn">
+              <span class="material-symbols-outlined" style="font-size: 14px;">person_add</span> THÊM
+            </button>
+            <button type="button" class="btn-secondary-setup" id="remove-player-btn">
+              <span class="material-symbols-outlined" style="font-size: 14px;">person_remove</span> XÓA
+            </button>
+          </div>
+
+          <button type="submit" class="btn-primary-hud" id="start-game-btn" style="margin-top: 20px; max-width: 300px;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">play_circle</span> BẮT ĐẦU CHƠI
+          </button>
+        </form>
+      </div>
+
+      <!-- Card Grid Screen (shown during gameplay) -->
+      <div id="game-screen" class="hidden" style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
+        <div class="card-grid" id="card-grid">
+          <!-- Cards generated dynamically by JS -->
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Win Modal Popup -->
+  <div class="win-modal-overlay hidden" id="win-modal">
+    <div class="win-modal-content glass-panel">
+      <span class="material-symbols-outlined win-trophy" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+      <h2>XUẤT SẮC!</h2>
+      <p class="win-msg" id="win-message" style="margin-bottom: 16px;">Bạn đã ghép đúng tất cả các công thức dao động điều hòa!</p>
+
+      <div class="win-stats">
+        <div class="win-stat-box">
+          <span class="win-stat-label">THỜI GIAN</span>
+          <span class="win-stat-value text-cyan" id="win-time">00:00</span>
+        </div>
+        <div class="win-stat-box">
+          <span class="win-stat-label">LƯỢT LẬT MÀN</span>
+          <span class="win-stat-value text-magenta" id="win-turns">0</span>
+        </div>
+        <div class="win-stat-box" style="display: none;">
+          <span class="win-stat-label">ĐÁNH GIÁ</span>
+          <span class="win-stat-value text-green" id="win-rank">Thiên Tài Vật Lí</span>
+        </div>
+      </div>
+
+      <!-- Leaderboard Input Block -->
+      <div id="leaderboard-input-block" class="hidden" style="margin-bottom: 24px; width: 100%;">
+        <div class="text-variant text-sm" style="margin-bottom: 8px;">Kỷ lục mới của nhà vô địch! Nhập tên bạn để lưu danh:</div>
+        <div style="display: flex; gap: 8px; justify-content: center; width: 100%;">
+          <input type="text" id="player-name-input" maxlength="10" placeholder="NHẬP TÊN" style="padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(0, 242, 255, 0.4); background: rgba(5, 20, 36, 0.8); color: #fff; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 13px; text-align: center; outline: none; width: 130px;">
+          <button class="btn-primary-hud" id="submit-score-btn" style="width: auto; padding: 8px 14px; font-size: 10px;">LƯU ĐIỂM</button>
+        </div>
+      </div>
+
+      <!-- Leaderboard Display -->
+      <div class="leaderboard-box" style="width: 100%; margin-bottom: 24px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px;">
+        <h3 class="font-mono text-cyan" style="font-size: 12px; margin-bottom: 12px; letter-spacing: 2px; text-transform: uppercase;">🏆 BẢNG VÀNG KỶ LỤC 🏆</h3>
+        <div id="leaderboard-list" style="width: 100%; display: flex; flex-direction: column; gap: 6px; max-height: 150px; overflow-y: auto;">
+          <!-- Leaderboard records generated by JS -->
+        </div>
+      </div>
+
+      <button class="btn-primary-hud win-btn" id="modal-restart-btn">
+        <span class="material-symbols-outlined">replay</span> CHƠI LẠI
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
