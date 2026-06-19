@@ -43,11 +43,16 @@ function StructureInfographic() {
       <div className="max-w-[1200px] mx-auto">
         <Reveal>
           <div className="text-center mb-12">
-            <p className="font-sans font-medium text-deep-teal mb-4" style={{ fontSize: "13px" }}>
+            <p className="font-sans font-medium text-deep-teal mb-4" style={{ fontSize: "13px", letterSpacing: "0.15em" }}>
               CẤU TRÚC 60 GIÂY MỖI VIDEO
             </p>
-            <h2 className="headline-serif text-ink" style={{ fontSize: "clamp(32px, 4vw, 40px)", lineHeight: 1.15 }}>
-              Hook → Solution → CTA
+            <h2
+              className="headline-serif text-ink"
+              style={{ fontSize: "clamp(36px, 5.5vw, 52px)", lineHeight: 1.1 }}
+            >
+              <span className="text-teal-gradient">Hook</span> →{" "}
+              <span className="text-teal-gradient">Solution</span> →{" "}
+              <span className="text-teal-gradient">CTA</span>
             </h2>
           </div>
         </Reveal>
@@ -105,14 +110,22 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
   return (
     <Reveal>
       <article
-        className="group h-full flex flex-col overflow-hidden"
+        className="group h-full flex flex-col overflow-hidden lift-on-hover"
         style={{
           backgroundColor: getWashBg(video.wash),
           borderRadius: "24px",
         }}
       >
         {/* Image container with 8px radius inside 24px wash card */}
-        <div style={{ padding: "20px 20px 0 20px" }}>
+        <div style={{ padding: "20px 20px 0 20px" }} className="relative">
+          {/* Mega video number — overlaid on wash background */}
+          <span
+            className="absolute top-2 right-8 headline-serif text-ink select-none pointer-events-none number-glow z-10"
+            style={{ fontSize: "80px", lineHeight: 0.85, opacity: 0.22, letterSpacing: "-0.04em" }}
+          >
+            {video.no}
+          </span>
+
           <div
             className="relative aspect-video overflow-hidden bg-paper"
             style={{ borderRadius: "8px" }}
@@ -130,9 +143,9 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div
                 className="inline-flex items-center justify-center bg-paper text-deep-teal animate-gentle-pulse"
-                style={{ borderRadius: "9999px", width: "56px", height: "56px" }}
+                style={{ borderRadius: "9999px", width: "64px", height: "64px" }}
               >
-                <Play className="w-5 h-5 ml-0.5" fill="currentColor" />
+                <Play className="w-6 h-6 ml-0.5" fill="currentColor" />
               </div>
             </div>
 
@@ -143,7 +156,7 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
                 style={{
                   backgroundColor: "#006e75",
                   borderRadius: "9999px",
-                  padding: "4px 12px",
+                  padding: "4px 14px",
                   fontSize: "13px",
                 }}
               >
@@ -158,11 +171,11 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
                 style={{
                   backgroundColor: "rgba(6, 29, 41, 0.85)",
                   borderRadius: "8px",
-                  padding: "4px 8px",
-                  fontSize: "12px",
+                  padding: "4px 10px",
+                  fontSize: "13px",
                 }}
               >
-                <Clock className="w-3 h-3" />
+                <Clock className="w-3.5 h-3.5" />
                 {video.duration}
               </span>
             </div>
@@ -194,17 +207,17 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
           </p>
           <h3
             className="headline-serif text-ink mb-3"
-            style={{ fontSize: "22px", lineHeight: 1.22 }}
+            style={{ fontSize: "24px", lineHeight: 1.2 }}
           >
             {video.title}
           </h3>
 
-          {/* hook */}
-          <div className="mb-3 pl-3 border-l-2 border-deep-teal">
-            <p className="font-sans font-medium text-deep-teal mb-1" style={{ fontSize: "12px" }}>
-              HOOK (0–15s)
+          {/* hook — highlighted box with quote mark */}
+          <div className="hook-highlight mb-3 mt-1">
+            <p className="font-sans font-medium text-deep-teal mb-1" style={{ fontSize: "11px", letterSpacing: "0.1em" }}>
+              ⚡ HOOK (0–15s)
             </p>
-            <p className="font-sans font-medium text-ink italic leading-snug" style={{ fontSize: "14px" }}>
+            <p className="font-sans font-medium text-ink italic leading-snug" style={{ fontSize: "15px" }}>
               {video.hook}
             </p>
           </div>
@@ -212,15 +225,18 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
           {/* solution */}
           <div className="mb-3 flex gap-3">
             <span className="shrink-0 font-sans font-medium text-deep-teal mt-0.5" style={{ fontSize: "12px" }}>
-              SOLUTION
+              ✅ SOLUTION
             </span>
             <p className="font-sans text-mist leading-snug flex-1" style={{ fontSize: "13px" }}>{video.solution}</p>
           </div>
 
-          {/* CTA */}
-          <div className="mt-auto pt-3 border-t border-ink/10 flex items-center gap-2">
+          {/* CTA — emphasized with mint background */}
+          <div
+            className="mt-auto pt-3 flex items-center gap-2 p-3"
+            style={{ backgroundColor: "rgba(185, 255, 232, 0.5)", borderRadius: "8px" }}
+          >
             <span className="font-sans font-medium text-deep-teal shrink-0" style={{ fontSize: "12px" }}>
-              CTA
+              🎯 CTA
             </span>
             <p className="font-sans font-medium text-ink" style={{ fontSize: "13px" }}>{video.cta}</p>
           </div>
@@ -247,16 +263,18 @@ export default function VideoPage() {
         <div className="max-w-[1200px] mx-auto">
           <Reveal>
             <div className="text-center mb-16 max-w-[720px] mx-auto">
-              <span className="badge-mint mb-6">11 kịch bản hoàn chỉnh</span>
+              <span className="badge-mint mb-6 animate-badge-bounce">11 kịch bản hoàn chỉnh</span>
               <h2
                 className="headline-serif text-ink mb-4"
-                style={{ fontSize: "clamp(36px, 5vw, 46px)", lineHeight: 1.15 }}
+                style={{ fontSize: "clamp(40px, 6vw, 60px)", lineHeight: 1.1 }}
               >
-                Mỗi video — một bài học
+                Mỗi video — <span className="text-teal-gradient">một bài học</span>
               </h2>
               <p className="font-sans text-ink mx-auto" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-                11 portfolio tiles với hình minh hoạ, badges thời lượng, và platform tags.
-                Hoàn chỉnh Hook → Solution → CTA cho từng video.
+                11 portfolio tiles với <span className="bg-mint-highlight font-medium">hình minh hoạ</span>,{" "}
+                <span className="bg-mint-highlight font-medium">badges thời lượng</span>, và{" "}
+                <span className="bg-mint-highlight font-medium">platform tags</span>.
+                Hoàn chỉnh <span className="font-medium text-deep-teal">Hook → Solution → CTA</span> cho từng video.
               </p>
             </div>
           </Reveal>
@@ -290,15 +308,17 @@ export default function VideoPage() {
       <section className="py-20 px-5 sm:px-8 bg-cream">
         <div className="max-w-[720px] mx-auto text-center">
           <Reveal>
-            <span className="badge-mint mb-6">Đọc chi tiết</span>
+            <span className="badge-mint mb-6 animate-badge-bounce">Đọc chi tiết</span>
             <h2
               className="headline-serif text-ink mb-4"
-              style={{ fontSize: "clamp(32px, 4vw, 40px)", lineHeight: 1.15 }}
+              style={{ fontSize: "clamp(36px, 5.5vw, 52px)", lineHeight: 1.1 }}
             >
-              Mỗi kịch bản = 1 bài học đầy đủ
+              Mỗi kịch bản = <span className="text-teal-gradient">1 bài học đầy đủ</span>
             </h2>
             <p className="font-sans text-ink mx-auto mb-8" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-              Xem 3 hướng Hook thực chiến, Solution và CTA chi tiết cho mỗi bài.
+              Xem <span className="bg-mint-highlight font-medium">3 hướng Hook</span> thực chiến,{" "}
+              <span className="bg-mint-highlight font-medium">Solution</span> và{" "}
+              <span className="bg-mint-highlight font-medium">CTA</span> chi tiết cho mỗi bài.
             </p>
             <Link href="/khoa-hoc" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
               <ArrowRight className="w-4 h-4 rotate-180" />

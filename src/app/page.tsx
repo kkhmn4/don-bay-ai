@@ -98,10 +98,10 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="headline-serif text-ink"
-          style={{ fontSize: "clamp(38px, 7vw, 60px)", lineHeight: 1.05 }}
+          className="headline-serif text-ink text-glow-teal"
+          style={{ fontSize: "clamp(48px, 9vw, 80px)", lineHeight: 1.0 }}
         >
-          Đòn Bẩy AI
+          Đòn Bẩy <span className="text-teal-gradient">AI</span>
         </motion.h1>
 
         {/* sub-headline serif */}
@@ -109,10 +109,10 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="headline-serif text-mist mt-4"
-          style={{ fontSize: "clamp(22px, 3vw, 26px)", lineHeight: 1.22 }}
+          className="headline-serif text-ink mt-6"
+          style={{ fontSize: "clamp(26px, 4vw, 36px)", lineHeight: 1.15 }}
         >
-          11 bài · 11 video ngắn đa kênh
+          <span className="bg-mint-highlight font-medium">11 bài</span> · <span className="bg-mint-highlight font-medium">11 video</span> ngắn đa kênh
         </motion.p>
 
         {/* subtext */}
@@ -208,17 +208,25 @@ function StatsRow() {
         {STATS.map((s, i) => (
           <motion.div
             key={s.label}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
+            transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
           >
-            <p className="headline-serif text-ink" style={{ fontSize: "clamp(40px, 5vw, 56px)", lineHeight: 1 }}>
+            <p
+              className="headline-serif text-ink number-glow"
+              style={{ fontSize: "clamp(56px, 8vw, 96px)", lineHeight: 0.9, letterSpacing: "-0.04em" }}
+            >
               {s.value}
             </p>
-            <p className="font-sans text-mist mt-2" style={{ fontSize: "14px", lineHeight: 1.5 }}>
+            <p className="font-sans font-medium text-deep-teal mt-3" style={{ fontSize: "15px", lineHeight: 1.4 }}>
               {s.label}
             </p>
+            {/* decorative divider */}
+            {i < STATS.length - 1 && (
+              <div className="hidden md:block absolute top-1/2 -right-4 w-px h-12 bg-deep-teal/20 -translate-y-1/2" />
+            )}
           </motion.div>
         ))}
       </div>
@@ -236,13 +244,13 @@ function HowItWorks() {
             <span className="badge-mint mb-6">3 Module · 11 bài học</span>
             <h2
               className="headline-serif text-ink mb-4"
-              style={{ fontSize: "clamp(36px, 5vw, 46px)", lineHeight: 1.15 }}
+              style={{ fontSize: "clamp(40px, 6vw, 60px)", lineHeight: 1.1 }}
             >
-              Lộ trình thực chiến
+              Lộ trình <span className="text-teal-gradient">thực chiến</span>
             </h2>
             <p className="font-sans text-ink mx-auto" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
               Từ soạn giảng với AI đến thí nghiệm ảo và trò chơi tương tác —
-              mỗi bài gắn với 1 kịch bản video ngắn đa kênh.
+              mỗi bài gắn với <span className="bg-mint-highlight font-medium">1 kịch bản video</span> ngắn đa kênh.
             </p>
           </div>
         </Reveal>
@@ -383,12 +391,14 @@ function FunnelSection() {
             <span className="badge-mint mb-6">Nguyên tắc phễu</span>
             <h2
               className="headline-serif text-ink mb-4"
-              style={{ fontSize: "clamp(36px, 5vw, 46px)", lineHeight: 1.15 }}
+              style={{ fontSize: "clamp(40px, 6vw, 60px)", lineHeight: 1.1 }}
             >
-              Phễu 3 tầng
+              Phễu <span className="text-teal-gradient">3 tầng</span>
             </h2>
             <p className="font-sans text-ink mx-auto" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-              Từ video ngắn đa kênh → Website EdTech Portal → Tải tài nguyên, chơi game, copy prompt.
+              Từ <span className="bg-mint-highlight font-medium">video ngắn</span> đa kênh →{" "}
+              <span className="bg-mint-highlight font-medium">Website EdTech Portal</span> →{" "}
+              <span className="bg-mint-highlight font-medium">Tải tài nguyên, chơi game, copy prompt</span>.
             </p>
           </div>
         </Reveal>
@@ -462,16 +472,18 @@ function FinalCTA() {
     <section className="py-20 px-5 sm:px-8 bg-paper">
       <div className="max-w-[720px] mx-auto text-center">
         <Reveal>
-          <span className="badge-mint mb-6">Sẵn sàng bắt đầu?</span>
+          <span className="badge-mint mb-6 animate-badge-bounce">Sẵn sàng bắt đầu?</span>
           <h2
             className="headline-serif text-ink mb-4"
-            style={{ fontSize: "clamp(36px, 5vw, 46px)", lineHeight: 1.15 }}
+            style={{ fontSize: "clamp(40px, 6vw, 60px)", lineHeight: 1.1 }}
           >
-            Khóa học Đòn Bẩy AI v8.0
+            Khóa học <span className="text-teal-gradient">Đòn Bẩy AI v8.0</span>
           </h2>
           <p className="font-sans text-ink mx-auto mb-8" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-            11 bài học thực chiến · 11 kịch bản video ngắn đa kênh ·
-            Hệ sinh thái Gemini & NotebookLM.
+            <span className="bg-mint-highlight font-medium">11 bài học thực chiến</span> ·{" "}
+            <span className="bg-mint-highlight font-medium">11 kịch bản video</span> ngắn đa kênh ·
+            Hệ sinh thái <span className="font-medium text-deep-teal">Gemini</span> &{" "}
+            <span className="font-medium text-deep-teal">NotebookLM</span>.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/khoa-hoc" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">

@@ -307,7 +307,164 @@
   transform: translateY(0);
 }
 
-/* === Print === */
+/* === HIGHLIGHT UTILITIES — make key points pop === */
+
+/* Big display number — for stats and lesson/video numbers */
+.text-mega {
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(72px, 12vw, 140px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+/* Gradient teal text — for key phrases */
+.text-teal-gradient {
+  background: linear-gradient(135deg, #006e75 0%, #0b978e 50%, #006e75 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Mint highlight — for inline key phrases */
+.bg-mint-highlight {
+  background: linear-gradient(180deg, transparent 60%, #b9ffe8 60%);
+  padding: 0 4px;
+}
+
+/* Plum highlight — for emphasized key terms */
+.bg-plum-highlight {
+  background: linear-gradient(180deg, transparent 60%, #ffc3e6 60%);
+  padding: 0 4px;
+}
+
+/* Glow text — for hero word */
+.text-glow-teal {
+  text-shadow:
+    0 0 24px rgba(0, 110, 117, 0.25),
+    0 0 48px rgba(0, 110, 117, 0.15);
+}
+
+/* Animated underline — for CTA emphasis */
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #006e75 0%, #0b978e 100%);
+  border-radius: 999px;
+  transform-origin: left;
+  animation: underline-grow 2.4s ease-in-out infinite;
+}
+
+@keyframes underline-grow {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.7); }
+}
+
+/* Pulsing dot — for "live" indicators */
+.pulsing-dot {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #006e75;
+  border-radius: 9999px;
+}
+.pulsing-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #006e75;
+  border-radius: 9999px;
+  animation: ping-teal 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping-teal {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Counter reveal — for stats */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-count-up {
+  animation: count-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Big serif quote mark — for hooks */
+.big-quote-mark {
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+  font-size: 80px;
+  line-height: 0.8;
+  color: #006e75;
+  opacity: 0.2;
+  font-style: italic;
+  display: inline-block;
+}
+
+/* Badge bounce — for hot/new indicators */
+@keyframes badge-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.animate-badge-bounce {
+  animation: badge-bounce 2s ease-in-out infinite;
+}
+
+/* Card lift on hover — subtle but elegant */
+.lift-on-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lift-on-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* Number glow — for lesson/video numbers */
+.number-glow {
+  text-shadow:
+    0 0 24px rgba(0, 110, 117, 0.2),
+    0 2px 8px rgba(6, 29, 41, 0.1);
+}
+
+/* Hook highlight box — for the Hook text in lesson/video cards */
+.hook-highlight {
+  position: relative;
+  background: linear-gradient(135deg, #b9ffe8 0%, #fffded 100%);
+  border-radius: 12px;
+  padding: 16px 20px;
+  border-left: 4px solid #006e75;
+}
+.hook-highlight::before {
+  content: "\201C";
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+  font-size: 60px;
+  line-height: 1;
+  color: #006e75;
+  opacity: 0.3;
+}
+
+/* Print === */
 @media print {
   .no-print { display: none !important; }
 }

@@ -229,12 +229,13 @@ function ModuleHeader({ module, icon: Icon }: { module: typeof MODULES[0]; icon:
   return (
     <Reveal>
       <div className="text-center mb-12 max-w-[720px] mx-auto">
-        <span className="badge-mint mb-4">{module.no} · {module.range}</span>
+        <span className="badge-mint mb-4 animate-badge-bounce">{module.no} · {module.range}</span>
         <h2
           className="headline-serif text-ink mb-3"
-          style={{ fontSize: "clamp(32px, 4vw, 40px)", lineHeight: 1.15 }}
+          style={{ fontSize: "clamp(36px, 5.5vw, 52px)", lineHeight: 1.1 }}
         >
-          {module.title}
+          {module.title.split(" ").slice(0, -1).join(" ")}{" "}
+          <span className="text-teal-gradient">{module.title.split(" ").slice(-1)[0]}</span>
         </h2>
         <p className="font-sans text-mist mx-auto" style={{ fontSize: "17px", lineHeight: 1.5, maxWidth: "560px" }}>
           {module.desc}
@@ -249,14 +250,22 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
   return (
     <Reveal>
       <article
-        className="overflow-hidden h-full flex flex-col bg-paper border border-hairline"
+        className="overflow-hidden h-full flex flex-col bg-paper border border-hairline lift-on-hover"
         style={{ borderRadius: "24px" }}
       >
         {/* Image header inside tri-tone wash */}
         <div
-          className="p-5"
+          className="p-5 relative"
           style={{ backgroundColor: getWashBg(lesson.wash) }}
         >
+          {/* Mega lesson number — overlaid on wash background */}
+          <span
+            className="absolute top-2 right-6 headline-serif text-ink select-none pointer-events-none number-glow"
+            style={{ fontSize: "96px", lineHeight: 0.85, opacity: 0.18, letterSpacing: "-0.04em" }}
+          >
+            {lesson.no}
+          </span>
+
           <div
             className="relative aspect-[16/10] overflow-hidden bg-paper"
             style={{ borderRadius: "8px" }}
@@ -268,14 +277,14 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            {/* lesson number badge */}
+            {/* lesson number badge — solid teal pill */}
             <div className="absolute top-3 left-3">
               <span
                 className="font-sans font-medium text-paper"
                 style={{
-                  backgroundColor: "rgba(0, 110, 117, 0.9)",
+                  backgroundColor: "#006e75",
                   borderRadius: "9999px",
-                  padding: "4px 12px",
+                  padding: "4px 14px",
                   fontSize: "13px",
                 }}
               >
@@ -289,7 +298,7 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
         <div className="flex-1 flex flex-col" style={{ padding: "24px" }}>
           <h3
             className="headline-serif text-ink mb-2"
-            style={{ fontSize: "22px", lineHeight: 1.22 }}
+            style={{ fontSize: "24px", lineHeight: 1.2 }}
           >
             {lesson.title}
           </h3>
@@ -301,8 +310,8 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
 
           {/* hooks */}
           <div className="space-y-2 mb-5">
-            <p className="font-sans font-medium text-ink mb-2" style={{ fontSize: "13px" }}>
-              3 HƯỚNG HOOK THỰC CHIẾN
+            <p className="font-sans font-medium text-deep-teal mb-3" style={{ fontSize: "13px", letterSpacing: "0.1em" }}>
+              ⚡ 3 HƯỚNG HOOK THỰC CHIẾN
             </p>
             {lesson.hooks.map((h, idx) => (
               <div
@@ -327,16 +336,19 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
           </div>
 
           {/* solution + CTA */}
-          <div className="mt-auto pt-4 border-t border-hairline space-y-2">
+          <div className="mt-auto pt-4 border-t border-hairline space-y-3">
             <div className="flex gap-3">
               <span className="shrink-0 font-sans font-medium text-deep-teal mt-0.5" style={{ fontSize: "12px" }}>
-                SOLUTION
+                ✅ SOLUTION
               </span>
               <p className="font-sans text-ink leading-relaxed flex-1" style={{ fontSize: "14px" }}>{lesson.solution}</p>
             </div>
-            <div className="flex gap-3 items-start">
+            <div
+              className="flex gap-3 items-start p-3"
+              style={{ backgroundColor: "#fffded", borderRadius: "8px" }}
+            >
               <span className="shrink-0 font-sans font-medium text-deep-teal mt-0.5" style={{ fontSize: "12px" }}>
-                CTA
+                🎯 CTA
               </span>
               <p className="font-sans font-medium text-ink" style={{ fontSize: "14px" }}>{lesson.cta}</p>
             </div>
@@ -424,15 +436,16 @@ export default function KhoaHocPage() {
       <section className="py-20 px-5 sm:px-8 bg-mint-glass">
         <div className="max-w-[720px] mx-auto text-center">
           <Reveal>
-            <span className="badge-mint mb-6">Đồng bộ 1-1</span>
+            <span className="badge-mint mb-6 animate-badge-bounce">Đồng bộ 1-1</span>
             <h2
               className="headline-serif text-ink mb-4"
-              style={{ fontSize: "clamp(32px, 4vw, 40px)", lineHeight: 1.15 }}
+              style={{ fontSize: "clamp(36px, 5.5vw, 52px)", lineHeight: 1.1 }}
             >
-              Mỗi bài = 1 kịch bản video
+              Mỗi bài = <span className="text-teal-gradient">1 kịch bản video</span>
             </h2>
             <p className="font-sans text-ink mx-auto mb-8" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-              Xem 11 kịch bản TikTok/Shorts/Reels với Hook → Solution → CTA hoàn chỉnh.
+              Xem <span className="bg-mint-highlight font-medium">11 kịch bản</span> TikTok/Shorts/Reels với{" "}
+              <span className="bg-mint-highlight font-medium">Hook → Solution → CTA</span> hoàn chỉnh.
             </p>
             <Link href="/video" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
               Xem 11 kịch bản video
