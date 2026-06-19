@@ -18,6 +18,7 @@ type Lesson = {
   cta: string;
   image: string;
   wash: "mint" | "cream" | "blossom";
+  gamePath?: string;
 };
 
 const MODULES = [
@@ -167,6 +168,7 @@ const LESSONS: Lesson[] = [
     cta: "Chơi thử Game Khởi động tại Bài 8.",
     image: "/images/lesson-08.png",
     wash: "cream",
+    gamePath: "/games/warmup-quiz/index.html",
   },
   {
     no: "09",
@@ -182,6 +184,7 @@ const LESSONS: Lesson[] = [
     cta: "Chơi thử Game Bóng Nhiệt Giải Lao tại Bài 9.",
     image: "/images/lesson-09.png",
     wash: "blossom",
+    gamePath: "/games/bong-nhiet/index.html",
   },
   {
     no: "10",
@@ -212,6 +215,7 @@ const LESSONS: Lesson[] = [
     cta: "Tải giáo án mẫu dạy học theo trạm tại Bài 11.",
     image: "/images/lesson-11.png",
     wash: "cream",
+    gamePath: "/games/ar-knowledge-universe/index.html",
   },
 ];
 
@@ -352,6 +356,19 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
               </span>
               <p className="font-sans font-medium text-ink" style={{ fontSize: "14px" }}>{lesson.cta}</p>
             </div>
+            {lesson.gamePath && (
+              <div className="pt-3">
+                <Link
+                  href={lesson.gamePath}
+                  target="_blank"
+                  className="w-full btn-teal inline-flex items-center justify-center gap-2 py-2 text-sm font-medium transition-all"
+                  style={{ borderRadius: "12px" }}
+                >
+                  <Gamepad2 className="w-4 h-4" />
+                  Chơi Game Tương Tác
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </article>

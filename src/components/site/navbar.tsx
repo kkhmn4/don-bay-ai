@@ -20,6 +20,7 @@ const NAV_LINKS = [
     { href: "/khoa-hoc#module-3", label: "Module 3 · Trò chơi" },
   ]},
   { href: "/video", label: "Video ngắn", hasDropdown: false },
+  { href: "/games/ar-knowledge-universe/index.html", label: "Game AR 🚀", hasDropdown: false, isFeatured: true },
   { href: "/#funnel", label: "Phễu", hasDropdown: false },
   { href: "/khoa-hoc", label: "Tài nguyên", hasDropdown: true, dropdown: [
     { href: "/khoa-hoc", label: "Prompt Gemini Gems" },
@@ -143,12 +144,18 @@ export function Navbar() {
                 >
                   <Link
                     href={l.href}
-                    className={`nav-link font-sans inline-flex items-center gap-1 ${
-                      isActive
-                        ? "is-active text-deep-teal font-semibold"
-                        : "text-ink font-medium hover:text-deep-teal"
+                    target={l.href.includes("/games/") ? "_blank" : undefined}
+                    rel={l.href.includes("/games/") ? "noopener noreferrer" : undefined}
+                    className={`font-sans inline-flex items-center gap-1 ${
+                      l.isFeatured
+                        ? "bg-mint-glass text-deep-teal px-3.5 py-1.5 rounded-full border border-bright-teal/25 hover:bg-deep-teal hover:text-paper hover:scale-105 transition-all font-semibold mx-1 shadow-sm"
+                        : `nav-link ${
+                            isActive
+                              ? "is-active text-deep-teal font-semibold"
+                              : "text-ink font-medium hover:text-deep-teal"
+                          }`
                     }`}
-                    style={{ fontSize: "15px", padding: "8px 14px", lineHeight: 1.22 }}
+                    style={{ fontSize: "15px", padding: l.isFeatured ? "6px 14px" : "8px 14px", lineHeight: 1.22 }}
                   >
                     {l.label}
                     {l.hasDropdown && (
@@ -248,9 +255,15 @@ export function Navbar() {
               <Link
                 key={l.label}
                 href={l.href}
+                target={l.href.includes("/games/") ? "_blank" : undefined}
+                rel={l.href.includes("/games/") ? "noopener noreferrer" : undefined}
                 onClick={() => setOpen(false)}
-                className="font-sans text-ink hover:text-deep-teal transition-colors flex items-center justify-between"
-                style={{ fontSize: "16px", padding: "12px 0", fontWeight: 500, borderBottom: "1px solid #ececee" }}
+                className={`font-sans text-ink hover:text-deep-teal transition-colors flex items-center justify-between ${
+                  l.isFeatured
+                    ? "bg-mint-glass text-deep-teal px-4 py-2.5 rounded-xl border border-bright-teal/20 font-semibold my-1"
+                    : ""
+                }`}
+                style={{ fontSize: "16px", padding: l.isFeatured ? "10px 16px" : "12px 0", fontWeight: 500, borderBottom: l.isFeatured ? "none" : "1px solid #ececee" }}
               >
                 {l.label}
                 {l.hasDropdown && <ChevronDown className="w-4 h-4 text-mist" />}
