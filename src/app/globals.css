@@ -4,106 +4,105 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* === Awesomic Color System — Rounded midnight marketplace === */
-  /* Neutral scale — dense and graduated */
-  --color-obsidian: #09090b;
-  --color-ink: #18181b;
-  --color-graphite: #3f3f46;
-  --color-slate: #52525b;
-  --color-steel: #71717a;
-  --color-ash: #a1a1aa;
-  --color-pebble: #d4d4d8;
-  --color-fog: #ececee;
-  --color-mist: #f4f4f5;
-  --color-snow: #ffffff;
+  /* === Lyssna Color System — Botanical research journal === */
+  /* Primary action — the single chromatic pulse */
+  --color-deep-teal: #006e75;
+  --color-bright-teal: #0b978e;
 
-  /* Accent — scarce and vivid */
-  --color-ember: #ff5a00;
-  --color-orchid-flash: #fe45e2;
+  /* Text — cool near-black with teal cast */
+  --color-ink: #061d29;
+  --color-midnight-teal: #072626;
+  --color-mist: #425d6d;
 
-  /* Map to shadcn semantic tokens — Awesomic light theme */
-  --color-background: var(--color-mist);
-  --color-foreground: var(--color-obsidian);
-  --color-card: var(--color-snow);
-  --color-card-foreground: var(--color-obsidian);
-  --color-popover: var(--color-snow);
-  --color-popover-foreground: var(--color-obsidian);
-  --color-primary: var(--color-obsidian);
-  --color-primary-foreground: var(--color-snow);
-  --color-secondary: var(--color-fog);
+  /* Neutral surfaces */
+  --color-hairline: #e5e7eb;
+  --color-paper: #ffffff;
+  --color-cream: #fffded;
+
+  /* Tri-tone accent system — mint / cream / pink */
+  --color-mint-glass: #b9ffe8;
+  --color-blossom: #ffc3e6;
+
+  /* Decorative accents */
+  --color-plum: #4d0037;
+  --color-ember-ring: #ff492c;
+
+  /* Map to shadcn semantic tokens — Lyssna light theme */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-paper);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-paper);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-deep-teal);
+  --color-primary-foreground: var(--color-paper);
+  --color-secondary: var(--color-cream);
   --color-secondary-foreground: var(--color-ink);
-  --color-muted: var(--color-fog);
-  --color-muted-foreground: var(--color-steel);
-  --color-accent: var(--color-ember);
-  --color-accent-foreground: var(--color-snow);
-  --color-destructive: var(--color-ember);
-  --color-border: var(--color-pebble);
-  --color-input: var(--color-pebble);
-  --color-ring: var(--color-graphite);
+  --color-muted: var(--color-cream);
+  --color-muted-foreground: var(--color-mist);
+  --color-accent: var(--color-mint-glass);
+  --color-accent-foreground: var(--color-ink);
+  --color-destructive: var(--color-ember-ring);
+  --color-border: var(--color-hairline);
+  --color-input: var(--color-hairline);
+  --color-ring: var(--color-deep-teal);
 
-  /* Typography — Plus Jakarta Sans as Cosmica substitute (Google Fonts) */
-  --font-sans: var(--font-jakarta);
-  --font-display: var(--font-jakarta);
+  /* Typography — Source Serif 4 (grenette substitute) + Inter (mint substitute) */
+  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-source-serif);
   --font-mono: ui-monospace, monospace;
 
-  /* Spacing scale — base 4px */
+  /* Spacing scale */
   --spacing-4: 4px;
   --spacing-8: 8px;
   --spacing-12: 12px;
   --spacing-16: 16px;
   --spacing-20: 20px;
   --spacing-24: 24px;
-  --spacing-28: 28px;
   --spacing-32: 32px;
-  --spacing-36: 36px;
   --spacing-40: 40px;
+  --spacing-44: 44px;
   --spacing-48: 48px;
+  --spacing-52: 52px;
+  --spacing-56: 56px;
   --spacing-64: 64px;
   --spacing-80: 80px;
-  --spacing-120: 120px;
 
   /* Layout */
   --page-max-width: 1200px;
 
-  /* Border Radius — Awesomic's signature extreme rounding */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  /* Border Radius — Lyssna: 8px for buttons/inputs, 24px for cards */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-2xl: 24px;
-  --radius-3xl: 28px;
-  --radius-4xl: 36px;
-  --radius-5xl: 40px;
-  --radius-hero: 48px;
-  --radius-pill: 10000px;
+  --radius-pill: 9999px;
 
   /* Map to shadcn radius */
-  --radius: 36px;
-
-  /* Shadows — layered button shadow + subtle card shadows */
-  --shadow-subtle-2: rgb(228, 228, 231) 0px 1px 0px 0px inset;
-  --shadow-md: rgba(0, 0, 0, 0.04) 0px 4px 12px 0px;
+  --radius: 8px;
 
   /* Chart colors */
-  --color-chart-1: var(--color-obsidian);
-  --color-chart-2: var(--color-graphite);
-  --color-chart-3: var(--color-steel);
-  --color-chart-4: var(--color-ash);
-  --color-chart-5: var(--color-ember);
+  --color-chart-1: var(--color-deep-teal);
+  --color-chart-2: var(--color-bright-teal);
+  --color-chart-3: var(--color-mint-glass);
+  --color-chart-4: var(--color-blossom);
+  --color-chart-5: var(--color-cream);
 
   /* Sidebar */
-  --color-sidebar: var(--color-snow);
-  --color-sidebar-foreground: var(--color-obsidian);
-  --color-sidebar-primary: var(--color-obsidian);
-  --color-sidebar-primary-foreground: var(--color-snow);
-  --color-sidebar-accent: var(--color-fog);
+  --color-sidebar: var(--color-paper);
+  --color-sidebar-foreground: var(--color-ink);
+  --color-sidebar-primary: var(--color-deep-teal);
+  --color-sidebar-primary-foreground: var(--color-paper);
+  --color-sidebar-accent: var(--color-mint-glass);
   --color-sidebar-accent-foreground: var(--color-ink);
-  --color-sidebar-border: var(--color-pebble);
-  --color-sidebar-ring: var(--color-graphite);
+  --color-sidebar-border: var(--color-hairline);
+  --color-sidebar-ring: var(--color-deep-teal);
 }
 
 :root {
-  --radius: 36px;
+  --radius: 8px;
 }
 
 @layer base {
@@ -117,16 +116,16 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 14px;
-    line-height: 1.56;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
     font-weight: 400;
-    background-color: #f4f4f5;
-    color: #09090b;
+    background-color: #ffffff;
+    color: #061d29;
   }
   ::selection {
-    background: #09090b;
-    color: #ffffff;
+    background: #b9ffe8;
+    color: #061d29;
   }
 }
 
@@ -136,98 +135,172 @@
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #ececee;
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a1a1aa;
+  background: #e5e7eb;
   border-radius: 999px;
-  border: 2px solid #ececee;
+  border: 2px solid #ffffff;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #71717a;
+  background: #425d6d;
 }
 
 /* === Typography utilities === */
-.font-display {
-  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+.font-serif {
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+}
+.font-sans {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Type scale (per spec) */
-.text-caption { font-size: 10px; line-height: 1.8; }
-.text-body { font-size: 14px; line-height: 1.56; }
-.text-body-lg { font-size: 16px; line-height: 1.5; }
-.text-subheading { font-size: 18px; line-height: 1.45; }
-.text-heading-sm { font-size: 20px; line-height: 1.35; }
-.text-heading { font-size: 32px; line-height: 1.28; }
-.text-heading-lg { font-size: 40px; line-height: 1.25; }
-.text-display-sm { font-size: 56px; line-height: 1.12; }
-.text-display { font-size: 64px; line-height: 1; }
+/* Type scale (per spec) — serif for 46px+, sans for everything else */
+.text-caption { font-size: 12px; line-height: 1.5; }
+.text-body-sm { font-size: 14px; line-height: 1.5; }
+.text-body { font-size: 16px; line-height: 1.5; }
+.text-body-lg { font-size: 18px; line-height: 1.5; }
+.text-subheading { font-size: 20px; line-height: 1.25; }
+.text-heading-sm { font-size: 22px; line-height: 1.22; }
+.text-heading { font-size: 26px; line-height: 1.22; }
+.text-heading-lg { font-size: 46px; line-height: 1.15; }
+.text-display { font-size: 60px; line-height: 1.05; }
+
+/* === Headlines — grenette/Source Serif 4, weight 400 only === */
+.headline-serif {
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
 
 /* === Surface utilities === */
-.surface-canvas { background-color: #f4f4f5; }
-.surface-card-white { background-color: #ffffff; }
-.surface-card-muted { background-color: #ececee; }
-.surface-dark { background-color: #09090b; }
+.surface-canvas { background-color: #ffffff; }
+.surface-cream { background-color: #fffded; }
+.surface-mint { background-color: #b9ffe8; }
+.surface-blossom { background-color: #ffc3e6; }
+.surface-card { background-color: #ffffff; }
 
-/* === Pill button shadow — Awesomic's signature CTA physicality === */
-.shadow-pill-physical {
-  box-shadow:
-    rgba(255, 255, 255, 0.5) 0px 0.5px 0px 0px inset,
-    rgba(117, 123, 133, 0.4) 0px 9px 14px -5px inset,
-    rgb(44, 46, 52) 0px 0px 0px 1.5px,
-    rgba(0, 0, 0, 0.14) 0px 4px 6px 0px;
+/* === Teal primary button — single pulse per viewport === */
+.btn-teal {
+  background-color: #006e75;
+  color: #ffffff;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-teal:hover {
+  background-color: #0b978e;
 }
 
-.shadow-card-inset {
-  box-shadow: rgb(228, 228, 231) 0px 1px 0px 0px inset;
+/* === Outlined secondary button === */
+.btn-outlined {
+  background-color: transparent;
+  color: #425d6d;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #425d6d;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-outlined:hover {
+  background-color: #061d29;
+  color: #ffffff;
+  border-color: #061d29;
 }
 
-.shadow-card-soft {
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 12px 0px;
+/* === Mint pill badge === */
+.badge-mint {
+  background-color: #b9ffe8;
+  color: #061d29;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-/* === Accent badges — Ember for YC-style, Orchid for decorative === */
-.bg-ember { background-color: #ff5a00; }
-.bg-orchid { background-color: #fe45e2; }
-.text-ember { color: #ff5a00; }
-.text-orchid { color: #fe45e2; }
-
-/* === Animations === */
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+/* === Participant name tag — plum pill === */
+.badge-plum {
+  background-color: #4d0037;
+  color: #ffffff;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
 }
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
+
+/* === Hairline border helper === */
+.border-hairline {
+  border: 1px solid #e5e7eb;
+}
+.border-hairline-bottom {
+  border-bottom: 1px solid #e5e7eb;
+}
+.border-hairline-top {
+  border-top: 1px solid #e5e7eb;
+}
+
+/* === Conic gradient rating ring === */
+.bg-ember-ring {
+  background: conic-gradient(rgb(255, 176, 164) 0deg, rgb(255, 73, 44) 0deg, rgb(255, 73, 44) 360deg);
+}
+
+/* === Animations — calm, journal-like === */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes pulse-subtle {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  50% { opacity: 0.85; }
 }
 .animate-pulse-subtle {
   animation: pulse-subtle 3s ease-in-out infinite;
 }
 
-@keyframes bounce-subtle {
+@keyframes float-slow {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-6px); }
 }
-.animate-bounce-subtle {
-  animation: bounce-subtle 2s ease-in-out infinite;
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
 }
 
-/* Spring overshoot easing for entrance animations */
-.ease-spring {
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 110, 117, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 110, 117, 0);
+  }
+}
+.animate-gentle-pulse {
+  animation: gentle-pulse 2.4s ease-in-out infinite;
 }
 
 /* === Reveal on scroll === */
 .reveal-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-              transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal-up.is-visible {
   opacity: 1;

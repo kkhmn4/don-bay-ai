@@ -17,6 +17,7 @@ type Lesson = {
   solution: string;
   cta: string;
   image: string;
+  wash: "mint" | "cream" | "blossom";
 };
 
 const MODULES = [
@@ -26,6 +27,7 @@ const MODULES = [
     title: "Soạn giảng với Gemini & NotebookLM",
     icon: Bot,
     desc: "4 bài học thiết lập hệ sinh thái AI soạn giảng — từ Custom Gem, NotebookLM, podcast flipped classroom đến template in ấn.",
+    wash: "mint" as const,
   },
   {
     no: "Module 2",
@@ -33,6 +35,7 @@ const MODULES = [
     title: "Thí nghiệm ảo tương tác",
     icon: FlaskConical,
     desc: "3 bài học tạo mô phỏng vật lý 60fps chạy mượt trên 4G — SVG tương tác, CSS Spring Bounce, HTML5 Canvas.",
+    wash: "cream" as const,
   },
   {
     no: "Module 3",
@@ -40,6 +43,7 @@ const MODULES = [
     title: "Trò chơi tương tác lớp học",
     icon: Gamepad2,
     desc: "4 bài học thiết kế game lớp học — warm-up quiz, icebreaker, wrap-up Đúng/Sai và dạy học xoay trạm QR Code.",
+    wash: "blossom" as const,
   },
 ];
 
@@ -57,6 +61,7 @@ const LESSONS: Lesson[] = [
     solution: "Custom Gem \"GEMS Assistant\" tự động lập giáo án và phiếu học tập.",
     cta: "Copy prompt cấu hình Gem tại Bài 1 trên Web.",
     image: "/images/lesson-01.png",
+    wash: "mint",
   },
   {
     no: "02",
@@ -71,6 +76,7 @@ const LESSONS: Lesson[] = [
     solution: "NotebookLM bám sát nguồn tài liệu tải lên để xuất câu hỏi chẩn đoán chính xác.",
     cta: "Lấy câu lệnh soạn đề chẩn đoán tại Bài 2 trên Web.",
     image: "/images/lesson-02.png",
+    wash: "cream",
   },
   {
     no: "03",
@@ -85,6 +91,7 @@ const LESSONS: Lesson[] = [
     solution: "Dùng tính năng Generate Audio trong NotebookLM và tải tệp phụ đề Việt dịch sẵn trên website.",
     cta: "Tải audio mẫu và phụ đề tiếng Việt đối thoại tại Bài 3.",
     image: "/images/lesson-03.png",
+    wash: "blossom",
   },
   {
     no: "04",
@@ -99,6 +106,7 @@ const LESSONS: Lesson[] = [
     solution: "Dán nội dung từ AI vào file template Word chia sẵn 2 cột, lề 1.5cm.",
     cta: "Tải template Word chuẩn in ấn tại Bài 4.",
     image: "/images/lesson-04.png",
+    wash: "mint",
   },
   {
     no: "05",
@@ -113,6 +121,7 @@ const LESSONS: Lesson[] = [
     solution: "Học sinh quét QR trên phiếu học tập mở trang SVG tương tác kéo slider cảm nhận dòng nhiệt.",
     cta: "Trải nghiệm mô phỏng dòng nhiệt tại Bài 5.",
     image: "/images/lesson-05.png",
+    wash: "cream",
   },
   {
     no: "06",
@@ -121,12 +130,13 @@ const LESSONS: Lesson[] = [
     topic: "Thí nghiệm nhiệt kế dâng nảy quán tính chất lỏng tự nhiên sử dụng CSS transition.",
     hooks: [
       { type: "Sư phạm", text: "Nhiệt kế dâng nước nảy nhẹ quán tính chất lỏng cực chất! — Chống chuyển động đơ cứng bằng cubic-bezier." },
-      { type: "Học sinh", text: "Học sinh liên tục bấm nút để ngắm cột nước nhiệt kế dâng nảy? — Rèn luyện ghi nhớ mốc Celsius và Kelvin." },
+      { type: "Học sinh", text: "Học sinh liên tục bấm nút để ngắm cột nước nhiệt kế dâng nảy? — Rén luyện ghi nhớ mốc Celsius và Kelvin." },
       { type: "Kỹ thuật", text: "Tạo độ nảy lò xo cơ học bằng một hàm CSS duy nhất? — Áp dụng cubic-bezier với tham số overshoot 1.56." },
     ],
     solution: "Mô phỏng nhiệt kế 3D dâng mực nước có quán tính nảy nhẹ ở đỉnh tương tác trực tiếp.",
     cta: "Chơi thử mô phỏng nhiệt kế nảy lò xo tại Bài 6.",
     image: "/images/lesson-06.png",
+    wash: "blossom",
   },
   {
     no: "07",
@@ -141,6 +151,7 @@ const LESSONS: Lesson[] = [
     solution: "Mô phỏng hàng trăm phân tử khí chuyển động 60fps trên Canvas, tăng nhiệt độ làm hạt va đập nhanh hơn.",
     cta: "Nhận mã nguồn mô phỏng phân tử tại Bài 7.",
     image: "/images/lesson-07.png",
+    wash: "mint",
   },
   {
     no: "08",
@@ -155,6 +166,7 @@ const LESSONS: Lesson[] = [
     solution: "Game trắc nghiệm tính giờ lật ô chữ phần thưởng — học sinh quét QR thi đấu.",
     cta: "Chơi thử Game Khởi động tại Bài 8.",
     image: "/images/lesson-08.png",
+    wash: "cream",
   },
   {
     no: "09",
@@ -169,6 +181,7 @@ const LESSONS: Lesson[] = [
     solution: "Chơi game click bóng nhiệt rơi tự do trong 30 giây để lấy lại sự tập trung học tập.",
     cta: "Chơi thử Game Bóng Nhiệt Giải Lao tại Bài 9.",
     image: "/images/lesson-09.png",
+    wash: "blossom",
   },
   {
     no: "10",
@@ -183,6 +196,7 @@ const LESSONS: Lesson[] = [
     solution: "Game trắc nghiệm chẩn đoán Đúng/Sai, chọn đáp án và hiện lời giải thích khoa học lập tức.",
     cta: "Chơi thử Game Củng cố tại Bài 10.",
     image: "/images/lesson-10.png",
+    wash: "mint",
   },
   {
     no: "11",
@@ -197,122 +211,134 @@ const LESSONS: Lesson[] = [
     solution: "Chia 5 trạm: Thực nghiệm · Mô phỏng · Game củng cố · Mindmap · Video STEM.",
     cta: "Tải giáo án mẫu dạy học theo trạm tại Bài 11.",
     image: "/images/lesson-11.png",
+    wash: "cream",
   },
 ];
+
+function getWashBg(wash: string) {
+  switch (wash) {
+    case "mint": return "#b9ffe8";
+    case "cream": return "#fffded";
+    case "blossom": return "#ffc3e6";
+    default: return "#ffffff";
+  }
+}
 
 /* ---------------- Module header ---------------- */
 function ModuleHeader({ module, icon: Icon }: { module: typeof MODULES[0]; icon: React.ElementType }) {
   return (
     <Reveal>
-      <div className="flex items-start gap-4 mb-8 pb-6 border-b border-pebble">
-        <div
-          className="inline-flex items-center justify-center bg-obsidian text-snow shrink-0"
-          style={{ borderRadius: "40px", width: "56px", height: "56px" }}
+      <div className="text-center mb-12 max-w-[720px] mx-auto">
+        <span className="badge-mint mb-4">{module.no} · {module.range}</span>
+        <h2
+          className="headline-serif text-ink mb-3"
+          style={{ fontSize: "clamp(32px, 4vw, 40px)", lineHeight: 1.15 }}
         >
-          <Icon className="w-7 h-7" strokeWidth={1.5} />
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-[12px] uppercase tracking-[0.2em] font-semibold text-ember">
-              {module.no}
-            </span>
-            <span className="text-[12px] uppercase tracking-[0.15em] text-steel">
-              {module.range}
-            </span>
-          </div>
-          <h2
-            className="font-bold text-obsidian leading-tight mb-2"
-            style={{ fontSize: "32px", lineHeight: 1.28 }}
-          >
-            {module.title}
-          </h2>
-          <p className="text-[16px] text-graphite leading-relaxed">
-            {module.desc}
-          </p>
-        </div>
+          {module.title}
+        </h2>
+        <p className="font-sans text-mist mx-auto" style={{ fontSize: "17px", lineHeight: 1.5, maxWidth: "560px" }}>
+          {module.desc}
+        </p>
       </div>
     </Reveal>
   );
 }
 
-/* ---------------- Lesson card — 36px rounded with image ---------------- */
+/* ---------------- Lesson card with tri-tone wash ---------------- */
 function LessonCard({ lesson }: { lesson: Lesson }) {
   return (
     <Reveal>
       <article
-        className="bg-snow shadow-card-inset hover:shadow-card-soft transition-shadow duration-300 overflow-hidden h-full flex flex-col"
-        style={{ borderRadius: "36px" }}
+        className="overflow-hidden h-full flex flex-col bg-paper border border-hairline"
+        style={{ borderRadius: "24px" }}
       >
-        {/* image header */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-fog">
-          <Image
-            src={lesson.image}
-            alt={`Bài ${lesson.no} — ${lesson.title}`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 to-transparent" />
-          {/* lesson number badge */}
-          <div className="absolute top-4 left-4">
-            <span
-              className="font-bold text-snow bg-obsidian/80 backdrop-blur-sm"
-              style={{ borderRadius: "12px", padding: "6px 12px", fontSize: "14px" }}
-            >
-              Bài {lesson.no}
-            </span>
+        {/* Image header inside tri-tone wash */}
+        <div
+          className="p-5"
+          style={{ backgroundColor: getWashBg(lesson.wash) }}
+        >
+          <div
+            className="relative aspect-[16/10] overflow-hidden bg-paper"
+            style={{ borderRadius: "8px" }}
+          >
+            <Image
+              src={lesson.image}
+              alt={`Bài ${lesson.no} — ${lesson.title}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            {/* lesson number badge */}
+            <div className="absolute top-3 left-3">
+              <span
+                className="font-sans font-medium text-paper"
+                style={{
+                  backgroundColor: "rgba(0, 110, 117, 0.9)",
+                  borderRadius: "9999px",
+                  padding: "4px 12px",
+                  fontSize: "13px",
+                }}
+              >
+                Bài {lesson.no}
+              </span>
+            </div>
           </div>
         </div>
 
         {/* content */}
         <div className="flex-1 flex flex-col" style={{ padding: "24px" }}>
           <h3
-            className="font-bold text-obsidian leading-tight mb-2"
-            style={{ fontSize: "18px", lineHeight: 1.35 }}
+            className="headline-serif text-ink mb-2"
+            style={{ fontSize: "22px", lineHeight: 1.22 }}
           >
             {lesson.title}
           </h3>
 
           {/* topic */}
-          <p className="text-[14px] text-graphite leading-relaxed mb-4 pl-3 border-l-2 border-pebble">
+          <p className="font-sans text-mist mb-5 pl-3 border-l-2 border-hairline" style={{ fontSize: "15px", lineHeight: 1.5 }}>
             {lesson.topic}
           </p>
 
           {/* hooks */}
-          <div className="space-y-2 mb-4">
-            <p className="text-[11px] uppercase tracking-[0.2em] font-semibold text-steel mb-2">
-              3 hướng Hook thực chiến
+          <div className="space-y-2 mb-5">
+            <p className="font-sans font-medium text-ink mb-2" style={{ fontSize: "13px" }}>
+              3 HƯỚNG HOOK THỰC CHIẾN
             </p>
             {lesson.hooks.map((h, idx) => (
               <div
                 key={idx}
-                className="flex gap-3 bg-fog"
-                style={{ borderRadius: "12px", padding: "10px 12px" }}
+                className="flex gap-3 bg-cream"
+                style={{ borderRadius: "8px", padding: "10px 12px" }}
               >
                 <span
-                  className="shrink-0 text-[11px] uppercase tracking-[0.15em] font-semibold text-snow bg-graphite"
-                  style={{ borderRadius: "8px", padding: "2px 8px" }}
+                  className="shrink-0 font-sans font-medium text-ink"
+                  style={{
+                    backgroundColor: "#b9ffe8",
+                    borderRadius: "9999px",
+                    padding: "2px 10px",
+                    fontSize: "12px",
+                  }}
                 >
                   {h.type}
                 </span>
-                <p className="text-[13px] text-graphite leading-snug flex-1">{h.text}</p>
+                <p className="font-sans text-mist leading-snug flex-1" style={{ fontSize: "13px" }}>{h.text}</p>
               </div>
             ))}
           </div>
 
           {/* solution + CTA */}
-          <div className="mt-auto pt-4 border-t border-pebble space-y-2">
+          <div className="mt-auto pt-4 border-t border-hairline space-y-2">
             <div className="flex gap-3">
-              <span className="shrink-0 text-[11px] uppercase tracking-[0.2em] font-semibold text-ember mt-0.5">
-                Solution
+              <span className="shrink-0 font-sans font-medium text-deep-teal mt-0.5" style={{ fontSize: "12px" }}>
+                SOLUTION
               </span>
-              <p className="text-[14px] text-ink leading-relaxed flex-1">{lesson.solution}</p>
+              <p className="font-sans text-ink leading-relaxed flex-1" style={{ fontSize: "14px" }}>{lesson.solution}</p>
             </div>
             <div className="flex gap-3 items-start">
-              <span className="shrink-0 text-[11px] uppercase tracking-[0.2em] font-semibold text-ember mt-0.5">
+              <span className="shrink-0 font-sans font-medium text-deep-teal mt-0.5" style={{ fontSize: "12px" }}>
                 CTA
               </span>
-              <p className="text-[14px] font-semibold text-obsidian">{lesson.cta}</p>
+              <p className="font-sans font-medium text-ink" style={{ fontSize: "14px" }}>{lesson.cta}</p>
             </div>
           </div>
         </div>
@@ -327,38 +353,45 @@ export default function KhoaHocPage() {
   const module2Lessons = LESSONS.filter((l) => l.module === "Module 2");
   const module3Lessons = LESSONS.filter((l) => l.module === "Module 3");
 
+  // alternate section backgrounds: white → mint → white → cream
+  const moduleSections = [
+    { module: MODULES[0], lessons: module1Lessons, bg: "bg-paper" },
+    { module: MODULES[1], lessons: module2Lessons, bg: "bg-mint-glass" },
+    { module: MODULES[2], lessons: module3Lessons, bg: "bg-paper" },
+  ];
+
   return (
     <>
       <PageHero
         eyebrow="Lộ trình 11 bài học"
-        title={<>Khóa học Đòn Bẩy AI <span className="text-ash font-light">v8.0</span></>}
+        title={<>Khóa học Đòn Bẩy AI <span className="text-mist">v8.0</span></>}
         subtitle="11 bài học thực chiến đồng bộ 1-1 với 11 kịch bản video ngắn đa kênh. Mỗi bài có 3 hướng Hook thực chiến, Solution và CTA rõ ràng."
       />
 
-      {/* Quick nav */}
-      <section className="px-5 sm:px-8 py-8 bg-mist border-t border-pebble">
+      {/* Quick nav on cream */}
+      <section className="py-8 px-5 sm:px-8 bg-cream border-y border-hairline">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid sm:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-3 gap-4">
             {MODULES.map((m) => {
               const Icon = m.icon;
               return (
                 <a
                   key={m.no}
                   href={`#module-${m.no.split(" ")[1]}`}
-                  className="group flex items-center gap-3 bg-snow shadow-card-inset hover:shadow-card-soft transition-shadow"
-                  style={{ borderRadius: "28px", padding: "20px" }}
+                  className="group flex items-center gap-3 bg-paper border border-hairline hover:border-deep-teal transition-colors"
+                  style={{ borderRadius: "24px", padding: "20px" }}
                 >
                   <div
-                    className="inline-flex items-center justify-center bg-fog text-obsidian shrink-0"
-                    style={{ borderRadius: "40px", width: "44px", height: "44px" }}
+                    className="inline-flex items-center justify-center bg-mint-glass text-deep-teal shrink-0"
+                    style={{ borderRadius: "9999px", width: "40px", height: "40px" }}
                   >
                     <Icon className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] uppercase tracking-[0.2em] font-semibold text-ember">
+                    <p className="font-sans font-medium text-deep-teal" style={{ fontSize: "12px" }}>
                       {m.no} · {m.range}
                     </p>
-                    <p className="text-[14px] font-semibold text-obsidian truncate">
+                    <p className="font-sans font-medium text-ink truncate" style={{ fontSize: "14px" }}>
                       {m.title}
                     </p>
                   </div>
@@ -369,73 +402,42 @@ export default function KhoaHocPage() {
         </div>
       </section>
 
-      {/* Modules with lessons */}
-      <section className="px-5 sm:px-8 py-16 bg-mist">
-        <div className="max-w-[1200px] mx-auto space-y-16">
-          <div id="module-1">
-            <ModuleHeader module={MODULES[0]} icon={MODULES[0].icon} />
+      {/* Modules with alternating backgrounds */}
+      {moduleSections.map((section, idx) => (
+        <section
+          key={section.module.no}
+          id={`module-${section.module.no.split(" ")[1]}`}
+          className={`py-20 px-5 sm:px-8 ${section.bg}`}
+        >
+          <div className="max-w-[1200px] mx-auto">
+            <ModuleHeader module={section.module} icon={section.module.icon} />
             <div className="grid md:grid-cols-2 gap-6">
-              {module1Lessons.map((l) => (
+              {section.lessons.map((l) => (
                 <LessonCard key={l.no} lesson={l} />
               ))}
             </div>
           </div>
+        </section>
+      ))}
 
-          <div id="module-2">
-            <ModuleHeader module={MODULES[1]} icon={MODULES[1].icon} />
-            <div className="grid md:grid-cols-2 gap-6">
-              {module2Lessons.map((l) => (
-                <LessonCard key={l.no} lesson={l} />
-              ))}
-            </div>
-          </div>
-
-          <div id="module-3">
-            <ModuleHeader module={MODULES[2]} icon={MODULES[2].icon} />
-            <div className="grid md:grid-cols-2 gap-6">
-              {module3Lessons.map((l) => (
-                <LessonCard key={l.no} lesson={l} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA to video page — dark panel */}
-      <section className="px-5 sm:px-8 py-16 bg-mist">
-        <div className="max-w-[1200px] mx-auto">
+      {/* CTA to video page on mint */}
+      <section className="py-20 px-5 sm:px-8 bg-mint-glass">
+        <div className="max-w-[720px] mx-auto text-center">
           <Reveal>
-            <div
-              className="bg-obsidian text-snow"
-              style={{ borderRadius: "36px", padding: "40px" }}
+            <span className="badge-mint mb-6">Đồng bộ 1-1</span>
+            <h2
+              className="headline-serif text-ink mb-4"
+              style={{ fontSize: "clamp(32px, 4vw, 40px)", lineHeight: 1.15 }}
             >
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div>
-                  <span className="inline-flex items-center text-[12px] font-medium text-obsidian bg-snow mb-3"
-                    style={{ borderRadius: "12px", padding: "4px 10px" }}
-                  >
-                    Đồng bộ 1-1
-                  </span>
-                  <h3
-                    className="font-bold mb-2"
-                    style={{ fontSize: "28px", lineHeight: 1.28 }}
-                  >
-                    Mỗi bài = <span className="text-ash font-light">1 kịch bản video</span>
-                  </h3>
-                  <p className="text-ash text-[15px]">
-                    Xem 11 kịch bản TikTok/Shorts/Reels với Hook → Solution → CTA hoàn chỉnh.
-                  </p>
-                </div>
-                <Link
-                  href="/video"
-                  className="inline-flex items-center gap-2 text-obsidian font-medium bg-snow hover:bg-fog transition-colors shadow-pill-physical shrink-0"
-                  style={{ borderRadius: "36px", padding: "14px 24px", fontSize: "14px" }}
-                >
-                  Xem 11 kịch bản video
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+              Mỗi bài = 1 kịch bản video
+            </h2>
+            <p className="font-sans text-ink mx-auto mb-8" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
+              Xem 11 kịch bản TikTok/Shorts/Reels với Hook → Solution → CTA hoàn chỉnh.
+            </p>
+            <Link href="/video" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
+              Xem 11 kịch bản video
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </Reveal>
         </div>
       </section>
