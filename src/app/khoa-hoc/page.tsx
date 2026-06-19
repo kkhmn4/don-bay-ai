@@ -145,9 +145,9 @@ const LESSONS: Lesson[] = [
     title: "Động học phân tử khí trên HTML5 Canvas 60fps",
     topic: "Mô phỏng chuyển động hỗn loạn của hạt phân tử khí, va chạm thành bình và liên hệ nhiệt độ.",
     hooks: [
-      { type: "Sư phạm", text: "Tự tạo video hoạt họa 60fps đăng TikTok chỉ 1 dòng lệnh! — Dùng mã HTML Canvas phân tử chuyển động." },
-      { type: "Học sinh", text: "Học sinh cuốn hút xem chuyển động phân tử khí đạt chục nghìn view? — Trực quan hóa thuyết động học phân tử." },
-      { type: "Kỹ thuật", text: "Làm video hoạt họa bằng HTML Canvas không cần code phức tạp? — Điều khiển nhiệt độ/vận tốc hạt khí bằng slider." },
+      { type: "Sư phạm", text: "Tự tạo mô phỏng phân tử động 60fps chỉ bằng vài dòng mã! — Cách tích hợp trực tiếp HTML Canvas vào bài giảng." },
+      { type: "Học sinh", text: "Học sinh chủ động quan sát va chạm phân tử một cách trực quan — Trực quan hóa thuyết động học phân tử khí." },
+      { type: "Kỹ thuật", text: "Lập trình chuyển động phân tử không cần cài đặt thư viện nặng? — Điều khiển nhiệt độ và vận tốc hạt khí thời gian thực bằng thanh trượt." },
     ],
     solution: "Mô phỏng hàng trăm phân tử khí chuyển động 60fps trên Canvas, tăng nhiệt độ làm hạt va đập nhanh hơn.",
     cta: "Nhận mã nguồn mô phỏng phân tử tại Bài 7.",
@@ -160,9 +160,9 @@ const LESSONS: Lesson[] = [
     title: "Game Warm-up Quiz trắc nghiệm đầu giờ",
     topic: "Tạo game trắc nghiệm 3 câu hỏi tính giờ 15s để ôn tập bài cũ đầu giờ dạy.",
     hooks: [
-      { type: "Sư phạm", text: "Làm trò chơi khởi động đầu giờ chỉ trong 5 phút soạn bằng AI! — Học sinh quét mã QR bắt đầu đua top." },
+      { type: "Sư phạm", text: "Thiết kế trò chơi khởi động bài cũ nhanh chóng bằng trợ lý AI — Học sinh tham gia trả lời tương tác qua mã QR." },
       { type: "Học sinh", text: "Học sinh tranh nhau đua top trả lời câu hỏi đầu giờ? — Tiết học bắt đầu với năng lượng 100%." },
-      { type: "Kỹ thuật", text: "Soạn câu hỏi trắc nghiệm khởi động bị khô khan? — Gemini lên câu hỏi tình huống thực tế hấp dẫn." },
+      { type: "Kỹ thuật", text: "Hệ thống câu hỏi khởi động bị khô khan? — Dùng Gemini để sáng tạo tình huống thực tế gắn liền kiến thức." },
     ],
     solution: "Game trắc nghiệm tính giờ lật ô chữ phần thưởng — học sinh quét QR thi đấu.",
     cta: "Chơi thử Game Khởi động tại Bài 8.",
@@ -194,7 +194,7 @@ const LESSONS: Lesson[] = [
     hooks: [
       { type: "Sư phạm", text: "Sờ vào sắt lạnh hơn gỗ ở cùng 20 độ C? — Thiết kế game chẩn đoán Đúng/Sai chốt bài học sau 2 phút." },
       { type: "Học sinh", text: "Học sinh tranh biện nảy lửa và tự vỡ lẽ bản chất nhiệt học? — Nhận biết bản chất truyền nhiệt tiếp xúc." },
-      { type: "Kỹ thuật", text: "Soạn 4 phát biểu bẫy hiểu sai chuẩn cấu trúc đề Bộ 2025? — Prompt soạn bẫy ngộ nhận tự động bằng Custom Gem." },
+      { type: "Kỹ thuật", text: "Thiết kế 4 phát biểu chẩn đoán ngộ nhận bám sát cấu trúc đề mới? — Prompt tự động hóa phân tích bẫy lỗi sai bằng GEMS Gem." },
     ],
     solution: "Game trắc nghiệm chẩn đoán Đúng/Sai, chọn đáp án và hiện lời giải thích khoa học lập tức.",
     cta: "Chơi thử Game Củng cố tại Bài 10.",
