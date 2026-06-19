@@ -320,16 +320,18 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
             {lesson.hooks.map((h, idx) => (
               <div
                 key={idx}
-                className="flex gap-3 bg-cream"
+                className="flex items-center gap-3 bg-cream"
                 style={{ borderRadius: "8px", padding: "10px 12px" }}
               >
                 <span
-                  className="shrink-0 font-sans font-medium text-ink"
+                  className="shrink-0 font-sans font-medium text-ink flex items-center justify-center"
                   style={{
                     backgroundColor: "#b9ffe8",
                     borderRadius: "9999px",
-                    padding: "2px 10px",
+                    width: "80px",
+                    height: "24px",
                     fontSize: "12px",
+                    lineHeight: 1,
                   }}
                 >
                   {h.type}

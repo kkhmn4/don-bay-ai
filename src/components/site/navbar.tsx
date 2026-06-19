@@ -12,6 +12,7 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { href: "/khoa-hoc", label: "Khóa học", hasDropdown: true, dropdown: [
@@ -80,7 +81,7 @@ export function Navbar() {
         className={`transition-all duration-300 border-b ${
           scrolled
             ? "nav-glass border-hairline py-3"
-            : "bg-paper border-transparent py-4"
+            : "bg-white border-transparent py-4"
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 flex items-center justify-between gap-6">
@@ -131,7 +132,7 @@ export function Navbar() {
           {/* === Centered nav with dropdowns === */}
           <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((l) => {
-              const isActive = l.href.startsWith("/#") ? false : pathname === l.href;
+              const isActive = l.href.startsWith("/#") ? false : (pathname === l.href && l.label !== "Tài nguyên");
               const isDropdownOpen = openDropdown === l.label;
               return (
                 <div
@@ -164,25 +165,31 @@ export function Navbar() {
                   </Link>
 
                   {/* Dropdown menu */}
-                  {l.hasDropdown && isDropdownOpen && (
-                    <div
-                      className="absolute top-full left-0 mt-2 min-w-[240px] bg-paper border border-hairline shadow-lg overflow-hidden"
-                      style={{ borderRadius: "16px", animation: "fade-in-up 0.2s ease" }}
-                    >
-                      <div className="py-2">
-                        {l.dropdown?.map((item) => (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            className="block font-sans text-ink hover:bg-cream hover:text-deep-teal transition-colors"
-                            style={{ fontSize: "14px", padding: "10px 16px", fontWeight: 500 }}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  <AnimatePresence>
+                    {l.hasDropdown && isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute top-full left-0 mt-2 min-w-[240px] bg-white/95 backdrop-blur-md border border-hairline/80 shadow-[0_10px_40px_rgba(0,0,0,0.08)] overflow-hidden z-50 p-1.5"
+                        style={{ borderRadius: "16px" }}
+                      >
+                        <div className="flex flex-col gap-0.5">
+                          {l.dropdown?.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className="block font-sans text-ink hover:bg-deep-teal/5 hover:text-deep-teal rounded-lg transition-all duration-200"
+                              style={{ fontSize: "14px", padding: "10px 14px", fontWeight: 500 }}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
