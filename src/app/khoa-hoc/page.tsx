@@ -394,7 +394,7 @@ export default function KhoaHocPage() {
       <PageHero
         eyebrow="Lộ trình 11 bài học"
         title={<>Khóa học Đòn Bẩy AI <span className="text-mist">v8.0</span></>}
-        subtitle="11 bài học thực chiến đồng bộ 1-1 với 11 kịch bản video ngắn đa kênh. Mỗi bài có 3 hướng Hook thực chiến, Solution và CTA rõ ràng."
+        subtitle="11 bài học soạn giảng thực chiến bằng AI, thiết kế thí nghiệm ảo tương tác và trò chơi học tập chất lượng cao bám sát khung chương trình."
       />
 
       {/* Quick nav on cream */}
@@ -449,23 +449,22 @@ export default function KhoaHocPage() {
         </section>
       ))}
 
-      {/* CTA to video page on mint */}
+      {/* CTA to games page on mint */}
       <section className="py-20 px-5 sm:px-8 bg-mint-glass">
         <div className="max-w-[720px] mx-auto text-center">
           <Reveal>
-            <span className="badge-mint mb-6 animate-badge-bounce">Đồng bộ 1-1</span>
+            <span className="badge-mint mb-6 animate-badge-bounce">Học qua chơi</span>
             <h2
               className="headline-serif text-ink mb-4"
               style={{ fontSize: "clamp(36px, 5.5vw, 52px)", lineHeight: 1.1 }}
             >
-              Mỗi bài = <span className="text-teal-gradient">1 kịch bản video</span>
+              Trải nghiệm <span className="text-teal-gradient">Trò chơi AR/3D</span>
             </h2>
             <p className="font-sans text-ink mx-auto mb-8" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-              Xem <span className="bg-mint-highlight font-medium">11 kịch bản</span> TikTok/Shorts/Reels với{" "}
-              <span className="bg-mint-highlight font-medium">Hook → Solution → CTA</span> hoàn chỉnh.
+              Tương tác thực tế tăng cường ngay trên webcam của bạn để trực quan hóa kiến thức và tăng hứng thú học tập tích cực.
             </p>
-            <Link href="/video" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
-              Xem 11 kịch bản video
+            <Link href="/games/ar-knowledge-universe/index.html" target="_blank" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
+              Chơi Game AR ngay
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>

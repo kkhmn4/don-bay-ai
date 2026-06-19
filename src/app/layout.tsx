@@ -20,12 +20,16 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dongbayai.vn"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
-    default: "Đòn Bẩy AI · Khóa học 11 bài + 11 video ngắn đa kênh | Thầy Kha Khung Hiệp",
+    default: "Đòn Bẩy AI · Hệ Sinh Thái Học Liệu Tương Tác K-20 & Trợ Lý AI | Thầy Kha Khung Hiệp",
     template: "%s · Đòn Bẩy AI",
   },
   description:
-    "Khóa học Đòn Bẩy AI v8.0 — Giáo viên kiểm soát, AI tối ưu hiệu suất. 11 bài học đồng bộ 1-1 với 11 kịch bản video ngắn đa kênh tích hợp Gemini và NotebookLM.",
+    "Hệ sinh thái học liệu tương tác, game AR và trợ lý soạn giảng AI chuẩn GEMS dành cho giáo viên, học sinh và phụ huynh từ Mầm non đến Đại học. Sáng lập bởi thầy Kha Khung Hiệp.",
   keywords: [
     "Đòn Bẩy AI",
     "Kha Khung Hiệp",
@@ -36,24 +40,25 @@ export const metadata: Metadata = {
     "NotebookLM",
     "Edu-Graphic",
     "Khóa học AI",
-    "Video ngắn giáo dục",
+    "Game AR",
+    "Thí nghiệm ảo",
   ],
   authors: [{ name: "Thầy Kha Khung Hiệp" }],
   icons: {
     icon: "/images/logo.png",
   },
   openGraph: {
-    title: "Đòn Bẩy AI · Khóa học 11 bài + 11 video ngắn đa kênh",
+    title: "Đòn Bẩy AI · Hệ Sinh Thái Học Liệu Tương Tác K-20 & Trợ Lý AI",
     description:
-      "Giáo viên kiểm soát, AI tối ưu hiệu suất. 11 bài · 11 video · Gemini & NotebookLM.",
+      "Cổng học liệu tương tác, game AR và trợ lý soạn giảng AI chuẩn GEMS từ Mầm non đến Đại học. Sáng lập bởi thầy Kha Khung Hiệp.",
     type: "website",
     locale: "vi_VN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Đòn Bẩy AI · Khóa học 11 bài + 11 video ngắn đa kênh",
+    title: "Đòn Bẩy AI · Hệ Sinh Thái Học Liệu Tương Tác K-20 & Trợ Lý AI",
     description:
-      "Giáo viên kiểm soát, AI tối ưu hiệu suất.",
+      "Cổng học liệu tương tác, game AR và trợ lý soạn giảng AI chuẩn GEMS từ Mầm non đến Đại học.",
   },
 };
 

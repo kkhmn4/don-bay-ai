@@ -5,8 +5,6 @@ import { Leaf } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/khoa-hoc", label: "Khóa học" },
-  { href: "/video", label: "Video ngắn" },
-  { href: "/#funnel", label: "Phễu" },
 ];
 
 export function SiteFooter() {

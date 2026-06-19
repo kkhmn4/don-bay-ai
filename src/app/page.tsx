@@ -8,9 +8,7 @@ import {
   FlaskConical,
   Gamepad2,
   ArrowRight,
-  Video,
   Sparkles,
-  Filter,
   BookOpen,
   Star,
   Leaf,
@@ -53,16 +51,16 @@ const MODULES = [
 
 const STATS = [
   { value: "11", label: "Bài học thực chiến" },
-  { value: "11", label: "Kịch bản video ngắn" },
+  { value: "AR/3D", label: "Game & Mô phỏng" },
   { value: "3", label: "Module đào tạo" },
-  { value: "100%", label: "Đồng bộ 1-1" },
+  { value: "100%", label: "Chuẩn GEMS Sư phạm" },
 ];
 
 const FEATURES = [
   { icon: Bot, label: "Gemini & NotebookLM", desc: "Hệ sinh thái AI chính thức" },
-  { icon: Video, label: "11 video đa kênh", desc: "TikTok · Shorts · Reels" },
-  { icon: Filter, label: "Phễu 3 tầng", desc: "Video → Web → Tài nguyên" },
-  { icon: BookOpen, label: "11 bài đồng bộ 1-1", desc: "Mỗi bài = 1 kịch bản video" },
+  { icon: BookOpen, label: "11 bài học thực tế", desc: "Học liệu chi tiết, chuẩn GEMS" },
+  { icon: Gamepad2, label: "Trò chơi AR/3D", desc: "Tương tác thực tế tăng cường" },
+  { icon: Leaf, label: "Thực nghiệm & Mô phỏng", desc: "Trực quan khoa học 60fps" },
 ];
 
 /* Wash helper */
@@ -89,7 +87,7 @@ function Hero() {
         >
           <span className="badge-mint">
             <Sparkles className="w-3 h-3" />
-            v8.0 · Khóa học + Video ngắn đa kênh
+            v8.0 · Học liệu tương tác & Trợ lý AI
           </span>
         </motion.div>
 
@@ -112,7 +110,7 @@ function Hero() {
           className="headline-serif text-ink mt-6"
           style={{ fontSize: "clamp(26px, 4vw, 36px)", lineHeight: 1.15 }}
         >
-          <span className="bg-mint-highlight font-medium">11 bài</span> · <span className="bg-mint-highlight font-medium">11 video</span> ngắn đa kênh
+          <span className="bg-mint-highlight font-medium">11 bài học</span> · <span className="bg-mint-highlight font-medium">Game AR & Thí nghiệm ảo</span>
         </motion.p>
 
         {/* subtext */}
@@ -123,13 +121,11 @@ function Hero() {
           className="mt-6 font-sans text-ink mx-auto"
           style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}
         >
-          Khóa học <span className="font-medium text-deep-teal">Đòn bẩy AI</span> — Giáo viên kiểm soát,
-          AI tối ưu hiệu suất. 11 bài học đồng bộ 1-1 với 11 kịch bản video ngắn đa kênh
-          tích hợp <span className="font-medium text-deep-teal">Gemini</span> và{" "}
-          <span className="font-medium text-deep-teal">NotebookLM</span>.
+          Hệ sinh thái <span className="font-medium text-deep-teal">Đòn bẩy AI</span> — Giáo viên kiểm soát,
+          AI tối ưu hiệu suất. 11 bài học thực tế bám sát khung chương trình, kết hợp với các mô phỏng tương tác và game AR trực quan sinh động trên nền tảng <span className="font-medium text-deep-teal">Gemini</span> và <span className="font-medium text-deep-teal">NotebookLM</span>.
         </motion.p>
 
-        {/* Dual CTA — teal primary + outlined secondary */}
+        {/* Dual CTA — teal primary */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -137,12 +133,8 @@ function Hero() {
           className="mt-8 flex flex-col sm:flex-row gap-3 justify-center"
         >
           <Link href="/khoa-hoc" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
-            Xem 11 bài học
+            Khám phá 11 bài học
             <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link href="/video" className="btn-outlined inline-flex items-center justify-center gap-2">
-            <Video className="w-4 h-4" />
-            11 kịch bản video
           </Link>
         </motion.div>
 
@@ -162,7 +154,7 @@ function Hero() {
             4.5/5 rating
           </span>
           <span className="font-sans text-mist" style={{ fontSize: "14px" }}>
-            · TikTok · Shorts · Reels
+            · Gemini · NotebookLM · Game AR
           </span>
         </motion.div>
 
@@ -249,8 +241,7 @@ function HowItWorks() {
               Lộ trình <span className="text-teal-gradient">thực chiến</span>
             </h2>
             <p className="font-sans text-ink mx-auto" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-              Từ soạn giảng với AI đến thí nghiệm ảo và trò chơi tương tác —
-              mỗi bài gắn với <span className="bg-mint-highlight font-medium">1 kịch bản video</span> ngắn đa kênh.
+              Lộ trình tích hợp toàn diện từ soạn giảng bằng AI, thiết kế thí nghiệm ảo sinh động đến trò chơi tương tác thực tế tăng cường.
             </p>
           </div>
         </Reveal>
@@ -375,96 +366,7 @@ function FeaturesRow() {
   );
 }
 
-/* ---------------- Funnel section on mint ---------------- */
-function FunnelSection() {
-  const stages = [
-    { icon: Video, label: "Video ngắn đa kênh", desc: "TikTok · YouTube Shorts · Reels", action: "Call to Action" },
-    { icon: BookOpen, label: "Website EdTech Portal", desc: "Bài học cụ thể trên Web", action: "Hành động" },
-    { icon: Filter, label: "Tài nguyên + Game + Prompt", desc: "Tải · Chơi · Copy prompt", action: "Ứng dụng" },
-  ];
 
-  return (
-    <section id="funnel" className="py-20 px-5 sm:px-8 bg-mint-glass">
-      <div className="max-w-[1200px] mx-auto">
-        <Reveal>
-          <div className="text-center mb-16 max-w-[720px] mx-auto">
-            <span className="badge-mint mb-6">Nguyên tắc phễu</span>
-            <h2
-              className="headline-serif text-ink mb-4"
-              style={{ fontSize: "clamp(40px, 6vw, 60px)", lineHeight: 1.1 }}
-            >
-              Phễu <span className="text-teal-gradient">3 tầng</span>
-            </h2>
-            <p className="font-sans text-ink mx-auto" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-              Từ <span className="bg-mint-highlight font-medium">video ngắn</span> đa kênh →{" "}
-              <span className="bg-mint-highlight font-medium">Website EdTech Portal</span> →{" "}
-              <span className="bg-mint-highlight font-medium">Tải tài nguyên, chơi game, copy prompt</span>.
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {stages.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <Reveal key={s.label} delay={i * 120}>
-                <div
-                  className="bg-paper border border-hairline h-full relative overflow-hidden"
-                  style={{ borderRadius: "24px", padding: "32px 24px" }}
-                >
-                  {/* giant number background */}
-                  <span
-                    className="absolute top-4 right-6 headline-serif text-mint-glass select-none pointer-events-none"
-                    style={{ fontSize: "80px", lineHeight: 1, opacity: 0.6 }}
-                  >
-                    0{i + 1}
-                  </span>
-                  <div
-                    className="inline-flex items-center justify-center bg-mint-glass text-deep-teal mb-5 relative"
-                    style={{ borderRadius: "9999px", width: "48px", height: "48px" }}
-                  >
-                    <Icon className="w-6 h-6" strokeWidth={1.5} />
-                  </div>
-                  <p className="font-sans font-medium text-deep-teal mb-1" style={{ fontSize: "13px" }}>
-                    {s.action}
-                  </p>
-                  <h3
-                    className="font-sans font-medium text-ink mb-1 leading-tight"
-                    style={{ fontSize: "20px", lineHeight: 1.25 }}
-                  >
-                    {s.label}
-                  </h3>
-                  <p className="font-sans text-mist" style={{ fontSize: "15px" }}>
-                    {s.desc}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-
-        {/* formula */}
-        <Reveal delay={400}>
-          <div
-            className="mt-8 bg-paper border border-hairline text-center"
-            style={{ borderRadius: "24px", padding: "32px" }}
-          >
-            <p className="font-sans text-ink" style={{ fontSize: "18px", lineHeight: 1.5 }}>
-              <span className="font-medium text-deep-teal">Video ngắn</span>
-              {" → "}
-              <span className="font-medium text-deep-teal">Website</span>
-              {" → "}
-              <span className="font-medium text-deep-teal">Tài nguyên + Game + Prompt</span>
-            </p>
-            <p className="mt-3 font-sans text-mist" style={{ fontSize: "13px" }}>
-              Funnel khép kín · v8.0
-            </p>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
 
 /* ---------------- Final CTA — teal panel ---------------- */
 function FinalCTA() {
@@ -481,18 +383,14 @@ function FinalCTA() {
           </h2>
           <p className="font-sans text-ink mx-auto mb-8" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
             <span className="bg-mint-highlight font-medium">11 bài học thực chiến</span> ·{" "}
-            <span className="bg-mint-highlight font-medium">11 kịch bản video</span> ngắn đa kênh ·
-            Hệ sinh thái <span className="font-medium text-deep-teal">Gemini</span> &{" "}
+            <span className="bg-mint-highlight font-medium">Trò chơi AR & Mô phỏng</span> ·
+            Hệ sinh thái học liệu tích hợp <span className="font-medium text-deep-teal">Gemini</span> &{" "}
             <span className="font-medium text-deep-teal">NotebookLM</span>.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/khoa-hoc" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
               Xem lộ trình 11 bài
               <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/video" className="btn-outlined inline-flex items-center justify-center gap-2">
-              <Video className="w-4 h-4" />
-              11 kịch bản video
             </Link>
           </div>
         </Reveal>
@@ -510,7 +408,6 @@ export default function Home() {
       <StatsRow />
       <HowItWorks />
       <FeaturesRow />
-      <FunnelSection />
       <FinalCTA />
       <SiteFooter />
     </>

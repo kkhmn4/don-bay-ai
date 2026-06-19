@@ -19,9 +19,7 @@ const NAV_LINKS = [
     { href: "/khoa-hoc#module-2", label: "Module 2 · Thí nghiệm ảo" },
     { href: "/khoa-hoc#module-3", label: "Module 3 · Trò chơi" },
   ]},
-  { href: "/video", label: "Video ngắn", hasDropdown: false },
   { href: "/games/ar-knowledge-universe/index.html", label: "Game AR 🚀", hasDropdown: false, isFeatured: true },
-  { href: "/#funnel", label: "Phễu", hasDropdown: false },
   { href: "/khoa-hoc", label: "Tài nguyên", hasDropdown: true, dropdown: [
     { href: "/khoa-hoc", label: "Prompt Gemini Gems" },
     { href: "/khoa-hoc", label: "Phiếu học tập GEMS" },

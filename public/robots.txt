@@ -1,14 +1,12 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# /robots.txt
+# Tối ưu hóa SEO kỹ thuật cho Đòn Bẩy AI (https://dongbayai.vn)
 
 User-agent: *
 Allow: /
+
+# Chặn các thư mục API hoặc nội bộ không cần index
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://dongbayai.vn/sitemap.xml
