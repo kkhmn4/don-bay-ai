@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Sparkles, Play, ArrowLeft, Gamepad2, Award, Zap, Camera, Users } from 'lucide-react'
+import HandQuizContainer from '@/components/game/handquiz-container'
 
 type GameInfo = {
   id: string
@@ -44,6 +45,19 @@ const GAMES: GameInfo[] = [
     players: '1 - 4 Đội chơi',
     accentColor: 'from-[#ff007f] to-[#7f003f]',
     bgGrad: 'rgba(255, 0, 127, 0.05)'
+  },
+  {
+    id: 'hand-quiz',
+    title: 'HandQuiz AR',
+    subject: 'Tổng hợp kiến thức',
+    desc: 'Trò chơi đố vui tương tác nhận diện cử chỉ bàn tay qua camera webcam. Trả lời các câu hỏi bằng cách kéo thả thẻ đáp án.',
+    features: ['Nhận diện cử chỉ bàn tay AI', 'Thử thách 1-4 người chơi', 'Dashboard quản lý câu hỏi'],
+    icon: Camera,
+    path: '#hand-quiz',
+    requiresCamera: true,
+    players: '1 - 4 Người chơi',
+    accentColor: 'from-[#10b981] to-[#006e75]',
+    bgGrad: 'rgba(16, 185, 129, 0.05)'
   }
 ]
 
@@ -147,6 +161,8 @@ export default function GamePage() {
             </div>
           </div>
         </div>
+      ) : activeGame.id === 'hand-quiz' ? (
+        <HandQuizContainer onExit={() => setActiveGame(null)} />
       ) : (
         /* ================= FULLSCREEN GAME CONTAINER (IFRAME) ================= */
         <div className="fixed inset-0 z-[100] bg-black overflow-hidden flex flex-col w-screen h-screen">

@@ -30,3 +30,42 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Category {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  color     String     @default("#10b981")
+  icon      String     @default("BookOpen")
+  createdAt DateTime   @default(now())
+  questions Question[]
+}
+
+model Question {
+  id         String   @id @default(cuid())
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  type       String   @default("QUIZ") // QUIZ | MATCH | SORT
+  prompt     String
+  // For QUIZ: options = ["A","B","C","D"]; answer = index (string)
+  // For MATCH: options = JSON [{left, right}]; answer = JSON mapping
+  // For SORT: options = JSON [items]; answer = JSON correct order indices
+  options    String
+  answer     String
+  difficulty String   @default("EASY") // EASY | MEDIUM | HARD
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([categoryId])
+}
+
+model GameSession {
+  id         String   @id @default(cuid())
+  playerCount Int
+  // JSON: [{ name, color, avatar, score }]
+  results    String
+  questionCount Int
+  category   String   @default("all")
+  difficulty String   @default("all")
+  duration   Int      @default(0) // seconds
+  createdAt  DateTime @default(now())
+}
