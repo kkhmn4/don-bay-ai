@@ -139,7 +139,7 @@ export function LeverDiagram({ className = "" }: { className?: string }) {
             Vật nâng
           </text>
           <text x="600" y="170" textAnchor="middle" fontFamily="var(--font-inter), sans-serif" fontSize="9.5" fill="oklch(0.985 0.012 95 / 0.75)" letterSpacing="1.5">
-            SOẠN GIÁO ÁN · SLIDE · ĐỀ THI
+            SOẠN KẾ HOẠCH BÀI DẠY · TRÌNH CHIẾU · ĐỀ THI
           </text>
         </motion.g>
 

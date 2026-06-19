@@ -21,46 +21,46 @@ const MODULES = [
     no: "01",
     range: "Bài 1–4 · 4 bài",
     title: "Soạn giảng với Gemini & NotebookLM",
-    desc: "Tạo giáo án, phiếu học tập, podcast flipped classroom và template in ấn sắc nét.",
+    desc: "Tạo kế hoạch bài dạy, phiếu học tập, tệp âm thanh học tập song ngữ và biểu mẫu chuẩn in ấn GEMS.",
     icon: Bot,
     image: "/images/module-1.png",
     wash: "mint", // mint glass background
-    lessons: ["Custom Gem soạn giáo án", "NotebookLM chống ảo giác", "Podcast Audio Overview", "Template Word 2 cột"],
+    lessons: ["Trợ lý AI soạn bài dạy", "Sử dụng NotebookLM tin cậy", "Tệp âm thanh song ngữ", "Mẫu tài liệu Word 2 cột"],
   },
   {
     no: "02",
     range: "Bài 5–7 · 3 bài",
     title: "Thí nghiệm ảo tương tác",
-    desc: "SVG, CSS transition và HTML5 Canvas cho mô phỏng vật lý 60fps chạy mượt trên 4G.",
+    desc: "Mô phỏng tương tác chạy mượt mà trên mọi thiết bị — từ mô phỏng dạng vectơ SVG đến đồ họa chuyển động.",
     icon: FlaskConical,
     image: "/images/module-2.png",
     wash: "cream",
-    lessons: ["Dòng truyền nhiệt SVG", "Nhiệt kế Spring Bounce", "Động học phân tử khí"],
+    lessons: ["Dòng truyền nhiệt tương tác SVG", "Nhiệt kế ảo tương tác", "Động học phân tử khí"],
   },
   {
     no: "03",
     range: "Bài 8–11 · 4 bài",
     title: "Trò chơi tương tác lớp học",
-    desc: "Game warm-up, icebreaker, wrap-up Đúng/Sai và dạy học xoay trạm QR Code.",
+    desc: "Trò chơi khởi động, trò chơi giải lao tương tác, trò chơi củng cố và tổ chức dạy học xoay trạm.",
     icon: Gamepad2,
     image: "/images/module-3.png",
     wash: "blossom",
-    lessons: ["Warm-up Quiz", "Icebreaker Bóng nhiệt", "Wrap-up Đúng/Sai", "Xoay trạm QR Code"],
+    lessons: ["Trò chơi khởi động đầu giờ", "Trò chơi giải lao bóng nhiệt", "Trò chơi củng cố Đúng/Sai", "Tổ chức dạy học xoay trạm"],
   },
 ];
 
 const STATS = [
-  { value: "11", label: "Bài học thực chiến" },
-  { value: "AR/3D", label: "Game & Mô phỏng" },
-  { value: "3", label: "Module đào tạo" },
-  { value: "100%", label: "Chuẩn GEMS Sư phạm" },
+  { value: "11", label: "Bài học thực hành" },
+  { value: "AR/3D", label: "Trò chơi & Mô phỏng" },
+  { value: "3", label: "Chương học chính" },
+  { value: "100%", label: "Chuẩn sư phạm GEMS" },
 ];
 
 const FEATURES = [
-  { icon: Bot, label: "Gemini & NotebookLM", desc: "Hệ sinh thái AI chính thức" },
+  { icon: Bot, label: "Gemini & NotebookLM", desc: "Hệ sinh thái hỗ trợ soạn giảng" },
   { icon: BookOpen, label: "11 bài học thực tế", desc: "Học liệu chi tiết, chuẩn GEMS" },
-  { icon: Gamepad2, label: "Trò chơi AR/3D", desc: "Tương tác thực tế tăng cường" },
-  { icon: Leaf, label: "Thực nghiệm & Mô phỏng", desc: "Trực quan khoa học 60fps" },
+  { icon: Gamepad2, label: "Trò chơi tương tác AR", desc: "Thực tế tăng cường sinh động" },
+  { icon: Leaf, label: "Mô phỏng thí nghiệm", desc: "Trực quan khoa học mượt mà" },
 ];
 
 /* Wash helper */
@@ -78,7 +78,7 @@ function Hero() {
   return (
     <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-20 px-5 sm:px-8 bg-paper">
       <div className="max-w-[720px] mx-auto text-center">
-        {/* mint pill badge */}
+        {/* pill badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ function Hero() {
         >
           <span className="badge-mint">
             <Sparkles className="w-3 h-3" />
-            v8.0 · Học liệu tương tác & Trợ lý AI
+            Học liệu tương tác & Trợ lý AI
           </span>
         </motion.div>
 
@@ -110,7 +110,7 @@ function Hero() {
           className="headline-serif text-ink mt-6"
           style={{ fontSize: "clamp(26px, 4vw, 36px)", lineHeight: 1.15 }}
         >
-          <span className="bg-mint-highlight font-medium">11 bài học</span> · <span className="bg-mint-highlight font-medium">Game AR & Thí nghiệm ảo</span>
+          <span className="bg-mint-highlight font-medium">11 bài học</span> · <span className="bg-mint-highlight font-medium">Trò chơi tương tác & Thí nghiệm ảo</span>
         </motion.p>
 
         {/* subtext */}
@@ -121,8 +121,8 @@ function Hero() {
           className="mt-6 font-sans text-ink mx-auto"
           style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}
         >
-          Hệ sinh thái <span className="font-medium text-deep-teal">Đòn bẩy AI</span> — Giáo viên kiểm soát,
-          AI tối ưu hiệu suất. 11 bài học thực tế bám sát khung chương trình, kết hợp với các mô phỏng tương tác và game AR trực quan sinh động trên nền tảng <span className="font-medium text-deep-teal">Gemini</span> và <span className="font-medium text-deep-teal">NotebookLM</span>.
+          Hệ sinh thái <span className="font-medium text-deep-teal">Đòn bẩy AI</span> — Giáo viên chủ động dẫn dắt,
+          AI tối ưu hiệu suất soạn giảng. 11 bài học thực tế bám sát khung chương trình, kết hợp với mô phỏng trực quan và trò chơi thực tế tăng cường (AR) sinh động trên nền tảng <span className="font-medium text-deep-teal">Gemini</span> và <span className="font-medium text-deep-teal">NotebookLM</span>.
         </motion.p>
 
         {/* Dual CTA — teal primary */}
@@ -138,24 +138,20 @@ function Hero() {
           </Link>
         </motion.div>
 
-        {/* Rating badge row */}
+        {/* Integration details row */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 flex items-center justify-center gap-3 flex-wrap"
+          className="mt-10 flex items-center justify-center gap-3 flex-wrap text-mist font-sans"
+          style={{ fontSize: "14px" }}
         >
-          <div className="flex items-center gap-1">
-            {[1,2,3,4,5].map((i) => (
-              <Star key={i} className="w-4 h-4 text-ember-ring" fill="currentColor" />
-            ))}
-          </div>
-          <span className="font-sans font-medium text-ink" style={{ fontSize: "14px" }}>
-            4.5/5 rating
-          </span>
-          <span className="font-sans text-mist" style={{ fontSize: "14px" }}>
-            · Gemini · NotebookLM · Game AR
-          </span>
+          <span>Tích hợp sẵn:</span>
+          <span className="font-medium text-ink">Gemini</span>
+          <span>·</span>
+          <span className="font-medium text-ink">NotebookLM</span>
+          <span>·</span>
+          <span className="font-medium text-ink">Trò chơi tương tác AR</span>
         </motion.div>
 
         {/* author signature */}
@@ -165,7 +161,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-8 font-sans text-mist" style={{ fontSize: "14px" }}
         >
-          <span className="font-medium text-ink">Thầy Kha Khung Hiệp</span> · Chuyên gia AI & Mô phỏng dạy học
+          <span className="font-medium text-ink">Thầy Kha Khung Hiệp</span> · Chuyên gia AI & Mô phỏng dạy học tương tác
         </motion.div>
       </div>
     </section>
@@ -178,10 +174,10 @@ function TrustStrip() {
     <section className="py-10 px-5 sm:px-8 bg-paper border-y border-hairline">
       <div className="max-w-[1200px] mx-auto text-center">
         <p className="font-sans text-mist mb-6" style={{ fontSize: "14px" }}>
-          Tin dùng bởi giáo viên Vật lý & Khoa học Tự nhiên THPT
+          Học liệu được xây dựng cho Giáo viên, Học sinh từ Mầm non đến Đại học
         </p>
         <div className="flex items-center justify-center gap-8 flex-wrap opacity-60">
-          {["Gemini", "NotebookLM", "Marp CLI", "TikZ", "HTML5 Canvas"].map((logo) => (
+          {["Gemini", "NotebookLM", "Trò chơi AR", "Thí nghiệm ảo", "Học liệu GEMS"].map((logo) => (
             <span key={logo} className="font-serif text-ink" style={{ fontSize: "22px" }}>
               {logo}
             </span>
@@ -379,11 +375,11 @@ function FinalCTA() {
             className="headline-serif text-ink mb-4"
             style={{ fontSize: "clamp(40px, 6vw, 60px)", lineHeight: 1.1 }}
           >
-            Khóa học <span className="text-teal-gradient">Đòn Bẩy AI v8.0</span>
+            Khóa học <span className="text-teal-gradient">Đòn Bẩy AI</span>
           </h2>
           <p className="font-sans text-ink mx-auto mb-8" style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}>
-            <span className="bg-mint-highlight font-medium">11 bài học thực chiến</span> ·{" "}
-            <span className="bg-mint-highlight font-medium">Trò chơi AR & Mô phỏng</span> ·
+            <span className="bg-mint-highlight font-medium">11 bài học thực hành</span> ·{" "}
+            <span className="bg-mint-highlight font-medium">Trò chơi tương tác & Mô phỏng</span> ·
             Hệ sinh thái học liệu tích hợp <span className="font-medium text-deep-teal">Gemini</span> &{" "}
             <span className="font-medium text-deep-teal">NotebookLM</span>.
           </p>

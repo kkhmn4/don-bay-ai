@@ -7,41 +7,41 @@ const stages = [
   {
     id: "A",
     icon: Video,
-    title: "Kênh Video Ngắn",
-    subtitle: "TikTok · Shorts · Reels",
-    desc: "Chia sẻ mẹo thực chiến & WOW hiệu ứng",
+    title: "Kênh video ngắn",
+    subtitle: "Tiktok · Shorts · Reels",
+    desc: "Chia sẻ phương pháp giảng dạy trực quan sinh động",
     accent: "oklch(0.74 0.13 85)",
   },
   {
     id: "B",
     icon: Globe,
-    title: "Website EdTech Portal",
+    title: "Cổng học liệu trung tâm",
     subtitle: "Bài giảng chi tiết",
-    desc: "Cổng học liệu trung tâm, nơi mọi tài nguyên hội tụ",
+    desc: "Nơi cung cấp bài giảng và tài nguyên sư phạm trực tuyến",
     accent: "oklch(0.62 0.08 145)",
   },
   {
     id: "C",
     icon: FileText,
-    title: "Phiếu học tập GEMS",
-    subtitle: "& Code TikZ Vector",
-    desc: "Tải miễn phí — sẵn sàng mang vào lớp",
+    title: "Phiếu học tập tương tác",
+    subtitle: "& Đồ họa TikZ",
+    desc: "Tài nguyên thiết kế sẵn cho lớp học",
     accent: "oklch(0.55 0.06 50)",
   },
   {
     id: "D",
     icon: Bot,
-    title: "9 Prompt Gemini Gems",
-    subtitle: "& NotebookLM",
-    desc: "Bộ prompts đã chuẩn hoá — sao chép & dùng ngay",
+    title: "Câu lệnh AI soạn bài",
+    subtitle: "Gemini & NotebookLM",
+    desc: "Bộ câu lệnh đã chuẩn hóa giúp soạn giảng nhanh chóng",
     accent: "oklch(0.45 0.045 165)",
   },
   {
     id: "E",
     icon: QrCode,
     title: "Lớp học tích cực",
-    subtitle: "Luân chuyển trạm · QR Code",
-    desc: "Ứng dụng thực tế — học sinh tương tác chủ động",
+    subtitle: "Dạy học xoay trạm",
+    desc: "Học sinh chủ động tương tác và làm chủ bài học",
     accent: "oklch(0.74 0.13 85)",
   },
 ];
@@ -117,7 +117,7 @@ export function ImpactFunnel({ className = "" }: { className?: string }) {
         <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-foreground/5 border border-foreground/10">
           <School className="w-4 h-4 text-accent" />
           <span className="text-sm text-foreground/70 font-medium">
-            C & D hội tụ → Ứng dụng thực tế tại <span className="text-accent font-semibold">Lớp học tích cực</span>
+            Tích hợp tài nguyên và câu lệnh AI → Ứng dụng thực tế tại <span className="text-accent font-semibold">Lớp học tích cực</span>
           </span>
         </div>
       </motion.div>

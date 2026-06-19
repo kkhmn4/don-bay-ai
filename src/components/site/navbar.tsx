@@ -19,11 +19,11 @@ const NAV_LINKS = [
     { href: "/khoa-hoc#module-2", label: "Module 2 · Thí nghiệm ảo" },
     { href: "/khoa-hoc#module-3", label: "Module 3 · Trò chơi" },
   ]},
-  { href: "/games/ar-knowledge-universe/index.html", label: "Game AR 🚀", hasDropdown: false, isFeatured: true },
+  { href: "/games/ar-knowledge-universe/index.html", label: "Trò chơi AR 🚀", hasDropdown: false, isFeatured: true },
   { href: "/khoa-hoc", label: "Tài nguyên", hasDropdown: true, dropdown: [
-    { href: "/khoa-hoc", label: "Prompt Gemini Gems" },
+    { href: "/khoa-hoc", label: "Câu lệnh Gemini Gems" },
     { href: "/khoa-hoc", label: "Phiếu học tập GEMS" },
-    { href: "/khoa-hoc", label: "Code TikZ Vector" },
+    { href: "/khoa-hoc", label: "Mã đồ họa TikZ" },
   ]},
 ];
 
@@ -53,8 +53,8 @@ export function Navbar() {
               className="font-sans text-ink"
               style={{ fontSize: "13px", fontWeight: 500 }}
             >
-              <span className="font-semibold text-deep-teal">Mới v8.0:</span>{" "}
-              Hệ sinh thái 11 bài học thực chiến tích hợp Trò chơi AR & Trợ lý AI
+              <span className="font-semibold text-deep-teal">Cập nhật mới:</span>{" "}
+              Hệ sinh thái 11 bài học thực hành tích hợp Trò chơi tương tác & Trợ lý AI
             </p>
             <Link
               href="/khoa-hoc"
@@ -123,7 +123,7 @@ export function Navbar() {
               </div>
               <span className="badge-mint-lg hidden lg:inline-flex">
                 <Leaf className="w-2.5 h-2.5" />
-                v8.0
+                Chuẩn GEMS
               </span>
             </div>
           </Link>
