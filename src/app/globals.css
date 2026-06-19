@@ -464,6 +464,142 @@
   opacity: 0.3;
 }
 
+/* === NAVBAR ENHANCEMENTS — make it pop === */
+
+/* Glass effect navbar */
+.nav-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Gradient logo background */
+.logo-gradient-bg {
+  background: linear-gradient(135deg, #006e75 0%, #0b978e 50%, #006e75 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+  box-shadow:
+    0 0 0 1px rgba(0, 110, 117, 0.15),
+    0 4px 16px rgba(0, 110, 117, 0.25),
+    0 0 32px rgba(0, 110, 117, 0.15);
+}
+
+/* Animated nav underline */
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #006e75 0%, #0b978e 100%);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  width: 100%;
+}
+
+/* Glow CTA button */
+.btn-teal-glow {
+  background: linear-gradient(135deg, #006e75 0%, #0b978e 100%);
+  background-size: 200% 200%;
+  color: #ffffff;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 0 0 1px rgba(0, 110, 117, 0.3),
+    0 4px 12px rgba(0, 110, 117, 0.35),
+    0 0 24px rgba(0, 110, 117, 0.2);
+  animation: gradient-shift 6s ease infinite;
+}
+.btn-teal-glow:hover {
+  background-position: 100% 50%;
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(0, 110, 117, 0.4),
+    0 6px 20px rgba(0, 110, 117, 0.45),
+    0 0 32px rgba(0, 110, 117, 0.3);
+}
+
+/* Pill badge — larger, more prominent */
+.badge-mint-lg {
+  background: linear-gradient(135deg, #b9ffe8 0%, #fffded 100%);
+  background-size: 200% 200%;
+  color: #006e75;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(0, 110, 117, 0.2);
+  box-shadow: 0 2px 8px rgba(185, 255, 232, 0.5);
+  animation: gradient-shift 6s ease infinite, badge-bounce 3s ease-in-out infinite;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Announcement banner gradient strip */
+.announcement-banner {
+  background: linear-gradient(90deg, #b9ffe8 0%, #fffded 50%, #ffc3e6 100%);
+  background-size: 200% 100%;
+  animation: gradient-shift 8s ease infinite;
+  border-bottom: 1px solid rgba(0, 110, 117, 0.15);
+}
+
+/* Decorative dot pulse for announcement */
+.live-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #006e75;
+  border-radius: 9999px;
+  margin-right: 6px;
+}
+.live-dot::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 2px solid #006e75;
+  border-radius: 9999px;
+  animation: live-ping 1.8s ease-out infinite;
+}
+@keyframes live-ping {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Mega wordmark text */
+.wordmark {
+  font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #006e75 0%, #072626 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 /* Print === */
 @media print {
   .no-print { display: none !important; }
