@@ -315,7 +315,7 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
           {/* hooks */}
           <div className="space-y-2 mb-5">
             <p className="font-sans font-medium text-deep-teal mb-3" style={{ fontSize: "13px", letterSpacing: "0.1em" }}>
-              ⚡ 3 HƯỚNG HOOK THỰC CHIẾN
+              💡 THÁCH THỨC VÀ BÀI TOÁN LỚP HỌC
             </p>
             {lesson.hooks.map((h, idx) => (
               <div
@@ -343,7 +343,7 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
           <div className="mt-auto pt-4 border-t border-hairline space-y-3">
             <div className="flex gap-3">
               <span className="shrink-0 font-sans font-medium text-deep-teal mt-0.5" style={{ fontSize: "12px" }}>
-                ✅ SOLUTION
+                ✅ GIẢI PHÁP THỰC TẾ
               </span>
               <p className="font-sans text-ink leading-relaxed flex-1" style={{ fontSize: "14px" }}>{lesson.solution}</p>
             </div>
@@ -352,7 +352,7 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
               style={{ backgroundColor: "#fffded", borderRadius: "8px" }}
             >
               <span className="shrink-0 font-sans font-medium text-deep-teal mt-0.5" style={{ fontSize: "12px" }}>
-                🎯 CTA
+                🎯 THỰC HÀNH
               </span>
               <p className="font-sans font-medium text-ink" style={{ fontSize: "14px" }}>{lesson.cta}</p>
             </div>

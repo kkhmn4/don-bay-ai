@@ -54,7 +54,7 @@ export function Navbar() {
               style={{ fontSize: "13px", fontWeight: 500 }}
             >
               <span className="font-semibold text-deep-teal">Mới v8.0:</span>{" "}
-              11 bài học + 11 kịch bản video ngắn đa kênh · Gemini & NotebookLM
+              Hệ sinh thái 11 bài học thực chiến tích hợp Trò chơi AR & Trợ lý AI
             </p>
             <Link
               href="/khoa-hoc"
