@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026-06-22]
+### Fixed
+- **Khôi phục Portal Đòn Bẩy AI**: Khôi phục mã nguồn chính về commit `7c85e52` để đưa giao diện quay lại bản ổn định lúc 10h sáng ngày 19/06, loại bỏ các thay đổi không mong muốn trong lúc phát triển.
+- **Tương thích Build trên Windows**: Thay thế lệnh Unix `cp -r` trong kịch bản build bằng file Node.js di động `scripts/copy-build.js` giúp tránh lỗi trên môi trường terminal Windows/PowerShell.
+
 ## [2026-06-19]
 ### Added
 - **Cổng Trò Chơi Học Tập (/game)**: Xây dựng cổng chọn game AR & Đối kháng tập trung bằng giao diện glassmorphic cao cấp.

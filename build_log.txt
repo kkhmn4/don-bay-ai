@@ -1,0 +1,35 @@
+
+> nextjs_tailwind_shadcn_ts@0.2.0 build
+> next build && node scripts/copy-build.js
+
+▲ Next.js 16.2.9 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 11.1s
+  Skipping validation of types
+  Finished TypeScript config validation in 25ms ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/7) ...
+  Generating static pages using 7 workers (1/7) 
+  Generating static pages using 7 workers (3/7) 
+  Generating static pages using 7 workers (5/7) 
+✓ Generating static pages using 7 workers (7/7) in 585ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api
+├ ○ /game
+├ ○ /khoa-hoc
+└ ○ /video
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+📦 Copying Next.js static assets to standalone directory...
+✓ Copied .next/static successfully.
+✓ Copied public/ directory successfully.
+✨ Build assets copied successfully!

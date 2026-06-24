@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Menu,
   X,
@@ -11,8 +11,11 @@ import {
   Leaf,
   ArrowRight,
   Sparkles,
+  Moon,
+  Sun,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/components/providers/theme-provider";
 
 const NAV_LINKS = [
   { href: "/khoa-hoc", label: "Khóa học", hasDropdown: true, dropdown: [
@@ -29,11 +32,15 @@ const NAV_LINKS = [
 ];
 
 export function Navbar() {
+  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [announcementOpen, setAnnouncementOpen] = useState(true);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [searching, setSearching] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -42,6 +49,20 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) return;
+    setSearching(true);
+    try {
+      const res = await fetch(`/api/search?q=${encodeURIComponent(searchQuery)}`);
+      const data = await res.json();
+      setSearchResults(data.results);
+    } catch (e) {
+      setSearchResults([]);
+    } finally {
+      setSearching(false);
+    }
+  };
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
@@ -207,6 +228,16 @@ export function Navbar() {
               <Search className="w-5 h-5" strokeWidth={1.75} />
             </button>
 
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="inline-flex items-center justify-center text-ink hover:text-deep-teal hover:bg-cream transition-colors"
+              style={{ borderRadius: "9999px", width: "40px", height: "40px" }}
+              aria-label={theme === "light" ? "Chuyển sang Dark Mode" : "Chuyển sang Light Mode"}
+            >
+              {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+            </button>
+
             {/* Log In — outlined */}
             <Link
               href="/khoa-hoc"
@@ -242,11 +273,43 @@ export function Navbar() {
                 <input
                   type="text"
                   placeholder="Tìm bài học, video, prompt..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   autoFocus
                   className="w-full font-sans text-ink bg-cream border border-hairline focus:border-deep-teal focus:outline-none transition-colors"
                   style={{ fontSize: "15px", padding: "12px 16px 12px 48px", borderRadius: "12px" }}
                 />
               </div>
+              {searchResults.length > 0 && (
+                <div className="mt-3 flex flex-col gap-1.5">
+                  {searchResults.map((r: any, i: number) => (
+                    <Link
+                      key={i}
+                      href={r.slug}
+                      onClick={() => { setSearchOpen(false); setSearchQuery(""); setSearchResults([]); }}
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-cream transition-colors group"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <p className="font-sans font-medium text-ink group-hover:text-deep-teal transition-colors" style={{ fontSize: "14px" }}>
+                          {r.title}
+                        </p>
+                        <p className="font-sans text-mist" style={{ fontSize: "12px" }}>
+                          {r.tags?.slice(0, 3).join(" · ")}
+                        </p>
+                      </div>
+                      <span className="font-sans text-xs text-mist px-2 py-0.5 bg-cream rounded-full shrink-0">
+                        {r.slug}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+              {searchQuery && searchResults.length === 0 && !searching && (
+                <p className="mt-3 font-sans text-mist text-center" style={{ fontSize: "14px" }}>
+                  Không tìm thấy kết quả cho &ldquo;{searchQuery}&rdquo;
+                </p>
+              )}
             </div>
           </div>
         )}

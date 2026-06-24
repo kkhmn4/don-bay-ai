@@ -3,6 +3,7 @@ import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Navbar } from "@/components/site/navbar";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,7 +46,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Thầy Kha Khung Hiệp" }],
   icons: {
-    icon: "/images/logo.png",
+    icon: [
+      { url: "/images/logo.svg", type: "image/svg+xml" },
+      { url: "/images/logo.png", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Đòn Bẩy AI · Hệ Sinh Thái Học Liệu Tương Tác K-20 & Trợ Lý AI",
@@ -72,11 +76,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sourceSerif.variable} antialiased bg-background text-foreground`}
       >
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-        </div>
-        <Toaster />
+        <ThemeProvider>
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+          </div>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

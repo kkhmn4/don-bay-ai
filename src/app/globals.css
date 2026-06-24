@@ -101,6 +101,53 @@
   --color-sidebar-ring: var(--color-deep-teal);
 }
 
+.dark {
+  /* === Lyssna Color System — Dark Mode === */
+  --color-background: #061d29;
+  --color-foreground: #f5f5f5;
+  --color-card: #072626;
+  --color-card-foreground: #f5f5f5;
+  --color-popover: #072626;
+  --color-popover-foreground: #f5f5f5;
+  --color-primary: #0b978e;
+  --color-primary-foreground: #061d29;
+  --color-secondary: #1a3a3a;
+  --color-secondary-foreground: #f5f5f5;
+  --color-muted: #1a3a3a;
+  --color-muted-foreground: #94a3b8;
+  --color-accent: #006e75;
+  --color-accent-foreground: #f5f5f5;
+  --color-destructive: #ff492c;
+  --color-destructive-foreground: #f5f5f5;
+  --color-border: #1e3a4a;
+  --color-input: #1e3a4a;
+  --color-ring: #0b978e;
+
+  /* Sidebar */
+  --color-sidebar: #061d29;
+  --color-sidebar-foreground: #f5f5f5;
+  --color-sidebar-primary: #0b978e;
+  --color-sidebar-primary-foreground: #061d29;
+  --color-sidebar-accent: #1a3a3a;
+  --color-sidebar-accent-foreground: #f5f5f5;
+  --color-sidebar-border: #1e3a4a;
+  --color-sidebar-ring: #0b978e;
+
+  /* Chart */
+  --color-chart-1: #0b978e;
+  --color-chart-2: #b9ffe8;
+  --color-chart-3: #fffded;
+  --color-chart-4: #ffc3e6;
+  --color-chart-5: #ff492c;
+
+  /* Surface adjustments */
+  --color-paper: #072626;
+  --color-cream: #1a3a3a;
+  --color-hairline: #1e3a4a;
+  --color-mist: #94a3b8;
+  --color-ink: #f5f5f5;
+}
+
 :root {
   --radius: 8px;
 }
@@ -627,4 +674,50 @@
 /* Print === */
 @media print {
   .no-print { display: none !important; }
+}
+
+/* === DARK MODE OVERRIDES === */
+.dark .nav-glass {
+  background: rgba(6, 29, 41, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+}
+.dark .wordmark {
+  background: linear-gradient(135deg, #0b978e 0%, #b9ffe8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.dark .btn-outlined {
+  color: #b9ffe8;
+  border-color: #0b978e;
+}
+.dark .btn-outlined:hover {
+  background-color: #0b978e;
+  color: #061d29;
+  border-color: #0b978e;
+}
+.dark .surface-cream { background-color: #1a3a3a; }
+.dark .surface-mint { background-color: #0a3a3a; }
+.dark .bg-cream { background-color: #1a3a3a; }
+.dark .bg-mint-glass { background-color: #0a3a3a; }
+.dark .badge-mint { background-color: #0a3a3a; color: #b9ffe8; }
+.dark .announcement-banner {
+  background: linear-gradient(90deg, #0a3a3a 0%, #1a3a3a 50%, #2a1a3a 100%);
+}
+.dark .hook-highlight {
+  background: linear-gradient(135deg, #0a3a3a 0%, #1a3a3a 100%);
+}
+.dark body {
+  background-color: #061d29;
+  color: #f5f5f5;
+}
+.dark ::selection {
+  background: #006e75;
+  color: #f5f5f5;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #061d29;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e3a4a;
+  border-color: #061d29;
 }

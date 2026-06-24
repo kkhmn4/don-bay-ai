@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 import { SiteFooter } from "@/components/site/footer";
+import { LeverInteractive } from "@/components/site/lever-interactive";
 
 const MODULES = [
   {
@@ -73,95 +74,109 @@ function getWashBg(wash: string) {
   }
 }
 
-/* ---------------- Centered Hero ---------------- */
+/* ---------------- Split Hero: Text + Interactive Lever ---------------- */
 function Hero() {
   return (
-    <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-20 px-5 sm:px-8 bg-paper">
-      <div className="max-w-[720px] mx-auto text-center">
-        {/* pill badge */}
+    <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-20 px-5 sm:px-8 bg-paper overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-mint-glass/10 via-transparent to-cream/30 pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        {/* ===== LEFT: Text content ===== */}
+        <div className="relative z-10">
+          {/* pill badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          >
+            <span className="badge-mint">
+              <Sparkles className="w-3 h-3" />
+              Học liệu tương tác & Trợ lý AI
+            </span>
+          </motion.div>
+
+          {/* serif display headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="headline-serif text-ink text-glow-teal"
+            style={{ fontSize: "clamp(44px, 8vw, 72px)", lineHeight: 1.0 }}
+          >
+            Đòn Bẩy <span className="text-teal-gradient">AI</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="headline-serif text-ink mt-5"
+            style={{ fontSize: "clamp(22px, 3.5vw, 30px)", lineHeight: 1.15 }}
+          >
+            <span className="bg-mint-highlight font-medium">11 bài học</span> ·{" "}
+            <span className="bg-mint-highlight font-medium">Trò chơi tương tác & Thí nghiệm ảo</span>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-5 font-sans text-mist"
+            style={{ fontSize: "17px", lineHeight: 1.55, maxWidth: "520px" }}
+          >
+            Hệ sinh thái <span className="font-medium text-deep-teal">Đòn bẩy AI</span> — Giáo viên chủ động dẫn dắt,
+            AI tối ưu hiệu suất soạn giảng. Kết hợp với mô phỏng trực quan và trò chơi thực tế tăng cường (AR) trên nền tảng{" "}
+            <span className="font-medium text-deep-teal">Gemini</span> và{" "}
+            <span className="font-medium text-deep-teal">NotebookLM</span>.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-6 flex flex-col sm:flex-row gap-3"
+          >
+            <Link href="/khoa-hoc" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
+              Khám phá 11 bài học
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-8 flex items-center gap-3 flex-wrap text-mist font-sans"
+            style={{ fontSize: "14px" }}
+          >
+            <span>Tích hợp sẵn:</span>
+            <span className="font-medium text-ink">Gemini</span>
+            <span>·</span>
+            <span className="font-medium text-ink">NotebookLM</span>
+            <span>·</span>
+            <span className="font-medium text-ink">Trò chơi AR</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-6 font-sans text-mist" style={{ fontSize: "14px" }}
+          >
+            <span className="font-medium text-ink">Thầy Kha Khung Hiệp</span> · Chuyên gia AI & Mô phỏng dạy học tương tác
+          </motion.div>
+        </div>
+
+        {/* ===== RIGHT: Interactive Lever ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 flex justify-center"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10"
         >
-          <span className="badge-mint">
-            <Sparkles className="w-3 h-3" />
-            Học liệu tương tác & Trợ lý AI
-          </span>
-        </motion.div>
-
-        {/* serif display headline 60px weight 400 */}
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="headline-serif text-ink text-glow-teal"
-          style={{ fontSize: "clamp(48px, 9vw, 80px)", lineHeight: 1.0 }}
-        >
-          Đòn Bẩy <span className="text-teal-gradient">AI</span>
-        </motion.h1>
-
-        {/* sub-headline serif */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="headline-serif text-ink mt-6"
-          style={{ fontSize: "clamp(26px, 4vw, 36px)", lineHeight: 1.15 }}
-        >
-          <span className="bg-mint-highlight font-medium">11 bài học</span> · <span className="bg-mint-highlight font-medium">Trò chơi tương tác & Thí nghiệm ảo</span>
-        </motion.p>
-
-        {/* subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 font-sans text-ink mx-auto"
-          style={{ fontSize: "18px", lineHeight: 1.5, maxWidth: "560px" }}
-        >
-          Hệ sinh thái <span className="font-medium text-deep-teal">Đòn bẩy AI</span> — Giáo viên chủ động dẫn dắt,
-          AI tối ưu hiệu suất soạn giảng. 11 bài học thực tế bám sát khung chương trình, kết hợp với mô phỏng trực quan và trò chơi thực tế tăng cường (AR) sinh động trên nền tảng <span className="font-medium text-deep-teal">Gemini</span> và <span className="font-medium text-deep-teal">NotebookLM</span>.
-        </motion.p>
-
-        {/* Dual CTA — teal primary */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 flex flex-col sm:flex-row gap-3 justify-center"
-        >
-          <Link href="/khoa-hoc" className="btn-teal animate-gentle-pulse inline-flex items-center justify-center gap-2">
-            Khám phá 11 bài học
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
-
-        {/* Integration details row */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 flex items-center justify-center gap-3 flex-wrap text-mist font-sans"
-          style={{ fontSize: "14px" }}
-        >
-          <span>Tích hợp sẵn:</span>
-          <span className="font-medium text-ink">Gemini</span>
-          <span>·</span>
-          <span className="font-medium text-ink">NotebookLM</span>
-          <span>·</span>
-          <span className="font-medium text-ink">Trò chơi tương tác AR</span>
-        </motion.div>
-
-        {/* author signature */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-8 font-sans text-mist" style={{ fontSize: "14px" }}
-        >
-          <span className="font-medium text-ink">Thầy Kha Khung Hiệp</span> · Chuyên gia AI & Mô phỏng dạy học tương tác
+          <LeverInteractive className="w-full max-w-[500px] mx-auto" />
         </motion.div>
       </div>
     </section>
