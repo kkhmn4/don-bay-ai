@@ -41,7 +41,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={`reveal-up ${visible ? "is-visible" : ""} ${className}`}
+      className={`reveal-up ${visible ? "is-visible" : "is-visible"} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

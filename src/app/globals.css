@@ -4,10 +4,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* === Lyssna Color System — Botanical research journal === */
+  /* === Premium Design System — Đòn Bẩy AI === */
+  /* Inspired by Stripe elegance + Vercel precision */
+  
   /* Primary action — the single chromatic pulse */
   --color-deep-teal: #006e75;
   --color-bright-teal: #0b978e;
+  --color-teal-hover: #005a61;
 
   /* Text — cool near-black with teal cast */
   --color-ink: #061d29;

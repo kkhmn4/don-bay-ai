@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant 1: Stripe Editorial — Đòn Bẩy AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #061d29;
+  background: #ffffff;
+  line-height: 1.5;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* === NAV === */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 32px; max-width: 1100px; margin: 0 auto;
+  border-bottom: 1px solid #e8ecf0;
+}
+.logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 500; color: #061d29; }
+.logo-mark { width: 36px; height: 36px; border-radius: 8px; background: #006e75; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { font-size: 14px; font-weight: 500; color: #64748b; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: #006e75; }
+.nav-cta { background: #006e75; color: white !important; padding: 8px 20px; border-radius: 6px; font-weight: 500; }
+
+/* === HERO === */
+.hero { padding: 100px 24px 80px; text-align: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 500; color: #006e75; background: #b9ffe8; margin-bottom: 28px; }
+.hero h1 { font-family: 'Source Serif 4', serif; font-weight: 400; font-size: clamp(48px, 6vw, 64px); line-height: 1.08; letter-spacing: -0.02em; color: #061d29; margin-bottom: 20px; }
+.hero h1 em { font-style: italic; }
+.hero h1 span { background: linear-gradient(135deg, #006e75, #0b978e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero p { font-size: 18px; font-weight: 300; line-height: 1.6; color: #64748b; max-width: 600px; margin: 0 auto 36px; }
+.hero-actions { display: flex; gap: 12px; justify-content: center; }
+.btn-primary { background: #006e75; color: white; padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+.btn-primary:hover { background: #005a61; }
+.btn-ghost { background: transparent; color: #64748b; padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 500; border: 1px solid #dde1e6; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
+.btn-ghost:hover { border-color: #006e75; color: #006e75; }
+.hero-stats { display: flex; justify-content: center; gap: 48px; margin-top: 60px; }
+.stat { text-align: center; }
+.stat-num { font-size: 32px; font-weight: 300; letter-spacing: -0.03em; color: #061d29; line-height: 1; }
+.stat-label { font-size: 13px; color: #94a3b8; margin-top: 6px; }
+
+/* === TRUST STRIP === */
+.trust { border-top: 1px solid #e8ecf0; border-bottom: 1px solid #e8ecf0; padding: 28px 24px; text-align: center; }
+.trust p { font-size: 12px; font-weight: 500; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+.trust-logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.trust-logos span { font-size: 18px; font-family: 'Source Serif 4', serif; color: #a0aab4; }
+
+/* === HOW IT WORKS === */
+.section { padding: 100px 24px; }
+.section-center { max-width: 750px; margin: 0 auto; text-align: center; }
+.section-tag { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; color: #006e75; background: #b9ffe8; margin-bottom: 16px; }
+.section h2 { font-family: 'Source Serif 4', serif; font-weight: 400; font-size: clamp(36px, 4.5vw, 44px); line-height: 1.12; letter-spacing: -0.02em; color: #061d29; margin-bottom: 16px; }
+.section h2 span { background: linear-gradient(135deg, #006e75, #0b978e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.section-sub { font-size: 17px; font-weight: 300; color: #64748b; max-width: 560px; margin: 0 auto 48px; line-height: 1.6; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+.card { background: #ffffff; border: 1px solid #e8ecf0; border-radius: 8px; padding: 32px; transition: box-shadow 0.3s; }
+.card:hover { box-shadow: rgba(50,50,93,0.08) 0px 12px 24px -8px; }
+.card-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
+.card h3 { font-size: 18px; font-weight: 500; color: #061d29; margin-bottom: 10px; line-height: 1.3; }
+.card p { font-size: 15px; font-weight: 300; color: #64748b; line-height: 1.6; }
+
+/* === FEATURES === */
+.features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+.feature { padding: 24px; }
+.feature-icon { width: 36px; height: 36px; border-radius: 8px; background: #b9ffe8; display: flex; align-items: center; justify-content: center; font-size: 16px; margin-bottom: 16px; }
+.feature h4 { font-size: 15px; font-weight: 500; color: #061d29; margin-bottom: 6px; }
+.feature p { font-size: 14px; font-weight: 300; color: #94a3b8; }
+
+/* === GAMES === */
+.section-dark { background: #061d29; padding: 100px 24px; color: white; }
+.section-dark h2 { color: white; }
+.section-dark .section-sub { color: rgba(255,255,255,0.6); }
+.section-dark .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.section-dark .card h3 { color: white; }
+.section-dark .card p { color: rgba(255,255,255,0.6); }
+.section-dark .card-icon { background: #0b978e; }
+
+/* === FOOTER === */
+footer { border-top: 1px solid #e8ecf0; padding: 48px 24px; text-align: center; }
+footer .brand { font-size: 18px; font-weight: 500; color: #061d29; margin-bottom: 8px; }
+footer p { font-size: 14px; font-weight: 300; color: #94a3b8; }
+
+@media (max-width: 768px) {
+  .grid-3, .features { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 24px; }
+  nav { flex-wrap: wrap; gap: 12px; }
+  .nav-links { gap: 16px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-mark">⚖</div>
+    <span>Đòn Bẩy AI</span>
+  </div>
+  <div class="nav-links">
+    <a href="#">Khóa học</a>
+    <a href="#">Trò chơi</a>
+    <a href="#">Tài nguyên</a>
+    <a href="#" class="nav-cta">Bắt đầu</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">⚡ Học liệu tương tác & Trợ lý AI</div>
+  <h1>Đòn Bẩy <span>AI</span><br><em>Nâng tầm giáo viên</em></h1>
+  <p>Hệ sinh thái học liệu — Giáo viên chủ động dẫn dắt, AI tối ưu hiệu suất soạn giảng. Tích hợp Gemini, NotebookLM, và trò chơi AR.</p>
+  <div class="hero-actions">
+    <a href="#" class="btn-primary">Khám phá 11 bài học →</a>
+    <a href="#" class="btn-ghost">Giới thiệu</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Bài học thực hành</div></div>
+    <div class="stat"><div class="stat-num">AR/3D</div><div class="stat-label">Trò chơi & Mô phỏng</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Module chính</div></div>
+    <div class="stat"><div class="stat-num">GEMS</div><div class="stat-label">Chuẩn sư phạm</div></div>
+  </div>
+</section>
+
+<section class="trust">
+  <p>Tích hợp công nghệ</p>
+  <div class="trust-logos">
+    <span>Gemini</span> <span>NotebookLM</span> <span>Trò chơi AR</span> <span>Thí nghiệm ảo</span> <span>GEMS v7.0</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-center">
+    <div class="section-tag">3 Module · 11 bài học</div>
+    <h2>Lộ trình <span>thực chiến</span></h2>
+    <p class="section-sub">Từ soạn giảng với AI, thiết kế thí nghiệm ảo, đến trò chơi tương tác AR — tất cả trong một hệ sinh thái đồng bộ.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon" style="background:#b9ffe8">🤖</div>
+      <h3>Soạn giảng với Gemini & NotebookLM</h3>
+      <p>4 bài học — Tạo trợ lý AI, tài liệu học tập, âm thanh song ngữ và mẫu in ấn chuẩn GEMS.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:#fffded">🔬</div>
+      <h3>Thí nghiệm ảo tương tác</h3>
+      <p>3 bài học — Mô phỏng nhiệt học, chuyển động phân tử và hiệu ứng vật lý trên trình duyệt.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:#ffc3e6">🎮</div>
+      <h3>Trò chơi tương tác lớp học</h3>
+      <p>4 bài học — Game khởi động, game giải lao, trò chơi củng cố và tổ chức dạy học xoay trạm.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f8fafc;">
+  <div class="grid-3">
+    <div class="feature">
+      <div class="feature-icon">🤖</div>
+      <h4>Gemini & NotebookLM</h4>
+      <p>Hệ sinh thái hỗ trợ soạn giảng</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📖</div>
+      <h4>11 bài học thực tế</h4>
+      <p>Học liệu chi tiết, chuẩn GEMS</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎮</div>
+      <h4>Trò chơi AR</h4>
+      <p>Thực tế tăng cường sinh động</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🌿</div>
+      <h4>Mô phỏng thí nghiệm</h4>
+      <p>Trực quan khoa học mượt mà</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="section-center">
+    <div class="section-tag" style="background:rgba(255,255,255,0.1);color:#b9ffe8;">Học qua chơi</div>
+    <h2>Trải nghiệm <span style="background:linear-gradient(135deg,#b9ffe8,#0b978e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Trò chơi AR/3D</span></h2>
+    <p class="section-sub">Tương tác thực tế tăng cường ngay trên webcam để trực quan hóa kiến thức Vật lý.</p>
+    <a href="#" class="btn-primary" style="background:#0b978e;">Khám phá game AR →</a>
+  </div>
+  <div class="grid-3" style="margin-top:48px;">
+    <div class="card">
+      <div class="card-icon">🌌</div>
+      <h3>Vũ Trụ Tri Thức AR</h3>
+      <p>Nhận diện cử chỉ AI — Tương tác 3D bằng camera hand tracking.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✋</div>
+      <h3>HandQuiz AR</h3>
+      <p>Trắc nghiệm AR 1-4 người chơi, camera cử chỉ bàn tay và thống kê.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Sóng Năng Lượng</h3>
+      <p>Thi đấu đối kháng ghép cặp công thức Vật lý 11 — 1-4 đội chơi.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">Đòn Bẩy AI</div>
+  <p>Thầy Kha Khung Hiệp · Giáo viên kiểm soát, AI tối ưu hiệu suất</p>
+  <p style="margin-top:8px;">© 2026 Đòn Bẩy AI</p>
+</footer>
+
+</body>
+</html>

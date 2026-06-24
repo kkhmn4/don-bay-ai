@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant 2: Vercel Precision — Đòn Bẩy AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #171717;
+  background: #ffffff;
+  line-height: 1.5;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* === NAV === */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px; max-width: 1200px; margin: 0 auto;
+  background: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.logo { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; letter-spacing: -0.5px; }
+.logo-mark { width: 28px; height: 28px; background: #000000; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; border-radius: 6px; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a { font-size: 14px; font-weight: 500; color: #666; text-decoration: none; transition: color 0.2s; letter-spacing: -0.3px; }
+.nav-links a:hover { color: #171717; }
+.nav-cta { background: #171717; color: white !important; padding: 7px 16px; border-radius: 6px; font-weight: 500; }
+.nav-cta:hover { background: #333 !important; color: white !important; }
+
+/* === HERO === */
+.hero { padding: 120px 24px 80px; text-align: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 500; color: #666; border: 1px solid rgba(0,0,0,0.08); margin-bottom: 32px; letter-spacing: -0.2px; }
+.hero h1 { font-weight: 700; font-size: clamp(48px, 7vw, 72px); line-height: 1.0; letter-spacing: -2.5px; color: #171717; margin-bottom: 24px; }
+.hero h1 span { color: #006e75; }
+.hero p { font-size: 18px; font-weight: 400; line-height: 1.6; color: #666; max-width: 580px; margin: 0 auto 40px; letter-spacing: -0.2px; }
+.hero-actions { display: flex; gap: 12px; justify-content: center; }
+.btn-primary { background: #171717; color: white; padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; letter-spacing: -0.2px; }
+.btn-primary:hover { background: #333; }
+.btn-ghost { background: transparent; color: #666; padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; border: 1px solid rgba(0,0,0,0.08); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; letter-spacing: -0.2px; }
+.btn-ghost:hover { border-color: #171717; color: #171717; }
+.hero-stats { display: flex; justify-content: center; gap: 48px; margin-top: 64px; }
+.stat { text-align: center; }
+.stat-num { font-size: 28px; font-weight: 700; letter-spacing: -2px; color: #171717; line-height: 1; }
+.stat-label { font-size: 13px; color: #808080; margin-top: 6px; letter-spacing: -0.1px; }
+
+/* === TRUST === */
+.trust { border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 24px; }
+.trust p { font-size: 12px; font-weight: 500; color: #808080; text-transform: uppercase; letter-spacing: 0.08em; text-align: center; margin-bottom: 14px; }
+.trust-logos { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+.trust-logos span { font-size: 16px; font-weight: 500; color: #bbb; letter-spacing: -0.3px; }
+
+/* === HOW IT WORKS === */
+.section { padding: 120px 24px; }
+.section-center { max-width: 750px; margin: 0 auto; text-align: center; }
+.section h2 { font-weight: 700; font-size: clamp(36px, 5vw, 48px); line-height: 1.0; letter-spacing: -2px; color: #171717; margin-bottom: 16px; }
+.section h2 span { color: #006e75; }
+.section-sub { font-size: 17px; font-weight: 400; color: #666; max-width: 540px; margin: 0 auto 48px; line-height: 1.6; letter-spacing: -0.2px; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
+.card { background: #ffffff; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 0 0 1px rgba(0,0,0,0.03); transition: box-shadow 0.2s; }
+.card:hover { box-shadow: rgba(0,0,0,0.06) 0px 2px 8px, rgba(0,0,0,0.02) 0px 12px 24px; }
+.card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 16px; }
+.card h3 { font-size: 17px; font-weight: 600; color: #171717; margin-bottom: 8px; letter-spacing: -0.4px; }
+.card p { font-size: 14px; font-weight: 400; color: #666; line-height: 1.6; letter-spacing: -0.1px; }
+
+/* === FEATURES === */
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+.feature { padding: 28px; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; display: flex; gap: 16px; }
+.feature-icon { width: 40px; height: 40px; border-radius: 10px; background: #f0fdf4; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.feature h4 { font-size: 15px; font-weight: 600; color: #171717; margin-bottom: 4px; letter-spacing: -0.3px; }
+.feature p { font-size: 14px; font-weight: 400; color: #666; }
+
+/* === CTA === */
+.cta-section { padding: 120px 24px; text-align: center; background: #f7f7f7; }
+.cta-section h2 { font-weight: 700; font-size: clamp(32px, 4vw, 44px); line-height: 1.0; letter-spacing: -2px; color: #171717; margin-bottom: 16px; }
+.cta-section p { font-size: 17px; color: #666; margin-bottom: 32px; letter-spacing: -0.2px; }
+
+/* === FOOTER === */
+footer { border-top: 1px solid rgba(0,0,0,0.06); padding: 40px 24px; text-align: center; }
+footer .brand { font-size: 16px; font-weight: 600; color: #171717; margin-bottom: 6px; letter-spacing: -0.4px; }
+footer p { font-size: 14px; font-weight: 400; color: #808080; }
+
+@media (max-width: 768px) {
+  .grid-3, .features-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  nav { padding: 12px 16px; }
+  .nav-links { gap: 12px; }
+  .section { padding: 64px 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-mark">⚖</div>
+    <span>Đòn Bẩy AI</span>
+  </div>
+  <div class="nav-links">
+    <a href="#">Khóa học</a>
+    <a href="#">Game</a>
+    <a href="#">Tài nguyên</a>
+    <a href="#" class="nav-cta">Bắt đầu</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">⚡ AI for Vietnamese Educators</div>
+  <h1>Học liệu<br><span>đầy đủ力量</span></h1>
+  <p>Hệ sinh thái — Soạn giảng AI, thí nghiệm ảo, trò chơi AR. Tất cả bám sát chương trình GDPT 2018.</p>
+  <div class="hero-actions">
+    <a href="#" class="btn-primary">Khám phá 11 bài →</a>
+    <a href="#" class="btn-ghost">Xem game AR</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Bài học</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Module</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Nguyên tắc</div></div>
+    <div class="stat"><div class="stat-num">GEMS</div><div class="stat-label">Chuẩn</div></div>
+  </div>
+</section>
+
+<section class="trust">
+  <p>Công nghệ tích hợp</p>
+  <div class="trust-logos">
+    <span>Gemini</span> <span>NotebookLM</span> <span>AR Game</span> <span>SVG</span> <span>LaTeX</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-center">
+    <h2>Lộ trình <span>thực chiến</span></h2>
+    <p class="section-sub">11 bài học thực hành từ AI đến Game, đồng bộ 1-1 giữa học sinh và giáo viên.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon" style="background:#f0fdf4;">🤖</div>
+      <h3>Soạn giảng với AI</h3>
+      <p>4 bài: Gemini Custom Gem, NotebookLM, Podcast song ngữ, Template Word 2 cột.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:#eff6ff;">🔬</div>
+      <h3>Thí nghiệm ảo</h3>
+      <p>3 bài: Truyền nhiệt SVG, Nhiệt kế spring, Động học phân tử Canvas 60fps.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:#fef2f2;">🎮</div>
+      <h3>Game AR</h3>
+      <p>4 bài: Warm-up quiz, Icebreaker, Đúng/Sai, Xoay trạm camera hand tracking.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="section-center">
+    <h2>Tích hợp <span>chuẩn GEMS</span></h2>
+  </div>
+  <div class="features-grid" style="margin-top:40px;">
+    <div class="feature">
+      <div class="feature-icon">🤖</div>
+      <div>
+        <h4>Gemini & NotebookLM</h4>
+        <p>Trợ lý AI soạn giảng và tài liệu học tập chính xác</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎮</div>
+      <div>
+        <h4>Game AR Hand Tracking</h4>
+        <p>Tương tác cử chỉ tay trên webcam — không cần kính VR</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📖</div>
+      <div>
+        <h4>PHT & Slide đồng bộ 1-1</h4>
+        <p>Phiếu học sinh khớp 100% với slide giáo viên</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📝</div>
+      <div>
+        <h4>Bài tập LaTeX 2025</h4>
+        <p>18 MCQ + 4 Đúng/Sai + 6 trả lời ngắn chuẩn bộ GD</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Sẵn sàng bắt đầu?</h2>
+  <p>11 bài học thực hành, game AR và trợ lý soạn giảng AI — ngay từ bây giờ.</p>
+  <a href="#" class="btn-primary" style="background:#006e75;">Bắt đầu học →</a>
+</section>
+
+<footer>
+  <div class="brand">Đòn Bẩy AI</div>
+  <p>Thầy Kha Khung Hiệp · © 2026</p>
+</footer>
+
+</body>
+</html>

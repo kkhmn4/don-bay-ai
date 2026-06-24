@@ -1,0 +1,7 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#fffded"/>
+  <rect x="60" y="80" width="680" height="440" rx="16" fill="white" opacity="0.7"/>
+  <text x="400" y="260" font-family="Inter, sans-serif" font-size="28" fill="#006e75" text-anchor="middle" font-weight="700">📦 Thí nghiệm ảo tương tác</text>
+  <text x="400" y="300" font-family="Inter, sans-serif" font-size="15" fill="#425d6d" text-anchor="middle">Đòn Bẩy AI — Thầy Kha Khung Hiệp</text>
+  <text x="400" y="380" font-family="Inter, sans-serif" font-size="12" fill="#425d6d" text-anchor="middle">Chuẩn sư phạm GEMS v7.0</text>
+</svg>

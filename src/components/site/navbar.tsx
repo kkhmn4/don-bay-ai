@@ -24,10 +24,11 @@ const NAV_LINKS = [
     { href: "/khoa-hoc#module-3", label: "Module 3 · Trò chơi" },
   ]},
   { href: "/game", label: "Cổng Trò chơi 🚀", hasDropdown: false, isFeatured: true },
-  { href: "/khoa-hoc", label: "Tài nguyên", hasDropdown: true, dropdown: [
-    { href: "/khoa-hoc", label: "Câu lệnh Gemini Gems" },
-    { href: "/khoa-hoc", label: "Phiếu học tập GEMS" },
-    { href: "/khoa-hoc", label: "Mã đồ họa TikZ" },
+  { href: "/", label: "Tài nguyên", hasDropdown: true, dropdown: [
+    { href: "/khoa-hoc/bai-1#prompt", label: "🎯 Prompt AI (Bài 1 mẫu)" },
+    { href: "/downloads/bai-1/", label: "📥 Tải học liệu (Bài 1 mẫu)" },
+    { href: "/khoa-hoc", label: "📚 Xem tất cả 11 bài" },
+    { href: "/about", label: "ℹ️ Về Đòn Bẩy AI" },
   ]},
 ];
 

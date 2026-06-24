@@ -1,0 +1,10 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#fffded"/>
+  <rect x="40" y="40" width="720" height="420" rx="16" fill="#b9ffe8"/>
+  <text x="400" y="220" font-family="Inter, sans-serif" font-size="24" fill="#006e75" text-anchor="middle" font-weight="600">Đòn Bẩy AI</text>
+  <text x="400" y="260" font-family="Inter, sans-serif" font-size="16" fill="#425d6d" text-anchor="middle">Học liệu tương tác chuẩn GEMS</text>
+  <text x="400" y="340" font-family="Inter, sans-serif" font-size="13" fill="#425d6d" text-anchor="middle">Thầy Kha Khung Hiệp</text>
+  <polygon points="400,100 420,150 380,150" fill="#006e75" opacity="0.3"/>
+  <line x1="360" y1="170" x2="440" y2="170" stroke="#006e75" stroke-width="2" opacity="0.3"/>
+  <circle cx="400" cy="190" r="8" fill="#006e75" opacity="0.3"/>
+</svg>

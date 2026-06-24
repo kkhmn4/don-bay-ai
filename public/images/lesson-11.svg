@@ -1,0 +1,8 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#fffded"/>
+  <text x="400" y="200" font-family="Inter, sans-serif" font-size="22" fill="#006e75" text-anchor="middle" font-weight="600">📘 Dạy học xoay trạm AR</text>
+  <text x="400" y="240" font-family="Inter, sans-serif" font-size="14" fill="#425d6d" text-anchor="middle">Đòn Bẩy AI — Học liệu tương tác chuẩn GEMS</text>
+  <circle cx="400" cy="320" r="40" fill="none" stroke="#006e75" stroke-width="2" opacity="0.3"/>
+  <polygon points="400,300 415,320 385,320" fill="#006e75" opacity="0.2"/>
+  <text x="400" y="380" font-family="Inter, sans-serif" font-size="12" fill="#425d6d" text-anchor="middle">Thầy Kha Khung Hiệp</text>
+</svg>

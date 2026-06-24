@@ -61,7 +61,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Trợ lý AI tự động soạn thảo kế hoạch bài dạy và phiếu học tập.",
     cta: "Xem câu lệnh mẫu tại Bài 1.",
-    image: "/images/lesson-01.png",
+    image: "/images/lesson-01.svg",
     wash: "mint",
   },
   {
@@ -76,7 +76,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Hệ thống tự động phân tích tài liệu để tạo bộ câu hỏi thảo luận bám sát chương trình học.",
     cta: "Xem hướng dẫn và câu lệnh tại Bài 2.",
-    image: "/images/lesson-02.png",
+    image: "/images/lesson-02.svg",
     wash: "cream",
   },
   {
@@ -91,7 +91,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Sử dụng công cụ chuyển tài liệu thành tệp âm thanh đối thoại và kết hợp phụ đề tiếng Việt.",
     cta: "Tải học liệu mẫu và xem hướng dẫn tại Bài 3.",
-    image: "/images/lesson-03.png",
+    image: "/images/lesson-03.svg",
     wash: "blossom",
   },
   {
@@ -106,7 +106,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Cung cấp mẫu cấu trúc tài liệu Word chia cột chuẩn hóa để giáo viên sử dụng ngay.",
     cta: "Tải mẫu tài liệu Word tại Bài 4.",
-    image: "/images/lesson-04.png",
+    image: "/images/lesson-04.svg",
     wash: "mint",
   },
   {
@@ -121,7 +121,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Mô phỏng tương tác giúp học sinh tự khám phá bài học thông qua thao tác điều chỉnh thanh trượt.",
     cta: "Trải nghiệm mô phỏng truyền nhiệt tại Bài 5.",
-    image: "/images/lesson-05.png",
+    image: "/images/lesson-05.svg",
     wash: "cream",
   },
   {
@@ -136,7 +136,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Nhiệt kế ảo tương tác giúp giải thích khái niệm thang đo nhiệt độ một cách dễ hiểu.",
     cta: "Trải nghiệm mô phỏng nhiệt kế tại Bài 6.",
-    image: "/images/lesson-06.png",
+    image: "/images/lesson-06.svg",
     wash: "blossom",
   },
   {
@@ -151,7 +151,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Mô phỏng tương tác giúp học sinh tự khám phá thuyết động học phân tử khí thông qua quan sát.",
     cta: "Xem hướng dẫn và mã nguồn tại Bài 7.",
-    image: "/images/lesson-07.png",
+    image: "/images/lesson-07.svg",
     wash: "mint",
   },
   {
@@ -166,7 +166,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Trò chơi trắc nghiệm củng cố bài cũ giúp học sinh hào hứng bước vào bài học mới.",
     cta: "Chơi thử trò chơi khởi động tại Bài 8.",
-    image: "/images/lesson-08.png",
+    image: "/images/lesson-08.svg",
     wash: "cream",
     gamePath: "/games/warmup-quiz/index.html",
   },
@@ -182,7 +182,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Hoạt động tương tác ngắn giúp học sinh lấy lại sự tập trung cao độ cho phần tiếp theo của bài học.",
     cta: "Trải nghiệm trò chơi giải lao tại Bài 9.",
-    image: "/images/lesson-09.png",
+    image: "/images/lesson-09.svg",
     wash: "blossom",
     gamePath: "/games/bong-nhiet/index.html",
   },
@@ -198,7 +198,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Bài trắc nghiệm củng cố kèm lời giải thích khoa học hiển thị ngay lập tức khi học sinh trả lời.",
     cta: "Trải nghiệm trò chơi củng cố tại Bài 10.",
-    image: "/images/lesson-10.png",
+    image: "/images/lesson-10.svg",
     wash: "mint",
   },
   {
@@ -213,7 +213,7 @@ const LESSONS: Lesson[] = [
     ],
     solution: "Mô hình 5 trạm hoạt động: Thực hành · Mô phỏng · Củng cố · Sơ đồ tư duy · Xem tư liệu.",
     cta: "Tải kế hoạch bài dạy xoay trạm tại Bài 11.",
-    image: "/images/lesson-11.png",
+    image: "/images/lesson-11.svg",
     wash: "cream",
     gamePath: "/games/ar-knowledge-universe/index.html",
   },
